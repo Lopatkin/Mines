@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\minesicon.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable-hdpi\\minesicon.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\settingsicon.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable-hdpi\\settingsicon.png"
+    }
+]

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:orientation="vertical"
+    android:theme="@style/Theme.AppCompat"
+
+    tools:context="com.work.andre.mines.ActMap">
+
+    <fragment
+        android:id="@+id/frMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentUserNickName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvCurrentUserNickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorBlack"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserGoldText"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:paddingTop="20dp"
+        android:text="@string/gold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserGoldInfo"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:paddingTop="20dp"
+        android:text="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tvUserGoldText"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/tvUserStoneText"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="@string/stone"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserWoodText" />
+
+    <TextView
+        android:id="@+id/tvUserStoneInfo"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="0"
+        app:layout_constraintLeft_toRightOf="@+id/tvUserStoneText"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserWoodInfo" />
+
+    <TextView
+        android:id="@+id/tvUserClayText"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="@string/clay"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserStoneText" />
+
+    <TextView
+        android:id="@+id/tvUserWoodInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="5dp"
+        android:text="0"
+        app:layout_constraintLeft_toRightOf="@+id/tvUserWoodText"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserGoldInfo" />
+
+    <TextView
+        android:id="@+id/tvUserWoodText"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="@string/wood"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserGoldText" />
+
+    <TextView
+        android:id="@+id/tvUserClayInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="5dp"
+        android:text="0"
+        app:layout_constraintLeft_toRightOf="@+id/tvUserClayText"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserStoneInfo" />
+
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlack"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_weight="10">
+
+        <Button
+            android:id="@+id/btnHQ"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="25"
+            android:background="@drawable/shtab" />
+
+        <Button
+            android:id="@+id/btnBuildings"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="25"
+            android:background="@drawable/office" />
+
+        <Button
+            android:id="@+id/btnMines"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="25"
+            android:background="@drawable/mineicon" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="25"
+            android:background="@drawable/settingsicon" />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

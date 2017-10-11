@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Андрей\.gradle\caches\modules-2\files-2.1\com.google.gms\google-services\3.1.1\aca432c928821bad3626ddd1b9164cd85a73641\google-services-3.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0aca432c928821bad3626ddd1b9164cd85a73641">
+        <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-services-3.1.1_d09f1b238fdbcd1772110254b9959aafc41dc453\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Андрей\.android\build-cache\8f6be79169f255850a05feb3192f6ce4fa471d0c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8b88305dce7a7ef4f4dc9fd01307e539c2cae7be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\GoogleDisk\Mines\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a3c00df5730a3f999f5530761ca11ab9d8509e5b">
+        <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_059d6d1e74788f536d0e2ccd409deeaa4a579ca4\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\SDK\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="D:\GoogleDisk\GeekBrains\Android\Android2\lesson1\A2_Lesson01_01\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0_e2d15c1468a232c3f7a41a6dbcb2cb94c085c0ec.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\GoogleDisk\Mines\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b311b7c704287ea9ba1ebeb94dc3f91cae90798f\classes.dex" />
+    </item>
+
+</items>

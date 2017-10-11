@@ -1,0 +1,570 @@
+[
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_media_pause_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_media_pause_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_rewind30.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_rewind30.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_forward30.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_forward30.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_disabled.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_closed_caption.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_closed_caption.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_forest.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_forest.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_sand.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_sand.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\btn.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\backgroundpic.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\backgroundpic.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_forward.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_forward.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_mini_controller_progress_drawable.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_mini_controller_progress_drawable.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_stop.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_stop.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_list_picture.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_list_picture.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_stop_large.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_stop_large.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\hq_zone_green.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\hq_zone_green.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_normal.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_stop.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_stop.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_media_play_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_media_play_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light_normal.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_pause.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_pause.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_dialog_material_background_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_dialog_material_background_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_dialog_material_background_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_group_expand.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_group_expand.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_focused.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_forward10.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_forward10.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_forest_mini_marker.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_forest_mini_marker.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_pause.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_pause.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\building_hq_mini_marker.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\building_hq_mini_marker.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\minesnote.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\minesnote.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_sand_mini_marker.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_sand_mini_marker.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_play.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_play.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mineicon.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mineicon.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_button_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_button_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_vol_type_audiotrack_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_vol_type_audiotrack_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_rewind30.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_rewind30.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_skip_ad_label_border.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_skip_ad_label_border.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_small_icon.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_small_icon.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_sand_picture.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_sand_picture.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_closed_caption.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_closed_caption.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_stop_live_stream.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_stop_live_stream.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\hq_zone_red.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\hq_zone_red.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\hq2d.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\hq2d.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_button_connected_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_button_connected_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_dialog_close_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_dialog_close_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\marker_alpha.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\marker_alpha.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\builnings_list_picture.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\builnings_list_picture.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_play.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_play.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_forward30.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_forward30.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_button_connected_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_button_connected_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_play_large.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_play_large.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_skip_next.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_skip_next.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_media_play_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_media_play_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_pause.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_pause.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_skip_next.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_skip_next.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_disconnect.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_disconnect.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_expanded_controller_bg_gradient_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_expanded_controller_bg_gradient_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_skip_prev.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_skip_prev.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light_focused.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\fabrica.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\fabrica.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\hq3d.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\hq3d.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_expanded_controller_seekbar_thumb.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_expanded_controller_seekbar_thumb.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\hq_zone.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\hq_zone.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\buttonpic.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\buttonpic.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_rewind.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_rewind.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_button_connecting_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_button_connecting_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_forest_picture.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_forest_picture.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_button_connecting_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_button_connecting_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_stone.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_stone.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_rewind30.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_rewind30.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_focused.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_dialog_close_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_dialog_close_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_forward30.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_forward30.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_play.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_play.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_pause_large.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_pause_large.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_normal.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shtab.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\shtab.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_focused.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_mute.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_mute.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\hq2d_reconstruction.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\hq2d_reconstruction.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_skip_next.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_skip_next.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_expanded_controller_seekbar_track.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_expanded_controller_seekbar_track.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mainmine.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mainmine.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_expanded_controller_actionbar_bg_gradient_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_expanded_controller_actionbar_bg_gradient_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_skip_prev.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_skip_prev.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\headquoter.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\headquoter.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\office.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\office.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_group_collapse.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_group_collapse.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_disabled.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_stone_mini_marker.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_stone_mini_marker.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mine_stone_picture.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mine_stone_picture.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_button_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_button_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_connecting.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\d8b1545e4e58d5c0505b21ee7bab9fd97902765f\\output\\res\\drawable\\cast_ic_notification_connecting.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_rewind10.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_notification_rewind10.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_vol_type_audiotrack_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_vol_type_audiotrack_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_skip_previous.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_expanded_controller_skip_previous.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_mute.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_ic_mini_controller_mute.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_media_pause_dark.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_media_pause_dark.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_normal.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_mini_controller_gradient_light.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable\\cast_mini_controller_gradient_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\icon.png"
+    }
+]

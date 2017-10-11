@@ -1,0 +1,632 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:2:1-53:12
+	package
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:3:5-35
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:10:5-12:41
+MERGED from [com.android.support:multidex:1.0.1] C:\Users\Андрей\.android\build-cache\8f6be79169f255850a05feb3192f6ce4fa471d0c\output\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services:11.4.2] C:\Users\Андрей\.android\build-cache\0cd3f6545b925095658dd06a28728d2241f5de02\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-ads:11.4.2] C:\Users\Андрей\.android\build-cache\7edb595406ef0a230ed00bf4dc7d99d4ae659ed2\output\AndroidManifest.xml:17:5-94
+MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] C:\Users\Андрей\.android\build-cache\67958a3ea95d66c67d67b9ad8f1bdd5013b8aa22\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:22:5-43
+MERGED from [com.google.android.gms:play-services-ads-lite-license:11.4.2] C:\Users\Андрей\.android\build-cache\631d081e37bc19d3acc1794ef8a0b758557a44ed\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-analytics-license:11.4.2] C:\Users\Андрей\.android\build-cache\9a72688a63247cd6e5c56ecef72ee2cf85727644\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-appinvite-license:11.4.2] C:\Users\Андрей\.android\build-cache\ed288bfa301ef1f458be90372d324d8a640364ca\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.4.2] C:\Users\Андрей\.android\build-cache\a569c12767e4378cee17e7237f507e96f046f11b\output\AndroidManifest.xml:3:3-41
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.4.2] C:\Users\Андрей\.android\build-cache\bc4d3e2f2d9bf25850d20be6f4ccf26b3429757e\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-license:11.4.2] C:\Users\Андрей\.android\build-cache\38972a2c3c672a488c9ad70b464a0b4f65503788\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base:11.4.2] C:\Users\Андрей\.android\build-cache\6d6c3829ed1ef3443792a967bc5ceff6b1117e47\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.4.2] C:\Users\Андрей\.android\build-cache\536978fba7f67f7b147191a866ffce54e59bf299\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-cast-framework-license:11.4.2] C:\Users\Андрей\.android\build-cache\f00dec0b70611072e662f703693390fb483764ad\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-cast:11.4.2] C:\Users\Андрей\.android\build-cache\d8b1545e4e58d5c0505b21ee7bab9fd97902765f\output\AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:mediarouter-v7:25.2.0] C:\Users\Андрей\.android\build-cache\b5318505f60efedb04344e31a38f651058a6ae7d\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:palette-v7:25.2.0] C:\Users\Андрей\.android\build-cache\b687c08da8e5d001c1ca0e3d7989ba3606c16326\output\AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-cast-license:11.4.2] C:\Users\Андрей\.android\build-cache\76f4ed5eba4f77ea3fa03a3a7bdf3068f57cf2e9\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-config:11.4.2] C:\Users\Андрей\.android\build-cache\98e54ee86a5188d05196a4d1c6f3adda3e2fb810\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-config-license:11.4.2] C:\Users\Андрей\.android\build-cache\151bcdd592ecf0e3052bff7eada96f2a5ca16baf\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-awareness:11.4.2] C:\Users\Андрей\.android\build-cache\e677785c8e80281b14ffe7aac2d22ed0b19b3a69\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-awareness-license:11.4.2] C:\Users\Андрей\.android\build-cache\0539e76b469784273e6bdd91ab4b104ee81dd397\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-crash:11.4.2] C:\Users\Андрей\.android\build-cache\982aba73d3cb4b8ac7924fc24f2586e5ea2b986d\output\AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-fido:11.4.2] C:\Users\Андрей\.android\build-cache\95d0c3cca5b48a30ddf0904c7dc45ffdc13d246a\output\AndroidManifest.xml:4:3-41
+MERGED from [com.google.android.gms:play-services-fido-license:11.4.2] C:\Users\Андрей\.android\build-cache\4ce85d48dd1f008d74cfe813ac5e257eec87da15\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-dynamic-links:11.4.2] C:\Users\Андрей\.android\build-cache\e312a1271299ecd20a74e0362f812c1edaa38267\output\AndroidManifest.xml:3:3-41
+MERGED from [com.google.firebase:firebase-dynamic-links-license:11.4.2] C:\Users\Андрей\.android\build-cache\049f8ed3a134176a2a4a7adb7f0ebce160e40837\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-messaging-license:11.4.2] C:\Users\Андрей\.android\build-cache\da02648ce8d7c04f6d3382a415be9ff2bf8fd15b\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-storage:11.4.2] C:\Users\Андрей\.android\build-cache\8ce8ed27a3004a5478d64aaa480d62aca45e65a4\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-storage-license:11.4.2] C:\Users\Андрей\.android\build-cache\149ad5bf8326c4c4927a3cefe4a3bbb249cbb755\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-storage-common:11.4.2] C:\Users\Андрей\.android\build-cache\a30b8b899654d1750aafa97f785b4b71dd432728\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-storage-common-license:11.4.2] C:\Users\Андрей\.android\build-cache\50d8fe189b28f8340e3e1c456310b29b67a63e57\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-fitness:11.4.2] C:\Users\Андрей\.android\build-cache\091a75ff34a1ed1f5d3552c29265674412543f8b\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-fitness-license:11.4.2] C:\Users\Андрей\.android\build-cache\054b6f3b064facf9bfcd647f4da117e491eb7f97\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-games:11.4.2] C:\Users\Андрей\.android\build-cache\b47670396aa03acd0f76ac7b22caae144f23c23e\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-drive:11.4.2] C:\Users\Андрей\.android\build-cache\40cf4a4ef638a832585e2a59573af528c61eefd4\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-drive-license:11.4.2] C:\Users\Андрей\.android\build-cache\295c50b679a3b20c2b8c3eb9765fe7ce3a7c6c94\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-games-license:11.4.2] C:\Users\Андрей\.android\build-cache\f6c743702f52efeb1f511f92cf161829f028eb96\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-gass:11.4.2] C:\Users\Андрей\.android\build-cache\c75de82ee06d576dfb466cf8ea5b87d5b3fbd848\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-gass-license:11.4.2] C:\Users\Андрей\.android\build-cache\f9d7f80050b37a945b81f96a634398428f4c32f1\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] C:\Users\Андрей\.android\build-cache\e252c1907c7b605c14866a061c89f0c25c5423be\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] C:\Users\Андрей\.android\build-cache\d43d02362d8f53531ecf6ac613261fccf0188cd4\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-appindexing:11.4.2] C:\Users\Андрей\.android\build-cache\51c7d5bd3901efd0e6b5bac3dca586c5598de7c4\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-appindexing-license:11.4.2] C:\Users\Андрей\.android\build-cache\796e43361c9e8e25cf51f88437958020a52654d8\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] C:\Users\Андрей\.android\build-cache\722bc5270724446bcc8e8a9002cbeadea3832522\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] C:\Users\Андрей\.android\build-cache\f5c7d0fe9803c8052d450a136223798a79871b65\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-instantapps:11.4.2] C:\Users\Андрей\.android\build-cache\c49d7cd46454508b91b4ffc97fd36ebcefa39e5a\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-instantapps-license:11.4.2] C:\Users\Андрей\.android\build-cache\872c8d3e933cd97d2c3b1f6c296fa595a3b7e566\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-location:11.4.2] C:\Users\Андрей\.android\build-cache\f16c63dc08886588b7b3f54b2d40696737f6ffe3\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-location-license:11.4.2] C:\Users\Андрей\.android\build-cache\0132f0e3a89a0cfcd3f0d84f623052a6453acc7f\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-nearby:11.4.2] C:\Users\Андрей\.android\build-cache\333338d9499c6353d1c3b6faf1f63d1854a8b587\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-nearby-license:11.4.2] C:\Users\Андрей\.android\build-cache\5ba77e4e67c2e3630f89005b6b5829097825b139\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-panorama:11.4.2] C:\Users\Андрей\.android\build-cache\b507a71308094ac611e206f215a639ceb4752a49\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-panorama-license:11.4.2] C:\Users\Андрей\.android\build-cache\f5b475cac944f0a75f4240c88cef715157305a74\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-places:11.4.2] C:\Users\Андрей\.android\build-cache\b6be08f78351399d2da5eca3a96f6a127f64f57d\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-places-license:11.4.2] C:\Users\Андрей\.android\build-cache\73897eeed4b816be33e1d82daf20e01f34315a45\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-plus:11.4.2] C:\Users\Андрей\.android\build-cache\6de6cd33593fb4be7c3c77b7be5bdcfd15e0b868\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-plus-license:11.4.2] C:\Users\Андрей\.android\build-cache\4b07094931688cef388698ad98e8408bcc35522f\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-safetynet:11.4.2] C:\Users\Андрей\.android\build-cache\98d49adf2feefd4fd7fbdbfdd127aeff047765f4\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-safetynet-license:11.4.2] C:\Users\Андрей\.android\build-cache\03ad492f3bb04fa0a144f579d6de59d958cb1246\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager:11.4.2] C:\Users\Андрей\.android\build-cache\52e2f49342b4091f439219fc527115afe092735a\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-api-license:11.4.2] C:\Users\Андрей\.android\build-cache\decb036ac80ca7e80393e7aef01517b9d0cd429f\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-license:11.4.2] C:\Users\Андрей\.android\build-cache\bee2ba5b40b7a1cfff95264802994b8ed8e9f66d\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.4.2] C:\Users\Андрей\.android\build-cache\e93dfca5e4555f2c0f1f575f3d3989084611ce4d\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\94fd772c2f03b97c34ff143363a4a56cb3189490\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.4.2] C:\Users\Андрей\.android\build-cache\66195ef7d6001e764e54e5b09b3f067483319d3b\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.4.2] C:\Users\Андрей\.android\build-cache\bbe70f26ae076afb8d3b94a2e14c114879af626b\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-vision:11.4.2] C:\Users\Андрей\.android\build-cache\c486e54fedc60d2f9bff0876fc4470e6f1630fe2\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-vision-common:11.4.2] C:\Users\Андрей\.android\build-cache\a8618946dba32081b8d2c8fe898f509fda536ea4\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-vision-common-license:11.4.2] C:\Users\Андрей\.android\build-cache\cfbe5868a6443a6d5909dd53516812aca6148b82\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-vision-license:11.4.2] C:\Users\Андрей\.android\build-cache\b9da55b6387ba80faafb8a0e8e947ca27f110bf8\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-wallet:11.4.2] C:\Users\Андрей\.android\build-cache\5af29b77048df35598b74ac4a7ddc14c7ece2725\output\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-identity:11.4.2] C:\Users\Андрей\.android\build-cache\7dbcc19076deefc4054d3033263c281615e9d002\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-identity-license:11.4.2] C:\Users\Андрей\.android\build-cache\0f4e46c6b67c25474e9401682448bce0032619a3\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] C:\Users\Андрей\.android\build-cache\53315c2e7941e56010ac87495b7c71d6ac35ce07\output\AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-maps-license:11.4.2] C:\Users\Андрей\.android\build-cache\b1f3d82f0bff22c76e277c25404f3fbbb69e19be\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-wallet-license:11.4.2] C:\Users\Андрей\.android\build-cache\ab6d96e628abb28445d425c8940e63bb889c06fe\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-wearable:11.4.2] C:\Users\Андрей\.android\build-cache\9505e1175a46c35cb6a100fee3d4f7e9e281b3bb\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-wearable-license:11.4.2] C:\Users\Андрей\.android\build-cache\a424a9ed68bd5e038bbcae1a698c078600eaa28c\output\AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Андрей\.android\build-cache\65fc0de1dc52521d998b07be43fed903946708f3\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\999747d0945234ea05b8c85dfd14e91830a8d5c0\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\d2d986806c274f7d21050955d451184f8f402272\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Андрей\.android\build-cache\2f6de60c651eab781c1034caf37c24c71aa56af5\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.maps.android:android-maps-utils:0.4.4] C:\Users\Андрей\.android\build-cache\20414323e738c54b6a5d154e4d8703cd291c6dbb\output\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-auth:11.4.2] C:\Users\Андрей\.android\build-cache\fae7a17442b6a52f6c68cd66849c1d6e9d461c1e\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] C:\Users\Андрей\.android\build-cache\285f486c754a6c602b6d478c333f433edf68e41f\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-auth-license:11.4.2] C:\Users\Андрей\.android\build-cache\a6746ba7b18d64cfb08a9ac7ce23bf884e304866\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-database:11.4.2] C:\Users\Андрей\.android\build-cache\b2ed4aadb9a9b728f1bd5794118d81df24f38340\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-database-connection:11.4.2] C:\Users\Андрей\.android\build-cache\d8df967e688ab008ab1e579098974e42491f62cf\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-database-connection-license:11.4.2] C:\Users\Андрей\.android\build-cache\402df4445cf06c54defd760e9e4a04fade206c59\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-database-license:11.4.2] C:\Users\Андрей\.android\build-cache\63c1a55c20a948c6866101623668b7350f3449a4\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-firestore:11.4.2] C:\Users\Андрей\.android\build-cache\ebe871802c03b75db844929ffc17c6db9c548572\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-core:11.4.2] C:\Users\Андрей\.android\build-cache\b3e4cba337dcd8f76e2cd5c0df01dc78d56dbfca\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid-license:11.4.2] C:\Users\Андрей\.android\build-cache\2d1849099c110e1fdc283e2e87138561b9b50832\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common:11.4.2] C:\Users\Андрей\.android\build-cache\6640f7153f3e2e3274558eae3db98c2229381df1\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-common-license:11.4.2] C:\Users\Андрей\.android\build-cache\62b43d7f71a2d06ab0b33ecc70ff776c8410b651\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] C:\Users\Андрей\.android\build-cache\362f070b0f8657fd0ad8c93604a8ca7fdc36fb28\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] C:\Users\Андрей\.android\build-cache\4382d0028c82d1807d21c56357690d57b6206f60\output\AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Андрей\.android\build-cache\bb1aeeeac681502d248926681c914582729fc408\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Андрей\.android\build-cache\89f285eb1ce4b695418a547ccc36d19544b06057\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Андрей\.android\build-cache\ed955fbd56e1b406554df1f1e20da2533c045363\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Андрей\.android\build-cache\6562d7e1b8b4afd48f91d3fdf2b79b80f1bc19a8\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Андрей\.android\build-cache\afbdaed52d583f0518660b19f6444d9746eb1235\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Андрей\.android\build-cache\6997e4f54907dfd6434d8f73de66e1ba550fe3f7\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] C:\Users\Андрей\.android\build-cache\aee5395fa989420c6997ffc82d1dd14459118d8c\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] C:\Users\Андрей\.android\build-cache\b92b3b4faee9d56002b90a61e547c9a5d8145530\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.4.2] C:\Users\Андрей\.android\build-cache\c1166dd2c1b2228bb222045772f06ecfa5c070a5\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics-license:11.4.2] C:\Users\Андрей\.android\build-cache\c24c49deacec13c31aedfe8e195bb67082612e1c\output\AndroidManifest.xml:4:5-43
+	tools:overrideLibrary
+		ADDED from [com.google.android.gms:play-services-ads:11.4.2] C:\Users\Андрей\.android\build-cache\7edb595406ef0a230ed00bf4dc7d99d4ae659ed2\output\AndroidManifest.xml:17:42-92
+	android:targetSdkVersion
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:12:9-38
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:11:9-34
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:14:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:19:5-66
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:18:5-66
+MERGED from [com.google.firebase:firebase-crash:11.4.2] C:\Users\Андрей\.android\build-cache\982aba73d3cb4b8ac7924fc24f2586e5ea2b986d\output\AndroidManifest.xml:18:5-66
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] C:\Users\Андрей\.android\build-cache\e252c1907c7b605c14866a061c89f0c25c5423be\output\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] C:\Users\Андрей\.android\build-cache\722bc5270724446bcc8e8a9002cbeadea3832522\output\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\94fd772c2f03b97c34ff143363a4a56cb3189490\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] C:\Users\Андрей\.android\build-cache\53315c2e7941e56010ac87495b7c71d6ac35ce07\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:14:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:15:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:20:5-78
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-nearby:11.4.2] C:\Users\Андрей\.android\build-cache\333338d9499c6353d1c3b6faf1f63d1854a8b587\output\AndroidManifest.xml:4:5-78
+MERGED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\94fd772c2f03b97c34ff143363a4a56cb3189490\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] C:\Users\Андрей\.android\build-cache\53315c2e7941e56010ac87495b7c71d6ac35ce07\output\AndroidManifest.xml:19:5-78
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:15:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:16:22-78
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:17:5-98
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:17:22-95
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:18:5-81
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:18:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:19:5-79
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:19:22-76
+application
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:21:5-51:19
+MERGED from [com.google.android.gms:play-services:11.4.2] C:\Users\Андрей\.android\build-cache\0cd3f6545b925095658dd06a28728d2241f5de02\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] C:\Users\Андрей\.android\build-cache\67958a3ea95d66c67d67b9ad8f1bdd5013b8aa22\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:23:5-26:19
+MERGED from [com.google.android.gms:play-services-ads-lite-license:11.4.2] C:\Users\Андрей\.android\build-cache\631d081e37bc19d3acc1794ef8a0b758557a44ed\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:26:5-31:19
+MERGED from [com.google.android.gms:play-services-analytics-license:11.4.2] C:\Users\Андрей\.android\build-cache\9a72688a63247cd6e5c56ecef72ee2cf85727644\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:19:5-26:19
+MERGED from [com.google.android.gms:play-services-appinvite-license:11.4.2] C:\Users\Андрей\.android\build-cache\ed288bfa301ef1f458be90372d324d8a640364ca\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.4.2] C:\Users\Андрей\.android\build-cache\bc4d3e2f2d9bf25850d20be6f4ccf26b3429757e\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-license:11.4.2] C:\Users\Андрей\.android\build-cache\38972a2c3c672a488c9ad70b464a0b4f65503788\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.4.2] C:\Users\Андрей\.android\build-cache\536978fba7f67f7b147191a866ffce54e59bf299\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:4:5-8:19
+MERGED from [com.google.android.gms:play-services-cast-framework-license:11.4.2] C:\Users\Андрей\.android\build-cache\f00dec0b70611072e662f703693390fb483764ad\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-cast:11.4.2] C:\Users\Андрей\.android\build-cache\d8b1545e4e58d5c0505b21ee7bab9fd97902765f\output\AndroidManifest.xml:18:5-19
+MERGED from [com.android.support:mediarouter-v7:25.2.0] C:\Users\Андрей\.android\build-cache\b5318505f60efedb04344e31a38f651058a6ae7d\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:palette-v7:25.2.0] C:\Users\Андрей\.android\build-cache\b687c08da8e5d001c1ca0e3d7989ba3606c16326\output\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-cast-license:11.4.2] C:\Users\Андрей\.android\build-cache\76f4ed5eba4f77ea3fa03a3a7bdf3068f57cf2e9\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-config:11.4.2] C:\Users\Андрей\.android\build-cache\98e54ee86a5188d05196a4d1c6f3adda3e2fb810\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.firebase:firebase-config-license:11.4.2] C:\Users\Андрей\.android\build-cache\151bcdd592ecf0e3052bff7eada96f2a5ca16baf\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-awareness:11.4.2] C:\Users\Андрей\.android\build-cache\e677785c8e80281b14ffe7aac2d22ed0b19b3a69\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-awareness-license:11.4.2] C:\Users\Андрей\.android\build-cache\0539e76b469784273e6bdd91ab4b104ee81dd397\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-crash:11.4.2] C:\Users\Андрей\.android\build-cache\982aba73d3cb4b8ac7924fc24f2586e5ea2b986d\output\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-fido:11.4.2] C:\Users\Андрей\.android\build-cache\95d0c3cca5b48a30ddf0904c7dc45ffdc13d246a\output\AndroidManifest.xml:5:3-6:17
+MERGED from [com.google.android.gms:play-services-fido-license:11.4.2] C:\Users\Андрей\.android\build-cache\4ce85d48dd1f008d74cfe813ac5e257eec87da15\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-dynamic-links:11.4.2] C:\Users\Андрей\.android\build-cache\e312a1271299ecd20a74e0362f812c1edaa38267\output\AndroidManifest.xml:5:3-17
+MERGED from [com.google.firebase:firebase-dynamic-links-license:11.4.2] C:\Users\Андрей\.android\build-cache\049f8ed3a134176a2a4a7adb7f0ebce160e40837\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:19:5-29:19
+MERGED from [com.google.firebase:firebase-messaging-license:11.4.2] C:\Users\Андрей\.android\build-cache\da02648ce8d7c04f6d3382a415be9ff2bf8fd15b\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-storage-license:11.4.2] C:\Users\Андрей\.android\build-cache\149ad5bf8326c4c4927a3cefe4a3bbb249cbb755\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-storage-common-license:11.4.2] C:\Users\Андрей\.android\build-cache\50d8fe189b28f8340e3e1c456310b29b67a63e57\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-fitness:11.4.2] C:\Users\Андрей\.android\build-cache\091a75ff34a1ed1f5d3552c29265674412543f8b\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-fitness-license:11.4.2] C:\Users\Андрей\.android\build-cache\054b6f3b064facf9bfcd647f4da117e491eb7f97\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-games:11.4.2] C:\Users\Андрей\.android\build-cache\b47670396aa03acd0f76ac7b22caae144f23c23e\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-drive:11.4.2] C:\Users\Андрей\.android\build-cache\40cf4a4ef638a832585e2a59573af528c61eefd4\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-drive-license:11.4.2] C:\Users\Андрей\.android\build-cache\295c50b679a3b20c2b8c3eb9765fe7ce3a7c6c94\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-games-license:11.4.2] C:\Users\Андрей\.android\build-cache\f6c743702f52efeb1f511f92cf161829f028eb96\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-gass:11.4.2] C:\Users\Андрей\.android\build-cache\c75de82ee06d576dfb466cf8ea5b87d5b3fbd848\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-gass-license:11.4.2] C:\Users\Андрей\.android\build-cache\f9d7f80050b37a945b81f96a634398428f4c32f1\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] C:\Users\Андрей\.android\build-cache\e252c1907c7b605c14866a061c89f0c25c5423be\output\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] C:\Users\Андрей\.android\build-cache\d43d02362d8f53531ecf6ac613261fccf0188cd4\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-appindexing:11.4.2] C:\Users\Андрей\.android\build-cache\51c7d5bd3901efd0e6b5bac3dca586c5598de7c4\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.firebase:firebase-appindexing-license:11.4.2] C:\Users\Андрей\.android\build-cache\796e43361c9e8e25cf51f88437958020a52654d8\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] C:\Users\Андрей\.android\build-cache\722bc5270724446bcc8e8a9002cbeadea3832522\output\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] C:\Users\Андрей\.android\build-cache\f5c7d0fe9803c8052d450a136223798a79871b65\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-instantapps-license:11.4.2] C:\Users\Андрей\.android\build-cache\872c8d3e933cd97d2c3b1f6c296fa595a3b7e566\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-location:11.4.2] C:\Users\Андрей\.android\build-cache\f16c63dc08886588b7b3f54b2d40696737f6ffe3\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-location-license:11.4.2] C:\Users\Андрей\.android\build-cache\0132f0e3a89a0cfcd3f0d84f623052a6453acc7f\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-nearby:11.4.2] C:\Users\Андрей\.android\build-cache\333338d9499c6353d1c3b6faf1f63d1854a8b587\output\AndroidManifest.xml:5:5-19
+MERGED from [com.google.android.gms:play-services-nearby-license:11.4.2] C:\Users\Андрей\.android\build-cache\5ba77e4e67c2e3630f89005b6b5829097825b139\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-panorama:11.4.2] C:\Users\Андрей\.android\build-cache\b507a71308094ac611e206f215a639ceb4752a49\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-panorama-license:11.4.2] C:\Users\Андрей\.android\build-cache\f5b475cac944f0a75f4240c88cef715157305a74\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-places:11.4.2] C:\Users\Андрей\.android\build-cache\b6be08f78351399d2da5eca3a96f6a127f64f57d\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-places-license:11.4.2] C:\Users\Андрей\.android\build-cache\73897eeed4b816be33e1d82daf20e01f34315a45\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-plus:11.4.2] C:\Users\Андрей\.android\build-cache\6de6cd33593fb4be7c3c77b7be5bdcfd15e0b868\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-plus-license:11.4.2] C:\Users\Андрей\.android\build-cache\4b07094931688cef388698ad98e8408bcc35522f\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-safetynet:11.4.2] C:\Users\Андрей\.android\build-cache\98d49adf2feefd4fd7fbdbfdd127aeff047765f4\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-safetynet-license:11.4.2] C:\Users\Андрей\.android\build-cache\03ad492f3bb04fa0a144f579d6de59d958cb1246\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.android.gms:play-services-tagmanager-api-license:11.4.2] C:\Users\Андрей\.android\build-cache\decb036ac80ca7e80393e7aef01517b9d0cd429f\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-license:11.4.2] C:\Users\Андрей\.android\build-cache\bee2ba5b40b7a1cfff95264802994b8ed8e9f66d\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.4.2] C:\Users\Андрей\.android\build-cache\e93dfca5e4555f2c0f1f575f3d3989084611ce4d\output\AndroidManifest.xml:19:5-19
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\94fd772c2f03b97c34ff143363a4a56cb3189490\output\AndroidManifest.xml:26:5-19
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.4.2] C:\Users\Андрей\.android\build-cache\66195ef7d6001e764e54e5b09b3f067483319d3b\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.4.2] C:\Users\Андрей\.android\build-cache\bbe70f26ae076afb8d3b94a2e14c114879af626b\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-vision:11.4.2] C:\Users\Андрей\.android\build-cache\c486e54fedc60d2f9bff0876fc4470e6f1630fe2\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-vision-common:11.4.2] C:\Users\Андрей\.android\build-cache\a8618946dba32081b8d2c8fe898f509fda536ea4\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-vision-common-license:11.4.2] C:\Users\Андрей\.android\build-cache\cfbe5868a6443a6d5909dd53516812aca6148b82\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-vision-license:11.4.2] C:\Users\Андрей\.android\build-cache\b9da55b6387ba80faafb8a0e8e947ca27f110bf8\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-identity:11.4.2] C:\Users\Андрей\.android\build-cache\7dbcc19076deefc4054d3033263c281615e9d002\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-identity-license:11.4.2] C:\Users\Андрей\.android\build-cache\0f4e46c6b67c25474e9401682448bce0032619a3\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.4.2] C:\Users\Андрей\.android\build-cache\53315c2e7941e56010ac87495b7c71d6ac35ce07\output\AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-maps-license:11.4.2] C:\Users\Андрей\.android\build-cache\b1f3d82f0bff22c76e277c25404f3fbbb69e19be\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-wallet-license:11.4.2] C:\Users\Андрей\.android\build-cache\ab6d96e628abb28445d425c8940e63bb889c06fe\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-wearable:11.4.2] C:\Users\Андрей\.android\build-cache\9505e1175a46c35cb6a100fee3d4f7e9e281b3bb\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-wearable-license:11.4.2] C:\Users\Андрей\.android\build-cache\a424a9ed68bd5e038bbcae1a698c078600eaa28c\output\AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Андрей\.android\build-cache\65fc0de1dc52521d998b07be43fed903946708f3\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\999747d0945234ea05b8c85dfd14e91830a8d5c0\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\d2d986806c274f7d21050955d451184f8f402272\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Андрей\.android\build-cache\2f6de60c651eab781c1034caf37c24c71aa56af5\output\AndroidManifest.xml:9:5-20
+MERGED from [com.google.maps.android:android-maps-utils:0.4.4] C:\Users\Андрей\.android\build-cache\20414323e738c54b6a5d154e4d8703cd291c6dbb\output\AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.firebase:firebase-auth:11.4.2] C:\Users\Андрей\.android\build-cache\fae7a17442b6a52f6c68cd66849c1d6e9d461c1e\output\AndroidManifest.xml:19:5-20:19
+MERGED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] C:\Users\Андрей\.android\build-cache\285f486c754a6c602b6d478c333f433edf68e41f\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-auth-license:11.4.2] C:\Users\Андрей\.android\build-cache\a6746ba7b18d64cfb08a9ac7ce23bf884e304866\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-database-connection-license:11.4.2] C:\Users\Андрей\.android\build-cache\402df4445cf06c54defd760e9e4a04fade206c59\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-database-license:11.4.2] C:\Users\Андрей\.android\build-cache\63c1a55c20a948c6866101623668b7350f3449a4\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-core:11.4.2] C:\Users\Андрей\.android\build-cache\b3e4cba337dcd8f76e2cd5c0df01dc78d56dbfca\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:24:5-34:19
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:28:5-49:19
+MERGED from [com.google.firebase:firebase-iid-license:11.4.2] C:\Users\Андрей\.android\build-cache\2d1849099c110e1fdc283e2e87138561b9b50832\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-common:11.4.2] C:\Users\Андрей\.android\build-cache\6640f7153f3e2e3274558eae3db98c2229381df1\output\AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.firebase:firebase-common-license:11.4.2] C:\Users\Андрей\.android\build-cache\62b43d7f71a2d06ab0b33ecc70ff776c8410b651\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] C:\Users\Андрей\.android\build-cache\362f070b0f8657fd0ad8c93604a8ca7fdc36fb28\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] C:\Users\Андрей\.android\build-cache\4382d0028c82d1807d21c56357690d57b6206f60\output\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Андрей\.android\build-cache\bb1aeeeac681502d248926681c914582729fc408\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Андрей\.android\build-cache\89f285eb1ce4b695418a547ccc36d19544b06057\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Андрей\.android\build-cache\ed955fbd56e1b406554df1f1e20da2533c045363\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Андрей\.android\build-cache\6562d7e1b8b4afd48f91d3fdf2b79b80f1bc19a8\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Андрей\.android\build-cache\afbdaed52d583f0518660b19f6444d9746eb1235\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Андрей\.android\build-cache\6997e4f54907dfd6434d8f73de66e1ba550fe3f7\output\AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] C:\Users\Андрей\.android\build-cache\aee5395fa989420c6997ffc82d1dd14459118d8c\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] C:\Users\Андрей\.android\build-cache\b92b3b4faee9d56002b90a61e547c9a5d8145530\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.4.2] C:\Users\Андрей\.android\build-cache\c1166dd2c1b2228bb222045772f06ecfa5c070a5\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics-license:11.4.2] C:\Users\Андрей\.android\build-cache\c24c49deacec13c31aedfe8e195bb67082612e1c\output\AndroidManifest.xml:5:5-20
+	android:label
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:25:9-41
+	android:allowBackup
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:23:9-35
+	android:icon
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:24:9-38
+	android:theme
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:26:9-40
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:22:9-30
+activity#com.work.andre.mines.ActMain
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:27:9-34:20
+	android:label
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:29:13-45
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:28:13-36
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:30:13-33:29
+action#android.intent.action.MAIN
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:31:17-69
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:31:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:32:17-77
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:32:27-74
+activity#com.work.andre.mines.ActMap
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:36:9-44
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:36:19-41
+activity#com.work.andre.mines.ActSettings
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:37:9-49
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:37:19-46
+activity#com.work.andre.mines.ActBuildingsList
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:38:9-54
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:38:19-51
+activity#com.work.andre.mines.ActBuildingDetails
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:39:9-56
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:39:19-53
+activity#com.work.andre.mines.ActHQ
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:40:9-43
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:40:19-40
+meta-data#com.google.android.gms.version
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:42:9-44:69
+MERGED from [com.google.maps.android:android-maps-utils:0.4.4] C:\Users\Андрей\.android\build-cache\20414323e738c54b6a5d154e4d8703cd291c6dbb\output\AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] C:\Users\Андрей\.android\build-cache\4382d0028c82d1807d21c56357690d57b6206f60\output\AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:44:13-66
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:43:13-58
+meta-data#com.google.android.geo.API_KEY
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:47:9-49:71
+	android:value
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:49:13-68
+	android:name
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:48:13-58
+activity#com.google.android.gms.ads.AdActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:25:9-257
+	android:exported
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:25:231-255
+	android:configChanges
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:25:72-181
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:25:182-230
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:25:19-71
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\94fd772c2f03b97c34ff143363a4a56cb3189490\output\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:24:22-65
+receiver#com.google.android.gms.analytics.AnalyticsReceiver
+ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:27:9-28:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:27:85-107
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:27:108-132
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:27:19-84
+service#com.google.android.gms.analytics.AnalyticsService
+ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:29:9-132
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:29:83-105
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:29:106-130
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:29:18-82
+service#com.google.android.gms.analytics.AnalyticsJobService
+ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:30:9-192
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:30:143-165
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:30:166-190
+	android:permission
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:30:86-142
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:30:18-85
+activity#com.google.android.gms.appinvite.PreviewActivity
+ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:20:9-25:20
+	android:exported
+		ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:20:51-74
+	android:theme
+		ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:20:75-121
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:20:19-50
+intent-filter#android.intent.category.DEFAULT+com.google.android.gms.appinvite.ACTION_PREVIEW
+ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:21:13-24:29
+action#com.google.android.gms.appinvite.ACTION_PREVIEW
+ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:22:17-89
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:22:25-87
+category#android.intent.category.DEFAULT
+ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:23:17-75
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:23:27-73
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:20:9-189
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:20:129-162
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:20:163-187
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:20:69-128
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:20:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:24:9-184
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:24:64-87
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:24:88-182
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.4.2] C:\Users\Андрей\.android\build-cache\33895e9317326678dae8dd71850edcac09548fb2\output\AndroidManifest.xml:24:18-63
+receiver#com.google.android.gms.cast.framework.media.MediaIntentReceiver
+ADDED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:5:9-99
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:5:19-97
+service#com.google.android.gms.cast.framework.media.MediaNotificationService
+ADDED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:6:9-103
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:6:18-101
+service#com.google.android.gms.cast.framework.ReconnectionService
+ADDED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:7:9-92
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:11.4.2] C:\Users\Андрей\.android\build-cache\598341204fa946a0930d7bb0f84206f573a7cd50\output\AndroidManifest.xml:7:18-90
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:23:9-27:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:23:88-111
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:23:18-87
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:24:13-26:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:24:28-51
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:11.4.2] C:\Users\Андрей\.android\build-cache\d510e6b1cbfacf395060ea69ff8dbea37f2813c4\output\AndroidManifest.xml:25:25-75
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:11.4.2] C:\Users\Андрей\.android\build-cache\e252c1907c7b605c14866a061c89f0c25c5423be\output\AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] C:\Users\Андрей\.android\build-cache\722bc5270724446bcc8e8a9002cbeadea3832522\output\AndroidManifest.xml:20:5-81
+MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:11.4.2] C:\Users\Андрей\.android\build-cache\e252c1907c7b605c14866a061c89f0c25c5423be\output\AndroidManifest.xml:20:22-79
+service#com.google.android.gms.tagmanager.TagManagerService
+ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:24:9-134
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:24:110-132
+	android:exported
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:24:85-109
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:24:18-84
+activity#com.google.android.gms.tagmanager.TagManagerPreviewActivity
+ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:25:9-32:20
+	android:exported
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:25:94-117
+	android:noHistory
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:25:118-142
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:25:19-93
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:26:13-31:29
+data
+ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:27:17-71
+	android:scheme
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:27:23-69
+action#android.intent.action.VIEW
+ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:28:17-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:28:25-66
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:30:17-77
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:11.4.2] C:\Users\Андрей\.android\build-cache\f88fc2f2e703eb5470013aa4371c1e3c89f8a2dd\output\AndroidManifest.xml:30:27-75
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.4.2] C:\Users\Андрей\.android\build-cache\53315c2e7941e56010ac87495b7c71d6ac35ce07\output\AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.4.2] C:\Users\Андрей\.android\build-cache\53315c2e7941e56010ac87495b7c71d6ac35ce07\output\AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.4.2] C:\Users\Андрей\.android\build-cache\53315c2e7941e56010ac87495b7c71d6ac35ce07\output\AndroidManifest.xml:21:52-75
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Андрей\.android\build-cache\65fc0de1dc52521d998b07be43fed903946708f3\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\999747d0945234ea05b8c85dfd14e91830a8d5c0\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\d2d986806c274f7d21050955d451184f8f402272\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Андрей\.android\build-cache\bb1aeeeac681502d248926681c914582729fc408\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Андрей\.android\build-cache\89f285eb1ce4b695418a547ccc36d19544b06057\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Андрей\.android\build-cache\ed955fbd56e1b406554df1f1e20da2533c045363\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Андрей\.android\build-cache\6562d7e1b8b4afd48f91d3fdf2b79b80f1bc19a8\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Андрей\.android\build-cache\afbdaed52d583f0518660b19f6444d9746eb1235\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Андрей\.android\build-cache\6997e4f54907dfd6434d8f73de66e1ba550fe3f7\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Андрей\.android\build-cache\65fc0de1dc52521d998b07be43fed903946708f3\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Андрей\.android\build-cache\65fc0de1dc52521d998b07be43fed903946708f3\output\AndroidManifest.xml:26:9-47
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:19-85
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:25:113-137
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:27:162-184
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:27:185-208
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:32:16-87
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:33:7-197
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:33:148-170
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:33:171-195
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:33:91-147
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:33:16-90
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:24:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:24:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:24:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:26:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:30:9-35:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:30:85-108
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:30:109-169
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:30:19-84
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:31:13-34:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:32:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:32:25-78
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:33:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:33:27-58
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:39:9-119
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:39:93-117
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:39:19-92
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:43:9-47:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:43:83-106
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:43:18-82
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:44:13-46:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:44:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:45:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:45:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:11.4.2] C:\Users\Андрей\.android\build-cache\6640f7153f3e2e3274558eae3db98c2229381df1\output\AndroidManifest.xml:6:9-194
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:11.4.2] C:\Users\Андрей\.android\build-cache\6640f7153f3e2e3274558eae3db98c2229381df1\output\AndroidManifest.xml:6:19-78
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:11.4.2] C:\Users\Андрей\.android\build-cache\6640f7153f3e2e3274558eae3db98c2229381df1\output\AndroidManifest.xml:6:144-168
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:11.4.2] C:\Users\Андрей\.android\build-cache\6640f7153f3e2e3274558eae3db98c2229381df1\output\AndroidManifest.xml:6:169-192
+	android:name
+		ADDED from [com.google.firebase:firebase-common:11.4.2] C:\Users\Андрей\.android\build-cache\6640f7153f3e2e3274558eae3db98c2229381df1\output\AndroidManifest.xml:6:79-143

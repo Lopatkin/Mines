@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "959444092335",
+    "firebase_url": "https://mines-101.firebaseio.com",
+    "project_id": "mines-101",
+    "storage_bucket": "mines-101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959444092335:android:3c5bd996becb6a23",
+        "android_client_info": {
+          "package_name": "com.work.andre.mines"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959444092335-0gsk7tu0eui2hca2gcbulnjejbnvknc0.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "959444092335-22298lddmnqoj56pmpr52ksccpovenie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.work.andre.mines",
+            "certificate_hash": "aff849de52fe240df1fc8297ca57b49d626ce879"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaA4qjCBbkjOqaidkafG3DLQprosKErXY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959444092335-0gsk7tu0eui2hca2gcbulnjejbnvknc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

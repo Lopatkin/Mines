@@ -1,0 +1,45 @@
+[
+    {
+        "outputFile": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "C:\\Users\\Андрей\\.android\\build-cache\\7862967f980cdd7d89e5293a05a93ad7d2ab9a85\\output\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 45,
+                        "endOffset": 270
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 101,
+                    "endColumn": 57,
+                    "endOffset": 154
+                },
+                "from": {
+                    "file": "D:\\GoogleDisk\\Mines\\app\\build\\generated\\res\\resValues\\androidTest\\debug\\values\\generated.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 160,
+                        "endColumn": 65,
+                        "endOffset": 221
+                    }
+                }
+            }
+        ]
+    }
+]
