@@ -49,10 +49,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2584">
               <caret line="202" column="65" selection-start-line="202" selection-start-column="65" selection-end-line="202" selection-end-column="65" />
-              <folding>
-                <element signature="e#9200#9201#0" expanded="false" />
-                <element signature="e#9262#9263#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,13 +57,17 @@
       <file leaf-file-name="ActBuildingDetails.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="179" column="40" selection-start-line="179" selection-start-column="40" selection-end-line="179" selection-end-column="40" />
+            <state relative-caret-position="373">
+              <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#updateData#0;class#ActBuildingDetails#0" expanded="false" />
-                <element signature="e#8003#9393#0" expanded="true" />
-                <element signature="e#9392#9393#0" expanded="true" />
+                <element signature="e#8003#9298#0" expanded="true" />
+                <element signature="e#8332#8655#0" expanded="true" />
+                <element signature="e#8654#8655#0" expanded="true" />
+                <element signature="e#8707#9037#0" expanded="true" />
+                <element signature="e#9036#9037#0" expanded="true" />
+                <element signature="e#9297#9298#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3187,12 +3188,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane />
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3213,7 +3212,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
       <pane id="Scratches" />
     </panes>
   </component>
@@ -3579,7 +3580,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="738" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3224138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -4046,10 +4047,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2584">
           <caret line="202" column="65" selection-start-line="202" selection-start-column="65" selection-end-line="202" selection-end-column="65" />
-          <folding>
-            <element signature="e#9200#9201#0" expanded="false" />
-            <element signature="e#9262#9263#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4066,13 +4064,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="179" column="40" selection-start-line="179" selection-start-column="40" selection-end-line="179" selection-end-column="40" />
+        <state relative-caret-position="373">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#updateData#0;class#ActBuildingDetails#0" expanded="false" />
-            <element signature="e#8003#9393#0" expanded="true" />
-            <element signature="e#9392#9393#0" expanded="true" />
+            <element signature="e#8003#9298#0" expanded="true" />
+            <element signature="e#8332#8655#0" expanded="true" />
+            <element signature="e#8654#8655#0" expanded="true" />
+            <element signature="e#8707#9037#0" expanded="true" />
+            <element signature="e#9036#9037#0" expanded="true" />
+            <element signature="e#9297#9298#0" expanded="true" />
           </folding>
         </state>
       </provider>

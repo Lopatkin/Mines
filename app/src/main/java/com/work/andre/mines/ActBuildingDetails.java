@@ -195,14 +195,12 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
             ad.setPositiveButton(button1String, new OnClickListener() {
                 public void onClick(DialogInterface dialog, int arg1) {
 
-
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     db.collection(fbBuildings).document(buildingID)
                             .delete()
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-//                                    Log.d(TAG, "DocumentSnapshot successfully deleted!");
                                     Toast.makeText(getBaseContext(), "Постройка удалена!", Toast.LENGTH_LONG).show();
                                 }
                             })
@@ -210,10 +208,8 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Toast.makeText(getBaseContext(), "Постройка не удалена!", Toast.LENGTH_LONG).show();
-
                                 }
                             });
-
 
                     Intent intentActMap = new Intent(ActBuildingDetails.this, ActMap.class);
                     intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
