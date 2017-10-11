@@ -188,12 +188,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mineicon.png",
-        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mineicon.png"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_button_light.xml",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable\\mr_button_light.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mineicon.png",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\drawable\\mineicon.png"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_vol_type_audiotrack_dark.xml",
