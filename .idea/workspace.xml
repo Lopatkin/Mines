@@ -57,8 +57,13 @@
       <file leaf-file-name="ActBuildingDetails.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="118">
               <caret line="188" column="71" selection-start-line="188" selection-start-column="71" selection-end-line="188" selection-end-column="71" />
+=======
+            <state relative-caret-position="373">
+              <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+>>>>>>> parent of b233b93... clean&rebuild project
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#updateData#0;class#ActBuildingDetails#0" expanded="false" />
@@ -4064,8 +4069,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="118">
           <caret line="188" column="71" selection-start-line="188" selection-start-column="71" selection-end-line="188" selection-end-column="71" />
+=======
+        <state relative-caret-position="373">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+>>>>>>> parent of b233b93... clean&rebuild project
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#updateData#0;class#ActBuildingDetails#0" expanded="false" />

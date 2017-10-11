@@ -186,7 +186,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
             ad = new AlertDialog.Builder(context);
 
             String title = "Внимание!";
-            String message = "Вы действительно хотите удалить постройку?";
+            String message = "Вы действительно хотите снести постройку?";
             String button1String = "Да!";
             String button2String = "Нет, я передумал";
 
