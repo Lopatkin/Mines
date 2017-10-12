@@ -53,6 +53,7 @@
     <string name="loading">loading</string>
     <string name="nickname">Nickname</string>
     <string name="nnnnn">NickName</string>
+    <string name="new_name">Переименовать постройку</string>
 
     <string-array name="mine_types_list">
         <item>Лесопилка</item>

@@ -21,7 +21,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.location.LocationListener;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -37,8 +36,6 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -55,7 +52,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import static com.work.andre.mines.ActBuildingDetails.BUILDINGOWNERNICKNAME;
 import static com.work.andre.mines.ActBuildingDetails.buildingID;
 import static com.work.andre.mines.ActBuildingsList.BUILDINGCATEGORY;
 import static com.work.andre.mines.database.DBase.addNewBuilding;
@@ -369,7 +365,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         //Инициализация компонентов
         spnrBuildingTypesList = (Spinner) dialogView.findViewById(R.id.spnrBuildingTypesList);
         tvBuildingName = (TextView) dialogView.findViewById(R.id.tvBuildingName);
-        etBuildingName = (EditText) dialogView.findViewById(R.id.etMineName);
+        etBuildingName = (EditText) dialogView.findViewById(R.id.etBuildingName);
 
         List<String> structureList = new ArrayList<String>();
         structureList.add(buildingTypeWood);

@@ -1,4 +1,4 @@
-#Thu Oct 12 16:01:37 MSK 2017
+#Thu Oct 12 18:34:37 MSK 2017
 base.0=D\:\\GoogleDisk\\Mines\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_059d6d1e74788f536d0e2ccd409deeaa4a579ca4
 renamed.1=classes.dex
 renamed.0=classes2.dex

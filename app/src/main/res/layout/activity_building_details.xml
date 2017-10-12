@@ -129,5 +129,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <Button
+        android:id="@+id/btnRename"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/rename"
+
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
+
 
 </android.support.constraint.ConstraintLayout>

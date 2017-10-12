@@ -10,27 +10,48 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
 import static com.work.andre.mines.ActMap.USERGOOGLEEMAIL;
+import static com.work.andre.mines.ActMap.etBuildingName;
+import static com.work.andre.mines.database.DBase.addNewBuilding;
 import static com.work.andre.mines.database.DBase.buildingTypeClay;
+import static com.work.andre.mines.database.DBase.buildingTypeClayEn;
 import static com.work.andre.mines.database.DBase.buildingTypeHQ;
+import static com.work.andre.mines.database.DBase.buildingTypeHQEn;
 import static com.work.andre.mines.database.DBase.buildingTypeStone;
+import static com.work.andre.mines.database.DBase.buildingTypeStoneEn;
 import static com.work.andre.mines.database.DBase.buildingTypeWood;
+import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbUsers;
+import static com.work.andre.mines.database.DBase.getBuildingCategoryByBuildingType;
 
 public class ActBuildingDetails extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,14 +75,19 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     TextView tvBuildingTypeText;
     TextView tvBuildingTypeInfo;
 
+    EditText etRenameBuildingName;
+
     Button btnOK;
     Button btnClose;
     Button btnDeleteBuilding;
+    Button btnRename;
 
     static String buildingName;
     static String ownerName;
     static long buildingLVL;
     static String buildingType;
+
+    static String newBuildingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +98,8 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         btnOK.setVisibility(View.INVISIBLE);
         btnDeleteBuilding = (Button) findViewById(R.id.btnDeleteBuilding);
         btnDeleteBuilding.setVisibility(View.INVISIBLE);
+        btnRename = (Button) findViewById(R.id.btnRename);
+        btnRename.setVisibility(View.INVISIBLE);
 
         currentUserGoogleEmail = getIntent().getStringExtra(USERGOOGLEEMAIL);
         buildingID = getIntent().getStringExtra(BUILDINGID);
@@ -151,6 +179,8 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         tvBuildingTypeText = (TextView) findViewById(R.id.tvBuildingTypeText);
         tvBuildingTypeInfo = (TextView) findViewById(R.id.tvBuildingTypeInfo);
 
+        etRenameBuildingName = (EditText) findViewById(R.id.etRenameBuildingName);
+
         btnClose = (Button) findViewById(R.id.btnClose);
         btnClose.setOnClickListener(this);
 
@@ -160,6 +190,9 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
             btnDeleteBuilding.setVisibility(View.VISIBLE);
             btnDeleteBuilding.setOnClickListener(this);
+
+            btnRename.setVisibility(View.VISIBLE);
+            btnRename.setOnClickListener(this);
         } else {
             btnOK.setVisibility(View.INVISIBLE);
             btnDeleteBuilding.setVisibility(View.INVISIBLE);
@@ -169,6 +202,30 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnOK) {
+
+            //......................................FIRESTORE......................................
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            DocumentReference bRef = db.collection(fbBuildings).document(buildingID);
+
+            bRef
+                    .update("buildingName", newBuildingName)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+//                            Log.d(TAG, "DocumentSnapshot successfully updated!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+//                            Log.w(TAG, "Error updating document", e);
+                        }
+                    });
+
+
+            //.....................................................................................
+
+
             Intent intentActMap = new Intent(this, ActMap.class);
             intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
             startActivity(intentActMap);
@@ -229,5 +286,53 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
             });
             ad.show();
         }
+
+        if (v.getId() == R.id.btnRename) {
+
+            renameBuilding();
+
+
+        }
+
+    }
+
+    public void renameBuilding() {
+
+        //Создание диалогового окна
+        final LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.rename_building_dialog, null);
+
+        //Cоздаем AlertDialog
+        AlertDialog.Builder mDialogNBuilder = new AlertDialog.Builder(this);
+
+        //Прикручиваем лейаут к алерту
+        mDialogNBuilder.setView(dialogView);
+
+        //Инициализация компонентов
+        etRenameBuildingName = (EditText) dialogView.findViewById(R.id.etRenameBuildingName);
+        etRenameBuildingName.setText(tvBuildingName.getText());
+
+        mDialogNBuilder
+                .setCancelable(true)
+
+                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        newBuildingName = String.valueOf(etRenameBuildingName.getText());
+                        tvBuildingName.setText(newBuildingName);
+
+
+                    }
+                });
+
+        AlertDialog alertDialog = mDialogNBuilder.create();
+        alertDialog.show();
     }
 }
