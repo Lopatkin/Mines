@@ -2,34 +2,37 @@
 <instant-run
     abi="x86"
     api-level="22"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     density="420dpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1507798581080"
+    timestamp="1507818957413"
     token="8940708644197965924"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="920" />
+        duration="1071" />
     <task
         name="instant-run-dex"
-        duration="609" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="7" />
+        duration="61" />
     <task
         name="verifier"
-        duration="2" />
+        duration="16" />
 
     <artifact
-        location="D:\GoogleDisk\Mines\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="D:\GoogleDisk\Mines\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\GoogleDisk\Mines\app\build\outputs\apk\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1507797245717"
+        timestamp="1507812372207"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\GoogleDisk\Mines\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
@@ -70,33 +73,30 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1507798077950"
-        verifier="METHOD_ADDED" >
+        timestamp="1507817007544"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\GoogleDisk\Mines\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1507818625814"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\GoogleDisk\Mines\app\build\outputs\apk\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1507818957413"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\GoogleDisk\Mines\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
             location="D:\GoogleDisk\Mines\app\build\outputs\apk\app-debug.apk"
             type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1507798566786"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\GoogleDisk\Mines\app\build\intermediates\builds\debug\1507798566786\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1507798581080"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\GoogleDisk\Mines\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

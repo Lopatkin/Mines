@@ -1,4 +1,4 @@
-#Wed Oct 11 21:38:34 MSK 2017
+#Thu Oct 12 14:49:07 MSK 2017
 file.75=D\:\\GoogleDisk\\Mines\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_f794d1bddc376878e5e9126c14a9f01485c09061\\classes.dex
 file.74=D\:\\GoogleDisk\\Mines\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\guava-20.0_c5ceabee2ba55ee77de41d3fdde6abd376b4cf75\\classes.dex
 file.73=D\:\\GoogleDisk\\Mines\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_426135a590e9591456b83019ae74a35a4bef5126\\classes.dex

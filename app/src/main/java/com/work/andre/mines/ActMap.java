@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.location.LocationListener;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -36,6 +37,8 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -47,8 +50,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import static com.work.andre.mines.ActBuildingDetails.BUILDINGOWNERNICKNAME;
 import static com.work.andre.mines.ActBuildingDetails.buildingID;
@@ -60,13 +65,19 @@ import static com.work.andre.mines.database.DBase.buildingTypeClay;
 import static com.work.andre.mines.database.DBase.buildingTypeHQ;
 import static com.work.andre.mines.database.DBase.buildingTypeStone;
 import static com.work.andre.mines.database.DBase.buildingTypeWood;
+
+import static com.work.andre.mines.database.DBase.buildingTypeClayEn;
+import static com.work.andre.mines.database.DBase.buildingTypeHQEn;
+import static com.work.andre.mines.database.DBase.buildingTypeStoneEn;
+import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
+
+
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbUsers;
 import static com.work.andre.mines.database.DBase.getBuildingCategoryByBuildingType;
 import static com.work.andre.mines.database.DBase.getBuildingID;
 import static com.work.andre.mines.database.DBase.getUserNickNameOrDisplayNameByGoogleEmailWithSnapshot;
 import static com.work.andre.mines.database.DBase.getUserResourcesWithSnapshot;
-import static com.work.andre.mines.database.DBase.myNick;
 import static com.work.andre.mines.database.DBase.resClay;
 import static com.work.andre.mines.database.DBase.resGold;
 import static com.work.andre.mines.database.DBase.resStone;
@@ -82,6 +93,32 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     public static final String SELECTEDMINELNG = "selectedMineLng";
 
     public static String Structure = "Постройка";
+
+    static long userGold;
+    static long userWood;
+    static long userStone;
+    static long userClay;
+
+    static long costGold;
+    static long costWood;
+    static long costStone;
+    static long costClay;
+
+    static boolean getCost;
+    static boolean getUserMoney;
+
+    static boolean more;
+
+    static boolean payIsOk;
+
+
+    static String buildingType;
+    static String buildingCategory;
+    static String buildingName;
+    static int structureLVL;
+    static double buildingLat;
+    static double buildingLng;
+    static String buildingBuildDate;
 
     Context context;
     AlertDialog.Builder ad;
@@ -175,6 +212,16 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
         try {
 
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+//                return TODO;
+            }
             loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (loc != null) {
                 return loc;
@@ -212,6 +259,16 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     private class LocListener implements LocationListener {
         @Override
         public void onLocationChanged(Location location) {
+            if (ActivityCompat.checkSelfPermission(getBaseContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getBaseContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             myLocation = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         }
 
@@ -346,23 +403,115 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                         LatLng target = new LatLng(latLng.latitude, latLng.longitude);
 
                         //Заполняем поля для записи постройки
-                        int userID = MyApp.getMyDBase().getUserIDbyUserGoogleEmail(currentUserGoogleEmail);     //ID пользователя
-                        String buildingType = spnrBuildingTypesList.getSelectedItem().toString();                  //Тип постройки
-                        String buildingName = etBuildingName.getText().toString();                                  //Название постройки
-                        int structureLVL = 1;                                                                    //Уровень постройки
-                        double buildingLat = target.latitude;                                                   //Координата Lat
-                        double buildingLng = target.longitude;                                                  //Координата Lng
+                        buildingType = spnrBuildingTypesList.getSelectedItem().toString();                  //Тип постройки
+                        buildingName = etBuildingName.getText().toString();                                  //Название постройки
+                        structureLVL = 1;                                                                    //Уровень постройки
+                        buildingLat = target.latitude;                                                   //Координата Lat
+                        buildingLng = target.longitude;                                                  //Координата Lng
 
-                        String buildingCategory = getBuildingCategoryByBuildingType(buildingType);
+                        buildingCategory = getBuildingCategoryByBuildingType(buildingType);
 
                         Locale local = new Locale("ru", "RU");
                         DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, local);
                         Date currentDate = new Date();
-                        String buildingBuildDate = df.format(currentDate);                                      //Дата постройки (текущая)
+                        buildingBuildDate = df.format(currentDate);                                      //Дата постройки (текущая)
 
-                        addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, buildingLat, buildingLng, buildingBuildDate);
-//                        MyApp.getMyDBase().payPriceForBuilding(userID, structureType, structureLVL);
+                        getCost = false;
+                        getUserMoney = false;
+                        more = true;
+                        payIsOk = true;
 
+                        //Оплачиваем постройку
+                        String bType = null;
+                        if (buildingType.equals(buildingTypeHQ)) {
+                            bType = buildingTypeHQEn;
+                        } else if (buildingType.equals(buildingTypeWood)) {
+                            bType = buildingTypeWoodEn;
+                        } else if (buildingType.equals(buildingTypeStone)) {
+                            bType = buildingTypeStoneEn;
+                        } else if (buildingType.equals(buildingTypeClay)) {
+                            bType = buildingTypeClayEn;
+                        }
+
+                        //Получаем стоимость постройки
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        String doc = bType + structureLVL;
+
+                        DocumentReference bInfoRef = db.collection("bInfo").document(doc);
+                        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        costGold = document.getLong("CostGold");
+                                        costWood = document.getLong("CostWood");
+                                        costStone = document.getLong("CostStone");
+                                        costClay = document.getLong("CostClay");
+
+                                        getCost = true;
+                                    }
+                                }
+                            }
+                        });
+
+                        FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+                        DocumentReference userRef = db1.collection("users").document(currentUserGoogleEmail);
+                        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        userGold = document.getLong("userGold");
+                                        userWood = document.getLong("userWood");
+                                        userStone = document.getLong("userStone");
+                                        userClay = document.getLong("userClay");
+
+                                        getUserMoney = true;
+                                    }
+                                }
+                            }
+                        });
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                while (more) {
+                                    if ((getCost) && (getUserMoney)) {
+
+                                        if (((costGold > 0) && (userGold >= costGold)) ||
+                                                ((costWood > 0) && (userWood >= costWood)) ||
+                                                ((costStone > 0) && (userStone > costStone)) ||
+                                                ((costClay > 0) && (userClay > costClay))) {
+
+                                            HashMap<String, Object> updatedData = new HashMap<>();
+                                            updatedData.put("userGold", userGold - costGold);
+                                            updatedData.put("userWood", userWood - costWood);
+                                            updatedData.put("userStone", userStone - costStone);
+                                            updatedData.put("userClay", userClay - costClay);
+
+                                            FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                                            DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
+
+                                            more = false;
+                                            //Добавляем новую постройку
+                                            payIsOk = true;
+                                            addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, buildingLat, buildingLng, buildingBuildDate);
+
+                                            for (Map.Entry entry : updatedData.entrySet()) {
+                                                documentReference.update(entry.getKey().toString(), entry.getValue());
+                                            }
+                                        }
+                                    }
+                                    if (!more) {
+                                        break;
+                                    }
+                                }
+                            }
+                        }).start();
                     }
                 });
 
@@ -560,6 +709,16 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
             locListener = new LocListener();
 
 		/* Setting up Location Listener */
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000L, 1.0F, locListener);
     }
 

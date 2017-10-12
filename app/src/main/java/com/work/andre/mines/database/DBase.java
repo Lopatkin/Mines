@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -18,24 +17,24 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.maps.android.SphericalUtil;
 import com.work.andre.mines.MyApp;
-import com.work.andre.mines.R;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
+
+
 public class DBase extends DBSQLite {
+
+    public static long myPrice;
 
     //FIREBASE
     public static DatabaseReference myRef;
@@ -64,6 +63,11 @@ public class DBase extends DBSQLite {
     public static String buildingTypeWood = "Лесопилка";
     public static String buildingTypeStone = "Рудник";
     public static String buildingTypeClay = "Карьер";
+
+    public static String buildingTypeHQEn = "HQ";
+    public static String buildingTypeWoodEn = "WOOD";
+    public static String buildingTypeStoneEn = "STONE";
+    public static String buildingTypeClayEn = "CLAY";
 
     public static String buildingCategoryMining = "Добывающая";
     public static String buildingCategoryOffice = "Офисная";
@@ -292,7 +296,6 @@ public class DBase extends DBSQLite {
         newBuilding.put("buildingBuildDate", buildingBuildDate);
 
 
-
         db.collection(fbBuildings).document(buildingID).set(newBuilding);
 
         //.....................................................................................
@@ -331,36 +334,98 @@ public class DBase extends DBSQLite {
         return null;
     }
 
-    public boolean payPriceForBuilding(long id, String buildingType, int buildingLVL) {
+//    public boolean payPriceForBuilding(long id, String buildingType, int buildingLVL) {
+//
+//        int userID = (int) id;
+//        ContentValues cvPrice = new ContentValues();
+//
+//        List<Integer> buildingCost = MyApp.getMyDBase().getBuildingCostByLVLandType(buildingType, buildingLVL);
+//        int priceGold = buildingCost.get(0);
+//        int priceWood = buildingCost.get(1);
+//        int priceStone = buildingCost.get(2);
+//        int priceClay = buildingCost.get(3);
+//
+//        List<Integer> userResources = MyApp.getMyDBase().getUserResources(userID);
+//        int userGold = userResources.get(0);
+//        int userWood = userResources.get(1);
+//        int userStone = userResources.get(2);
+//        int userClay = userResources.get(3);
+//
+//        int newUserGold = userGold - priceGold;
+//        int newUserWood = userWood - priceWood;
+//        int newUserStone = userStone - priceStone;
+//        int newUserClay = userClay - priceClay;
+//
+//        cvPrice.put(UsersTable.COLUMN_USER_GOLD, newUserGold);
+//        cvPrice.put(UsersTable.COLUMN_USER_WOOD, newUserWood);
+//        cvPrice.put(UsersTable.COLUMN_USER_STONE, newUserStone);
+//        cvPrice.put(UsersTable.COLUMN_USER_CLAY, newUserClay);
+//
+//        return 1 == this.getWritableDatabase().update(UsersTable.TABLE_USERS, cvPrice,
+//                SQL_WHERE_BY_ID, new String[]{String.valueOf(id)});
+//    }
 
-        int userID = (int) id;
-        ContentValues cvPrice = new ContentValues();
+//    public long payPriceForBuilding(String userGoogleEmail, String buildingType, int buildingLVL) {
+//
+//
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        // Create a reference to the cities collection
+//        String doc = buildingType + buildingLVL;
+//        DocumentReference bInfoRef = db.collection("bInfo").document(doc);
+//        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//
+//
+//                if (task.isSuccessful()) {
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document != null) {
+//                        myPrice = Long.parseLong(document.getString("CostGold"));
+//                        //                        Log.d(TAG, "DocumentSnapshot data: " + task.getResult().getData());
+//                    } else {
+////                        Log.d(TAG, "No such document");
+//                    }
+//                } else {
+////                    Log.d(TAG, "get failed with ", task.getException());
+//                }
+//
+//
+//            }
+//
+//        });
 
-        List<Integer> buildingCost = MyApp.getMyDBase().getBuildingCostByLVLandType(buildingType, buildingLVL);
-        int priceGold = buildingCost.get(0);
-        int priceWood = buildingCost.get(1);
-        int priceStone = buildingCost.get(2);
-        int priceClay = buildingCost.get(3);
 
-        List<Integer> userResources = MyApp.getMyDBase().getUserResources(userID);
-        int userGold = userResources.get(0);
-        int userWood = userResources.get(1);
-        int userStone = userResources.get(2);
-        int userClay = userResources.get(3);
+    // Create a query against the collection.
+//        Query query = bInfoRef.whereEqualTo("state", "CA");
 
-        int newUserGold = userGold - priceGold;
-        int newUserWood = userWood - priceWood;
-        int newUserStone = userStone - priceStone;
-        int newUserClay = userClay - priceClay;
-
-        cvPrice.put(UsersTable.COLUMN_USER_GOLD, newUserGold);
-        cvPrice.put(UsersTable.COLUMN_USER_WOOD, newUserWood);
-        cvPrice.put(UsersTable.COLUMN_USER_STONE, newUserStone);
-        cvPrice.put(UsersTable.COLUMN_USER_CLAY, newUserClay);
-
-        return 1 == this.getWritableDatabase().update(UsersTable.TABLE_USERS, cvPrice,
-                SQL_WHERE_BY_ID, new String[]{String.valueOf(id)});
-    }
+//        int userID = (int) id;
+//        ContentValues cvPrice = new ContentValues();
+//
+//        List<Integer> buildingCost = MyApp.getMyDBase().getBuildingCostByLVLandType(buildingType, buildingLVL);
+//        int priceGold = buildingCost.get(0);
+//        int priceWood = buildingCost.get(1);
+//        int priceStone = buildingCost.get(2);
+//        int priceClay = buildingCost.get(3);
+//
+//        List<Integer> userResources = MyApp.getMyDBase().getUserResources(userID);
+//        int userGold = userResources.get(0);
+//        int userWood = userResources.get(1);
+//        int userStone = userResources.get(2);
+//        int userClay = userResources.get(3);
+//
+//        int newUserGold = userGold - priceGold;
+//        int newUserWood = userWood - priceWood;
+//        int newUserStone = userStone - priceStone;
+//        int newUserClay = userClay - priceClay;
+//
+//        cvPrice.put(UsersTable.COLUMN_USER_GOLD, newUserGold);
+//        cvPrice.put(UsersTable.COLUMN_USER_WOOD, newUserWood);
+//        cvPrice.put(UsersTable.COLUMN_USER_STONE, newUserStone);
+//        cvPrice.put(UsersTable.COLUMN_USER_CLAY, newUserClay);
+//
+//        return 1 == this.getWritableDatabase().update(UsersTable.TABLE_USERS, cvPrice,
+//                SQL_WHERE_BY_ID, new String[]{String.valueOf(id)});
+//    }
 
     //Получить тип здания по ID здания
     public String getBuildingTypeByBuildingID(int buildingID) {
