@@ -116,6 +116,8 @@ MERGED from [com.google.firebase:firebase-database-connection:11.4.2] C:\Users\А
 MERGED from [com.google.firebase:firebase-database-connection-license:11.4.2] C:\Users\Андрей\.android\build-cache\402df4445cf06c54defd760e9e4a04fade206c59\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-database-license:11.4.2] C:\Users\Андрей\.android\build-cache\63c1a55c20a948c6866101623668b7350f3449a4\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-firestore:11.4.2] C:\Users\Андрей\.android\build-cache\ebe871802c03b75db844929ffc17c6db9c548572\output\AndroidManifest.xml:3:5-43
+MERGED from [com.android.support:cardview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\dfac61e99e70df7aed19ad53f8f74b249bc2bb67\output\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:15:5-42
 MERGED from [com.google.firebase:firebase-core:11.4.2] C:\Users\Андрей\.android\build-cache\b3e4cba337dcd8f76e2cd5c0df01dc78d56dbfca\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:17:5-43
@@ -279,6 +281,8 @@ MERGED from [com.google.android.gms:play-services-base-license:11.4.2] C:\Users\
 MERGED from [com.google.firebase:firebase-auth-license:11.4.2] C:\Users\Андрей\.android\build-cache\a6746ba7b18d64cfb08a9ac7ce23bf884e304866\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-database-connection-license:11.4.2] C:\Users\Андрей\.android\build-cache\402df4445cf06c54defd760e9e4a04fade206c59\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-database-license:11.4.2] C:\Users\Андрей\.android\build-cache\63c1a55c20a948c6866101623668b7350f3449a4\output\AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:cardview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\dfac61e99e70df7aed19ad53f8f74b249bc2bb67\output\AndroidManifest.xml:16:5-19
+MERGED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:17:5-19:19
 MERGED from [com.google.firebase:firebase-core:11.4.2] C:\Users\Андрей\.android\build-cache\b3e4cba337dcd8f76e2cd5c0df01dc78d56dbfca\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:24:5-34:19
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:24:5-28:19
@@ -528,6 +532,12 @@ ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.a
 		ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:86-145
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:19-85
+activity#android.support.v7.widget.TestActivity
+ADDED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:18:9-115
+	android:label
+		ADDED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:18:19-59
+	android:name
+		ADDED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:18:60-113
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver
 ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:25:7-26:18
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:25:7-26:18

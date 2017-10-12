@@ -21,11 +21,20 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Андрей\.android\build-cache\dfac61e99e70df7aed19ad53f8f74b249bc2bb67\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df040267334adafdfbd406d5f9e684d006ba1b03\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\GoogleDisk\Mines\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="1ef6e9c952367eaa6a4ae6b73c4083207b74650c">
+        sha1="329c6fbc18dbb1d5b34665e433db08720092a300">
         <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_059d6d1e74788f536d0e2ccd409deeaa4a579ca4\classes.dex" />
     </item>
     <item
@@ -45,6 +54,15 @@
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b311b7c704287ea9ba1ebeb94dc3f91cae90798f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="D:\GoogleDisk\Mines\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_05bb4313c4e489043518c07212b41336aa23340a\classes.dex" />
     </item>
 
 </items>

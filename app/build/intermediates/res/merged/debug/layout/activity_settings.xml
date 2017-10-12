@@ -207,6 +207,4 @@
             android:text="@string/btn_revoke_access" />
 
     </LinearLayout>
-
-
 </LinearLayout>

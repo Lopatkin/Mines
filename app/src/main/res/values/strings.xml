@@ -23,10 +23,10 @@
     <string name="OK">ОК</string>
     <string name="delete">Удалить</string>
     <string name="minesOwner">Владелец шахт:</string>
-    <string name="mineWoodInAll">Всего лесопилок:</string>
-    <string name="mineStoneInAll">Всего рудников:</string>
-    <string name="mineSandInAll">Всего карьеров:</string>
-    <string name="mineInAll">Общее количество:</string>
+    <string name="mineWoodInAll">Лесопилок:</string>
+    <string name="mineStoneInAll">Рудников:</string>
+    <string name="mineSandInAll">Карьеров:</string>
+    <string name="mineInAll">Итого:</string>
     <string name="close">Закрыть</string>
     <string name="forExample">Например: "Лесопилка в парке" или "Рудник возле метро"</string>
     <string name="clay">Глины</string>
@@ -34,8 +34,8 @@
     <string name="stone">Камня</string>
     <string name="gold">Золота</string>
     <string name="openHQ">Открыть штаб</string>
-    <string name="buildingsOwner">Владелец построек</string>
-    <string name="buildingHQInAll">Всего штабов</string>
+    <string name="buildingsOwner">Владелец </string>
+    <string name="buildingHQInAll">Штабов</string>
     <string name="building_owner">Владелец здания</string>
     <string name="building_lvl">Уровень здания</string>
     <string name="building_type">Тип здания</string>

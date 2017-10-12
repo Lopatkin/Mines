@@ -173,7 +173,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         /* Define Location variable */
         Location loc = null;
 
-
         try {
 
             loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -498,7 +497,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                 newarkMap.image(BitmapDescriptorFactory.fromResource(R.drawable.headquoter));
 
                 GroundOverlayOptions newarkMapZone = new GroundOverlayOptions();
-//            String userGoogleEmail = MyApp.getMyDBase().getUserGoogleEmailByUserID(userID);
                 if (currentUserGoogleEmail.equals(userGoogleEmail)) {
                     newarkMapZone.image(BitmapDescriptorFactory.fromResource(R.drawable.hq_zone_green));
                 } else {

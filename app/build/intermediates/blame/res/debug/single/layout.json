@@ -68,6 +68,10 @@
         "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\layout\\activity_building_details.xml"
     },
     {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cardview_activity.xml",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\layout\\cardview_activity.xml"
+    },
+    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_fragment.xml",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\b6be08f78351399d2da5eca3a96f6a127f64f57d\\output\\res\\layout\\place_autocomplete_fragment.xml"
     },
@@ -270,6 +274,10 @@
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_controller_material_dialog_b.xml",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\layout\\mr_controller_material_dialog_b.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item.xml",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\layout\\item.xml"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",

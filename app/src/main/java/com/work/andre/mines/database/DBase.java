@@ -274,11 +274,13 @@ public class DBase extends DBSQLite {
 
         String strLat = String.valueOf(buildingLat);
         String strLng = String.valueOf(buildingLng);
+        String buildingID = getBuildingID(buildingLat, buildingLng);
 
         //......................................FIRESTORE......................................
         // Access a Cloud Firestore instance from your Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> newBuilding = new HashMap<>();
+        newBuilding.put("buildingID", buildingID);
         newBuilding.put("userGoogleEmail", userGoogleEmail);
         newBuilding.put("userNickName", userNickName);
         newBuilding.put("buildingType", buildingType);
@@ -289,7 +291,7 @@ public class DBase extends DBSQLite {
         newBuilding.put("buildingLng", strLng);
         newBuilding.put("buildingBuildDate", buildingBuildDate);
 
-        String buildingID = getBuildingID(buildingLat, buildingLng);
+
 
         db.collection(fbBuildings).document(buildingID).set(newBuilding);
 
