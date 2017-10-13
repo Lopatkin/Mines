@@ -52,8 +52,11 @@ import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbUsers;
 import static com.work.andre.mines.database.DBase.getBuildingCategoryByBuildingType;
+import static com.work.andre.mines.database.DBase.getUserNickNameOrDisplayNameByGoogleEmailWithSnapshot;
 
 public class ActBuildingDetails extends AppCompatActivity implements View.OnClickListener {
+
+    public static boolean isHQAviable;
 
     static long userGold;
     static long userWood;
@@ -280,7 +283,6 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                                     more = true;
                                     payIsOk = true;
 
-
                                     //Получаем стоимость постройки
                                     String bType = null;
                                     if (buildingType.equals(buildingTypeHQ)) {
@@ -355,6 +357,16 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
                                                     FirebaseFirestore db2 = FirebaseFirestore.getInstance();
                                                     DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
+                                                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                        @Override
+                                                        public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                                                            @Nullable FirebaseFirestoreException e) {
+
+                                                            if (snapshot != null && snapshot.exists()) {
+                                                                isHQAviable = snapshot.getBoolean("isHQAviable");
+                                                            }
+                                                        }
+                                                    });
 
                                                     more = false;
                                                     payIsOk = true;
@@ -371,15 +383,37 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                                         }
                                     }).start();
 
-                                    Toast.makeText(getBaseContext(), "Постройка удалена!", Toast.LENGTH_LONG).show();
+                                    if ((!isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
+
+                                        FirebaseFirestore dbU = FirebaseFirestore.getInstance();
+                                        DocumentReference uRef = dbU.collection(fbUsers).document(currentUserGoogleEmail);
+                                        uRef
+                                                .update("isHQAviable", true)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+//                                                                        Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+//                                                                        Log.w(TAG, "Error updating document", e);
+                                                    }
+                                                });
+                                    }
 
 
+
+
+
+                                    Toast.makeText(getBaseContext(), "Постройка снесена!", Toast.LENGTH_LONG).show();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getBaseContext(), "Постройка не удалена!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getBaseContext(), "Постройка не снесена!", Toast.LENGTH_LONG).show();
                                 }
                             });
 
@@ -403,12 +437,8 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         }
 
         if (v.getId() == R.id.btnRename) {
-
             renameBuilding();
-
-
         }
-
     }
 
     public void renameBuilding() {
@@ -429,7 +459,6 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
         mDialogNBuilder
                 .setCancelable(true)
-
                 .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -442,8 +471,6 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                     public void onClick(DialogInterface dialog, int which) {
                         newBuildingName = String.valueOf(etRenameBuildingName.getText());
                         tvBuildingName.setText(newBuildingName);
-
-
                     }
                 });
 

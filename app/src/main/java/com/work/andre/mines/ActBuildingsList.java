@@ -192,25 +192,7 @@ public class ActBuildingsList extends AppCompatActivity {
 
         //.....
         tvBuildingInAll.setText(String.valueOf(buildingAllCount));
-
-
-//
-//        lvBuildingList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
-//                                    long id) {
-//
-//                //Достаём объект на текущей позиции
-//                Object myBuildingObject = lvBuildingList.getItemAtPosition(position);
-//                //Кастим этот объект в объект класса Buildings
-//                Buildings myBuilding = (Buildings) myBuildingObject;
-//                //Получаем id этого объекта
-//                int myBuildingID = myBuilding.buildingID;
-//                goToCurrentBuildingLocationByBuildingID(myBuildingID);
-//            }
-//        });
     }
-
 
     private void initializeData() {
         buildingsList = new ArrayList<>();

@@ -26,11 +26,13 @@ public class ActHQ extends AppCompatActivity implements View.OnClickListener {
 
         currentUserNickName = getIntent().getStringExtra(USERGOOGLEEMAIL);
 
-        if (MyApp.getMyDBase().getHQAviable(currentUserNickName) == 0) {
-            imgHQ.setImageResource(hq2d_reconstruction);
-        } else {
-            imgHQ.setImageResource(hq2d);
-        }
+
+
+//        if (MyApp.getMyDBase().getHQAviable(currentUserNickName) == 0) {
+//            imgHQ.setImageResource(hq2d_reconstruction);
+//        } else {
+//            imgHQ.setImageResource(hq2d);
+//        }
     }
 
     public void initUI() {

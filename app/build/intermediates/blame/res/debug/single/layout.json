@@ -24,12 +24,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_help_text.xml",
@@ -232,12 +232,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\select_dialog_multichoice_material.xml"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rename_building_dialog.xml",
         "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\layout\\rename_building_dialog.xml"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",

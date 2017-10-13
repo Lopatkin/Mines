@@ -37,6 +37,8 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -73,8 +75,6 @@ import static com.work.andre.mines.database.DBase.canIputMyBuildHere;
 import static com.work.andre.mines.database.DBase.myTarget;
 import static com.work.andre.mines.database.DBase.minDistanceBetweenTwoBuildings;
 
-
-import static com.work.andre.mines.database.DBase.canIPutMyNewBuildingHere;
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbUsers;
 import static com.work.andre.mines.database.DBase.getBuildingCategoryByBuildingType;
@@ -159,6 +159,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     String currentUserNickName;
     String currentUserGoogleEmail;
 
+    public static boolean isHQAviable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -191,6 +193,9 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
                 if (snapshot != null && snapshot.exists()) {
                     currentUserNickName = getUserNickNameOrDisplayNameByGoogleEmailWithSnapshot(snapshot);
+
+                    isHQAviable = snapshot.getBoolean("isHQAviable");
+
                     updateUI();
                     setResourcesCount(snapshot);
                 }
@@ -415,7 +420,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         structureList.add(buildingTypeStone);
         structureList.add(buildingTypeClay);
 
-        if (MyApp.getMyDBase().getHQAviable(currentUserGoogleEmail) == 0) {
+        if (isHQAviable) {
             structureList.add(buildingTypeHQ);
         }
 
@@ -539,27 +544,43 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                                     more = false;
                                                     //Добавляем новую постройку
                                                     payIsOk = true;
+
+                                                    if ((isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
+
+                                                        FirebaseFirestore dbU = FirebaseFirestore.getInstance();
+                                                        DocumentReference uRef = dbU.collection(fbUsers).document(currentUserGoogleEmail);
+                                                        uRef
+                                                                .update("isHQAviable", false)
+                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                    @Override
+                                                                    public void onSuccess(Void aVoid) {
+//                                                                        Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                                                    }
+                                                                })
+                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                    @Override
+                                                                    public void onFailure(@NonNull Exception e) {
+//                                                                        Log.w(TAG, "Error updating document", e);
+                                                                    }
+                                                                });
+                                                    }
+
                                                     addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, buildingLat, buildingLng, buildingBuildDate);
 
                                                     for (Map.Entry entry : updatedData.entrySet()) {
                                                         documentReference.update(entry.getKey().toString(), entry.getValue());
                                                     }
 
-
                                                     if (!more) {
                                                         break;
                                                     }
-
                                                 }
                                             }
-
                                         }
                                     }
                                 }).start();
                             }
                         }
-
-
                 );
 
         AlertDialog alertDialog = mDialogNBuilder.create();

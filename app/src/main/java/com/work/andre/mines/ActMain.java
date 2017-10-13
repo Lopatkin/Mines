@@ -1,7 +1,6 @@
 package com.work.andre.mines;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -18,8 +17,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -27,18 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.android.gms.common.SignInButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-//import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.work.andre.mines.database.DBase;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -46,21 +34,13 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import static com.work.andre.mines.database.DBase.allowedEmail;
 import static com.work.andre.mines.database.DBase.fbUsers;
-import static com.work.andre.mines.database.DBase.fillTheBuildingsInfo;
-import static com.work.andre.mines.database.DBase.isTableBuildingsInfo;
-import static com.work.andre.mines.database.DBase.myRef;
 
 public class ActMain extends FragmentActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
-
-    static Boolean isNewUser = false;
 
     static String givenName;
     static String familyName;
     static String personName;
-
-    String allowedEmail;
 
     public static String email;
 
@@ -79,9 +59,7 @@ public class ActMain extends FragmentActivity implements View.OnClickListener, G
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (!isTableBuildingsInfo()) {
-            fillTheBuildingsInfo();
-        }
+
         this.initUI();
 
         btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
@@ -260,17 +238,16 @@ public class ActMain extends FragmentActivity implements View.OnClickListener, G
         DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, local);
         Date currentDate = new Date();
 
-        //......................................FIRESTORE......................................
-        // Access a Cloud Firestore instance from your Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> newUser = new HashMap<>();
         newUser.put("UserGoogleEmail", email);
         newUser.put("DisplayName", personName);
+        newUser.put("NickName", "");
         newUser.put("GivenName", givenName);
         newUser.put("FamilyName", familyName);
         newUser.put("Age", 0);
         newUser.put("Sex", "");
-        newUser.put("isHQAviable", 0);
+        newUser.put("isHQAviable", true);
         newUser.put("userGold", 1000);
         newUser.put("userWood", 100);
         newUser.put("userStone", 100);
@@ -278,8 +255,6 @@ public class ActMain extends FragmentActivity implements View.OnClickListener, G
         newUser.put("registrationDate", df.format(currentDate));
 
         db.collection(fbUsers).document(email).set(newUser);
-
-        //.....................................................................................
     }
 
     public void onBackPressed() {
