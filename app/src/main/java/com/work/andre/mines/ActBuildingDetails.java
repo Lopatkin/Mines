@@ -55,6 +55,22 @@ import static com.work.andre.mines.database.DBase.getBuildingCategoryByBuildingT
 
 public class ActBuildingDetails extends AppCompatActivity implements View.OnClickListener {
 
+    static long userGold;
+    static long userWood;
+    static long userStone;
+    static long userClay;
+
+    static long costGold;
+    static long costWood;
+    static long costStone;
+    static long costClay;
+
+    static boolean getCost;
+    static boolean getUserMoney;
+
+    static boolean more;
+    static boolean payIsOk;
+
     public static final String BUILDINGID = "buildingID";
     public static final String BUILDINGOWNERNICKNAME = "buildingOwnerNickName";
 
@@ -243,7 +259,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
             ad = new AlertDialog.Builder(context);
 
             String title = "Внимание!";
-            String message = "Вы действительно хотите удалить здание?";
+            String message = "Вы действительно хотите снести здание? Вы получите 50% от стоимости его последнего улучшения.";
             String button1String = "Да!";
             String button2String = "Нет, я передумал";
 
@@ -258,7 +274,106 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
+
+                                    getCost = false;
+                                    getUserMoney = false;
+                                    more = true;
+                                    payIsOk = true;
+
+
+                                    //Получаем стоимость постройки
+                                    String bType = null;
+                                    if (buildingType.equals(buildingTypeHQ)) {
+                                        bType = buildingTypeHQEn;
+                                    } else if (buildingType.equals(buildingTypeWood)) {
+                                        bType = buildingTypeWoodEn;
+                                    } else if (buildingType.equals(buildingTypeStone)) {
+                                        bType = buildingTypeStoneEn;
+                                    } else if (buildingType.equals(buildingTypeClay)) {
+                                        bType = buildingTypeClayEn;
+                                    }
+
+                                    FirebaseFirestore db9 = FirebaseFirestore.getInstance();
+                                    String doc = bType + buildingLVL;
+
+                                    DocumentReference bInfoRef = db9.collection("bInfo").document(doc);
+                                    bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    costGold = document.getLong("CostGold");
+                                                    costWood = document.getLong("CostWood");
+                                                    costStone = document.getLong("CostStone");
+                                                    costClay = document.getLong("CostClay");
+
+                                                    getCost = true;
+                                                }
+                                            }
+                                        }
+                                    });
+
+                                    //Получаем количество денег и ресурсов у пользователя
+                                    FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+                                    DocumentReference userRef = db1.collection("users").document(currentUserGoogleEmail);
+                                    userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    userGold = document.getLong("userGold");
+                                                    userWood = document.getLong("userWood");
+                                                    userStone = document.getLong("userStone");
+                                                    userClay = document.getLong("userClay");
+
+                                                    getUserMoney = true;
+                                                }
+                                            }
+                                        }
+                                    });
+
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            while (more) {
+                                                if ((getCost) && (getUserMoney)) {
+
+                                                    long returnGold = costGold / 2;
+                                                    long returnWood = costWood / 2;
+                                                    long returnStone = costStone / 2;
+                                                    long returnClay = costClay / 2;
+
+                                                    HashMap<String, Object> updatedData = new HashMap<>();
+                                                    updatedData.put("userGold", userGold + returnGold);
+                                                    updatedData.put("userWood", userWood + returnWood);
+                                                    updatedData.put("userStone", userStone + returnStone);
+                                                    updatedData.put("userClay", userClay + returnClay);
+
+                                                    FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                                                    DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
+
+                                                    more = false;
+                                                    payIsOk = true;
+
+                                                    for (Map.Entry entry : updatedData.entrySet()) {
+                                                        documentReference.update(entry.getKey().toString(), entry.getValue());
+                                                    }
+
+                                                    if (!more) {
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }).start();
+
                                     Toast.makeText(getBaseContext(), "Постройка удалена!", Toast.LENGTH_LONG).show();
+
+
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {

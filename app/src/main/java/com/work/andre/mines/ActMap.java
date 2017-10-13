@@ -159,6 +159,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
         this.initUI();
 
+
+
         //Храним здесь email текущего пользователя
         currentUserGoogleEmail = getIntent().getStringExtra(USERGOOGLEEMAIL);
 
@@ -452,6 +454,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                             }
                         });
 
+                        //Получаем количество денег и ресурсов у пользователя
                         FirebaseFirestore db1 = FirebaseFirestore.getInstance();
                         DocumentReference userRef = db1.collection("users").document(currentUserGoogleEmail);
                         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -500,16 +503,24 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                             for (Map.Entry entry : updatedData.entrySet()) {
                                                 documentReference.update(entry.getKey().toString(), entry.getValue());
                                             }
+
+
+                                            if (!more) {
+                                                break;
+                                            }
+
                                         }
                                     }
-                                    if (!more) {
-                                        break;
-                                    }
+
                                 }
                             }
                         }).start();
                     }
-                });
+                }
+
+
+
+                );
 
         AlertDialog alertDialog = mDialogNBuilder.create();
         alertDialog.show();
