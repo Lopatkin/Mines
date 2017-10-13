@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.location.LocationListener;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -43,6 +44,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.maps.android.SphericalUtil;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -67,7 +69,12 @@ import static com.work.andre.mines.database.DBase.buildingTypeHQEn;
 import static com.work.andre.mines.database.DBase.buildingTypeStoneEn;
 import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
 
+import static com.work.andre.mines.database.DBase.canIputMyBuildHere;
+import static com.work.andre.mines.database.DBase.myTarget;
+import static com.work.andre.mines.database.DBase.minDistanceBetweenTwoBuildings;
 
+
+import static com.work.andre.mines.database.DBase.canIPutMyNewBuildingHere;
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbUsers;
 import static com.work.andre.mines.database.DBase.getBuildingCategoryByBuildingType;
@@ -158,7 +165,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         setContentView(R.layout.activity_map);
 
         this.initUI();
-
 
 
         //Храним здесь email текущего пользователя
@@ -341,15 +347,50 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     @Override
     public void onMapLongClick(LatLng latLng) {
 
-//        if (MyApp.getMyDBase().canIPutMyNewBuildingHere(latLng)) {
-//            addNewBuildingDialog(latLng);
-//        } else {
-//            Toast toast = Toast.makeText(getApplicationContext(), "Слишком близко к соседней постройке!", Toast.LENGTH_SHORT);
-//            toast.show();
-//        }
+        canIputMyBuildHere = true;
+        myTarget = latLng;
 
-        addNewBuildingDialog(latLng);
+        FirebaseFirestore dbLoc = FirebaseFirestore.getInstance();
+        dbLoc.collection(fbBuildings)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
 
+                                String buildingLatStr;
+                                String buildingLngStr;
+
+                                buildingLatStr = (String) document.get("buildingLat");
+                                buildingLngStr = (String) document.get("buildingLng");
+
+                                double buildingLat;
+                                double buildingLng;
+
+                                buildingLat = Double.parseDouble(buildingLatStr);
+                                buildingLng = Double.parseDouble(buildingLngStr);
+
+                                LatLng myBuilding = new LatLng(buildingLat, buildingLng);
+
+                                if (SphericalUtil.computeDistanceBetween(myTarget, myBuilding) < minDistanceBetweenTwoBuildings) {
+                                    canIputMyBuildHere = false;
+                                }
+//                                Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+
+                            if (canIputMyBuildHere) {
+                                addNewBuildingDialog(myTarget);
+
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Слишком близко к соседней постройке!", Toast.LENGTH_SHORT).show();
+                            }
+
+                        } else {
+//                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 
     public void addNewBuildingDialog(final LatLng latLng) {
@@ -396,128 +437,127 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                 })
 
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        LatLng target = new LatLng(latLng.latitude, latLng.longitude);
-
-                        //Заполняем поля для записи постройки
-                        buildingType = spnrBuildingTypesList.getSelectedItem().toString();                  //Тип постройки
-                        buildingName = etBuildingName.getText().toString();                                  //Название постройки
-                        structureLVL = 1;                                                                    //Уровень постройки
-                        buildingLat = target.latitude;                                                   //Координата Lat
-                        buildingLng = target.longitude;                                                  //Координата Lng
-
-                        buildingCategory = getBuildingCategoryByBuildingType(buildingType);
-
-                        Locale local = new Locale("ru", "RU");
-                        DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, local);
-                        Date currentDate = new Date();
-                        buildingBuildDate = df.format(currentDate);                                      //Дата постройки (текущая)
-
-                        getCost = false;
-                        getUserMoney = false;
-                        more = true;
-                        payIsOk = true;
-
-                        //Оплачиваем постройку
-                        String bType = null;
-                        if (buildingType.equals(buildingTypeHQ)) {
-                            bType = buildingTypeHQEn;
-                        } else if (buildingType.equals(buildingTypeWood)) {
-                            bType = buildingTypeWoodEn;
-                        } else if (buildingType.equals(buildingTypeStone)) {
-                            bType = buildingTypeStoneEn;
-                        } else if (buildingType.equals(buildingTypeClay)) {
-                            bType = buildingTypeClayEn;
-                        }
-
-                        //Получаем стоимость постройки
-                        FirebaseFirestore db = FirebaseFirestore.getInstance();
-                        String doc = bType + structureLVL;
-
-                        DocumentReference bInfoRef = db.collection("bInfo").document(doc);
-                        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            public void onClick(DialogInterface dialog, int which) {
+                                LatLng target = new LatLng(latLng.latitude, latLng.longitude);
 
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        costGold = document.getLong("CostGold");
-                                        costWood = document.getLong("CostWood");
-                                        costStone = document.getLong("CostStone");
-                                        costClay = document.getLong("CostClay");
+                                //Заполняем поля для записи постройки
+                                buildingType = spnrBuildingTypesList.getSelectedItem().toString();                  //Тип постройки
+                                buildingName = etBuildingName.getText().toString();                                  //Название постройки
+                                structureLVL = 1;                                                                    //Уровень постройки
+                                buildingLat = target.latitude;                                                   //Координата Lat
+                                buildingLng = target.longitude;                                                  //Координата Lng
 
-                                        getCost = true;
-                                    }
+                                buildingCategory = getBuildingCategoryByBuildingType(buildingType);
+
+                                Locale local = new Locale("ru", "RU");
+                                DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, local);
+                                Date currentDate = new Date();
+                                buildingBuildDate = df.format(currentDate);                                      //Дата постройки (текущая)
+
+                                getCost = false;
+                                getUserMoney = false;
+                                more = true;
+                                payIsOk = true;
+
+                                //Оплачиваем постройку
+                                String bType = null;
+                                if (buildingType.equals(buildingTypeHQ)) {
+                                    bType = buildingTypeHQEn;
+                                } else if (buildingType.equals(buildingTypeWood)) {
+                                    bType = buildingTypeWoodEn;
+                                } else if (buildingType.equals(buildingTypeStone)) {
+                                    bType = buildingTypeStoneEn;
+                                } else if (buildingType.equals(buildingTypeClay)) {
+                                    bType = buildingTypeClayEn;
                                 }
-                            }
-                        });
 
-                        //Получаем количество денег и ресурсов у пользователя
-                        FirebaseFirestore db1 = FirebaseFirestore.getInstance();
-                        DocumentReference userRef = db1.collection("users").document(currentUserGoogleEmail);
-                        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                //Получаем стоимость постройки
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                String doc = bType + structureLVL;
 
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        userGold = document.getLong("userGold");
-                                        userWood = document.getLong("userWood");
-                                        userStone = document.getLong("userStone");
-                                        userClay = document.getLong("userClay");
+                                DocumentReference bInfoRef = db.collection("bInfo").document(doc);
+                                bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-                                        getUserMoney = true;
-                                    }
-                                }
-                            }
-                        });
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task.getResult();
+                                            if (document.exists()) {
+                                                costGold = document.getLong("CostGold");
+                                                costWood = document.getLong("CostWood");
+                                                costStone = document.getLong("CostStone");
+                                                costClay = document.getLong("CostClay");
 
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                while (more) {
-                                    if ((getCost) && (getUserMoney)) {
-
-                                        if (((costGold > 0) && (userGold >= costGold)) ||
-                                                ((costWood > 0) && (userWood >= costWood)) ||
-                                                ((costStone > 0) && (userStone > costStone)) ||
-                                                ((costClay > 0) && (userClay > costClay))) {
-
-                                            HashMap<String, Object> updatedData = new HashMap<>();
-                                            updatedData.put("userGold", userGold - costGold);
-                                            updatedData.put("userWood", userWood - costWood);
-                                            updatedData.put("userStone", userStone - costStone);
-                                            updatedData.put("userClay", userClay - costClay);
-
-                                            FirebaseFirestore db2 = FirebaseFirestore.getInstance();
-                                            DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
-
-                                            more = false;
-                                            //Добавляем новую постройку
-                                            payIsOk = true;
-                                            addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, buildingLat, buildingLng, buildingBuildDate);
-
-                                            for (Map.Entry entry : updatedData.entrySet()) {
-                                                documentReference.update(entry.getKey().toString(), entry.getValue());
+                                                getCost = true;
                                             }
+                                        }
+                                    }
+                                });
+
+                                //Получаем количество денег и ресурсов у пользователя
+                                FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+                                DocumentReference userRef = db1.collection("users").document(currentUserGoogleEmail);
+                                userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task.getResult();
+                                            if (document.exists()) {
+                                                userGold = document.getLong("userGold");
+                                                userWood = document.getLong("userWood");
+                                                userStone = document.getLong("userStone");
+                                                userClay = document.getLong("userClay");
+
+                                                getUserMoney = true;
+                                            }
+                                        }
+                                    }
+                                });
+
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        while (more) {
+                                            if ((getCost) && (getUserMoney)) {
+
+                                                if (((costGold > 0) && (userGold >= costGold)) ||
+                                                        ((costWood > 0) && (userWood >= costWood)) ||
+                                                        ((costStone > 0) && (userStone > costStone)) ||
+                                                        ((costClay > 0) && (userClay > costClay))) {
+
+                                                    HashMap<String, Object> updatedData = new HashMap<>();
+                                                    updatedData.put("userGold", userGold - costGold);
+                                                    updatedData.put("userWood", userWood - costWood);
+                                                    updatedData.put("userStone", userStone - costStone);
+                                                    updatedData.put("userClay", userClay - costClay);
+
+                                                    FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                                                    DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
+
+                                                    more = false;
+                                                    //Добавляем новую постройку
+                                                    payIsOk = true;
+                                                    addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, buildingLat, buildingLng, buildingBuildDate);
+
+                                                    for (Map.Entry entry : updatedData.entrySet()) {
+                                                        documentReference.update(entry.getKey().toString(), entry.getValue());
+                                                    }
 
 
-                                            if (!more) {
-                                                break;
+                                                    if (!more) {
+                                                        break;
+                                                    }
+
+                                                }
                                             }
 
                                         }
                                     }
-
-                                }
+                                }).start();
                             }
-                        }).start();
-                    }
-                }
-
+                        }
 
 
                 );

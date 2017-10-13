@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -20,7 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.maps.android.SphericalUtil;
 import com.work.andre.mines.MyApp;
@@ -30,11 +33,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.work.andre.mines.ActBuildingDetails.buildingID;
 
 
 public class DBase extends DBSQLite {
 
     public static long myPrice;
+    public static LatLng myTarget;
+
+    public static boolean canIputMyBuildHere;
 
     //FIREBASE
     public static DatabaseReference myRef;
@@ -52,7 +59,7 @@ public class DBase extends DBSQLite {
 
     private static final String SQL_WHERE_BY_ID = BaseColumns._ID + "=?"; //НазваниеКолонки_id=?
 
-    double minDistanceBetweenTwoBuildings = 100.0; //Минимальное расстояние между шахтами
+    public static double minDistanceBetweenTwoBuildings = 100.0; //Минимальное расстояние между шахтами
 
     int userStartGold = 1000;
     int userStartWood = 100;
@@ -532,22 +539,102 @@ public class DBase extends DBSQLite {
     }
 
     //    //Проверка можно ли поставить здесь свою постройку, допустимо ли расстояние от соседних построек
-    public boolean canIPutMyNewBuildingHere(LatLng target) {
-        Cursor cr = MyApp.getMyDBase().getReadableCursor(BuildingsListTable.TABLE_BUILDINGS_LIST);
-        if (cr.moveToFirst()) {
-            do {
-                int col_buildingLat = cr.getColumnIndex(BuildingsListTable.COLUMN_BUILDING_LAT);
-                int col_buildingLng = cr.getColumnIndex(BuildingsListTable.COLUMN_BUILDING_LNG);
+    public static boolean canIPutMyNewBuildingHere(LatLng target) {
 
-                LatLng myBuilding = new LatLng(cr.getDouble(col_buildingLat), cr.getDouble(col_buildingLng));
+        canIputMyBuildHere = false;
 
-                if (SphericalUtil.computeDistanceBetween(target, myBuilding) < minDistanceBetweenTwoBuildings) {
-                    return false;
-                }
-            } while (cr.moveToNext());
-        }
-        cr.close();
-        return true;
+        myTarget = target;
+
+        FirebaseFirestore dbLoc = FirebaseFirestore.getInstance();
+
+        dbLoc.collection(fbBuildings)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
+
+                                String buildingLatStr;
+                                String buildingLngStr;
+
+                                buildingLatStr = (String) document.get("buildingLat");
+                                buildingLngStr = (String) document.get("buildingLng");
+
+                                double buildingLat;
+                                double buildingLng;
+
+                                buildingLat = Double.parseDouble(buildingLatStr);
+                                buildingLng = Double.parseDouble(buildingLngStr);
+
+                                LatLng myBuilding = new LatLng(buildingLat, buildingLng);
+
+                                if (SphericalUtil.computeDistanceBetween(myTarget, myBuilding) > minDistanceBetweenTwoBuildings) {
+                                    canIputMyBuildHere = true;
+                                }
+
+
+//                                Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+                        } else {
+//                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+//
+//        dbLoc.collection(fbBuildings)
+//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable QuerySnapshot value,
+//                                        @Nullable FirebaseFirestoreException e) {
+//                        if (e != null) {
+////                            Log.w(TAG, "Listen failed.", e);
+//                            return;
+//                        }
+//
+//                        for (final DocumentSnapshot doc : value) {
+//
+//                            String buildingLatStr;
+//                            String buildingLngStr;
+//
+//                            buildingLatStr = (String) doc.get("buildingLat");
+//                            buildingLngStr = (String) doc.get("buildingLng");
+//
+//                            double buildingLat;
+//                            double buildingLng;
+//
+//                            buildingLat = Double.parseDouble(buildingLatStr);
+//                            buildingLng = Double.parseDouble(buildingLngStr);
+//
+//                            LatLng myBuilding = new LatLng(buildingLat, buildingLng);
+//
+//                            if (SphericalUtil.computeDistanceBetween(myTarget, myBuilding) > minDistanceBetweenTwoBuildings) {
+//                                canIputMyBuildHere = true;
+//                            }
+//
+//                        }
+////                        Log.d(TAG, "Current cites in CA: " + cities);
+//                    }
+//                });
+
+        return canIputMyBuildHere;
+
+//        Cursor cr = MyApp.getMyDBase().getReadableCursor(BuildingsListTable.TABLE_BUILDINGS_LIST);
+//        if (cr.moveToFirst()) {
+//            do {
+//                int col_buildingLat = cr.getColumnIndex(BuildingsListTable.COLUMN_BUILDING_LAT);
+//                int col_buildingLng = cr.getColumnIndex(BuildingsListTable.COLUMN_BUILDING_LNG);
+//
+//                LatLng myBuilding = new LatLng(cr.getDouble(col_buildingLat), cr.getDouble(col_buildingLng));
+//
+//                if (SphericalUtil.computeDistanceBetween(target, myBuilding) < minDistanceBetweenTwoBuildings) {
+//                    return false;
+//                }
+//            } while (cr.moveToNext());
+//        }
+//        cr.close();
+//        return true;
     }
 
 //**************************************************************************************
