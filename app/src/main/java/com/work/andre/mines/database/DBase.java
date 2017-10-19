@@ -16,6 +16,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.maps.android.SphericalUtil;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -93,7 +94,7 @@ public class DBase {
     }
 
     //Добавить новую постройку
-    public static void addNewBuilding(String userNickName, String userGoogleEmail, String buildingType, String buildingCategory, String buildingName, long buildingLVL, double buildingLat, double buildingLng, String buildingBuildDate) {
+    public static void addNewBuilding(String userNickName, String userGoogleEmail, String buildingType, String buildingCategory, String buildingName, long buildingLVL, long incomeGold, long incomeWood, long incomeStone, long incomeClay, double buildingLat, double buildingLng, String buildingBuildDate) {
         String strLat = String.valueOf(buildingLat);
         String strLng = String.valueOf(buildingLng);
         String buildingID = getBuildingID(buildingLat, buildingLng);
@@ -107,6 +108,10 @@ public class DBase {
         newBuilding.put("buildingCategory", buildingCategory);
         newBuilding.put("buildingName", buildingName);
         newBuilding.put("buildingLVL", buildingLVL);
+        newBuilding.put("incomeGold", incomeGold);
+        newBuilding.put("incomeWood", incomeWood);
+        newBuilding.put("incomeStone", incomeStone);
+        newBuilding.put("incomeClay", incomeClay);
         newBuilding.put("buildingLat", strLat);
         newBuilding.put("buildingLng", strLng);
         newBuilding.put("buildingBuildDate", buildingBuildDate);

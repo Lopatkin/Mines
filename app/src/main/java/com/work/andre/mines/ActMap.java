@@ -107,7 +107,12 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     static long costStone;
     static long costClay;
 
-    static boolean getCost;
+    static long incomeGold;
+    static long incomeWood;
+    static long incomeStone;
+    static long incomeClay;
+
+    static boolean getCostAndIncome;
     static boolean getUserMoney;
 
     static boolean more;
@@ -142,6 +147,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     TextView tvUserWood;
     TextView tvUserStone;
     TextView tvUserClay;
+    TextView tvTurnOnGPS;
     Button btnHQ;
     Button btnBuildings;
     Button btnMines;
@@ -219,6 +225,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         /* Define Location variable */
         Location loc = null;
 
+        tvTurnOnGPS.setVisibility(View.INVISIBLE);
+
         try {
 
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -230,6 +238,9 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
 //                return TODO;
+                tvTurnOnGPS.setVisibility(View.VISIBLE);
+
+                Toast.makeText(getBaseContext(), "АААА!!!!", Toast.LENGTH_LONG).show();
             }
             loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (loc != null) {
@@ -268,6 +279,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     private class LocListener implements LocationListener {
         @Override
         public void onLocationChanged(Location location) {
+            tvTurnOnGPS.setVisibility(View.INVISIBLE);
             if (ActivityCompat.checkSelfPermission(getBaseContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getBaseContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions
@@ -276,6 +288,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                 //                                          int[] grantResults)
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
+                tvTurnOnGPS.setVisibility(View.VISIBLE);
                 return;
             }
             myLocation = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -292,7 +305,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         @Override
         public void onProviderDisabled(String provider) {
         }
-
     }
 
     public void initUI() {
@@ -301,6 +313,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         tvUserWood = (TextView) findViewById(R.id.tvUserWoodInfo);
         tvUserStone = (TextView) findViewById(R.id.tvUserStoneInfo);
         tvUserClay = (TextView) findViewById(R.id.tvUserClayInfo);
+        tvTurnOnGPS = (TextView) findViewById(R.id.tvTurnOnGPS);
+        tvTurnOnGPS.setVisibility(View.INVISIBLE);
 
         btnHQ = (Button) findViewById(R.id.btnHQ);
         btnHQ.setOnClickListener(this);
@@ -317,7 +331,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.frMap);
         mapFragment.getMapAsync(this);
-
     }
 
     @Override
@@ -460,7 +473,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                 Date currentDate = new Date();
                                 buildingBuildDate = df.format(currentDate);                                      //Дата постройки (текущая)
 
-                                getCost = false;
+                                getCostAndIncome = false;
                                 getUserMoney = false;
                                 more = true;
                                 payIsOk = true;
@@ -494,7 +507,12 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                                 costStone = document.getLong("CostStone");
                                                 costClay = document.getLong("CostClay");
 
-                                                getCost = true;
+                                                incomeGold = document.getLong("IncomeGold");
+                                                incomeWood = document.getLong("IncomeWood");
+                                                incomeStone = document.getLong("IncomeStone");
+                                                incomeClay = document.getLong("IncomeClay");
+
+                                                getCostAndIncome = true;
                                             }
                                         }
                                     }
@@ -525,7 +543,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                     @Override
                                     public void run() {
                                         while (more) {
-                                            if ((getCost) && (getUserMoney)) {
+                                            if ((getCostAndIncome) && (getUserMoney)) {
 
                                                 if (((costGold > 0) && (userGold >= costGold)) ||
                                                         ((costWood > 0) && (userWood >= costWood)) ||
@@ -547,25 +565,40 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
                                                     if ((isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
 
-                                                        FirebaseFirestore dbU = FirebaseFirestore.getInstance();
-                                                        DocumentReference uRef = dbU.collection(fbUsers).document(currentUserGoogleEmail);
-                                                        uRef
+                                                        FirebaseFirestore dbU1 = FirebaseFirestore.getInstance();
+                                                        DocumentReference washingtonRef = dbU1.collection(fbUsers).document(currentUserGoogleEmail);
+                                                        washingtonRef
                                                                 .update("isHQAviable", false)
                                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                     @Override
                                                                     public void onSuccess(Void aVoid) {
-//                                                                        Log.d(TAG, "DocumentSnapshot successfully updated!");
                                                                     }
                                                                 })
                                                                 .addOnFailureListener(new OnFailureListener() {
                                                                     @Override
                                                                     public void onFailure(@NonNull Exception e) {
-//                                                                        Log.w(TAG, "Error updating document", e);
                                                                     }
                                                                 });
+
+//                                                        FirebaseFirestore dbU = FirebaseFirestore.getInstance();
+//                                                        DocumentReference uRef = dbU.collection(fbUsers).document(currentUserGoogleEmail);
+//                                                        uRef
+//                                                                .update("isHQAviable", false)
+//                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                                                    @Override
+//                                                                    public void onSuccess(Void aVoid) {
+////                                                                        Log.d(TAG, "DocumentSnapshot successfully updated!");
+//                                                                    }
+//                                                                })
+//                                                                .addOnFailureListener(new OnFailureListener() {
+//                                                                    @Override
+//                                                                    public void onFailure(@NonNull Exception e) {
+////                                                                        Log.w(TAG, "Error updating document", e);
+//                                                                    }
+//                                                                });
                                                     }
 
-                                                    addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, buildingLat, buildingLng, buildingBuildDate);
+                                                    addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, incomeGold, incomeWood, incomeStone, incomeClay, buildingLat, buildingLng, buildingBuildDate);
 
                                                     for (Map.Entry entry : updatedData.entrySet()) {
                                                         documentReference.update(entry.getKey().toString(), entry.getValue());

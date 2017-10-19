@@ -36,12 +36,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_volume_off_grey600_36.png"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png",
-        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_stop_grey600_36.png",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_stop_grey600_36.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable-xhdpi-v4\\ic_media_play_light.png"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_mr_button_connected_13_light.png",
-        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_13_light.png"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_mr_button_connected_13_light.png",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_13_light.png"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_mr_button_connecting_18_dark.png",
@@ -128,12 +128,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_play_circle_filled_grey600_36.png"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_stop_grey600_48.png",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_stop_grey600_48.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png",
@@ -152,12 +152,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_pause_circle_filled_white_36.png"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_art_track_grey600_48.png",
-        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_art_track_grey600_48.png"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_pause_white_24.png",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_pause_white_24.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_art_track_grey600_48.png",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\598341204fa946a0930d7bb0f84206f573a7cd50\\output\\res\\drawable-xhdpi-v4\\quantum_ic_art_track_grey600_48.png"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_forward_30_grey600_36.png",
@@ -272,12 +272,12 @@
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_08_light.png"
     },
     {
-        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_mr_button_connected_02_light.png",
-        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_02_light.png"
-    },
-    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_full_open_on_phone.png",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\\output\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_mr_button_connected_02_light.png",
+        "source": "C:\\Users\\Андрей\\.android\\build-cache\\b5318505f60efedb04344e31a38f651058a6ae7d\\output\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_02_light.png"
     },
     {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\quantum_ic_clear_white_24.png",

@@ -44,43 +44,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ActMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="247" column="30" selection-start-line="247" selection-start-column="30" selection-end-line="247" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActMap.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ActMap.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="547" column="46" selection-start-line="547" selection-start-column="46" selection-end-line="565" selection-end-column="53" />
+            <state relative-caret-position="43">
+              <caret line="565" column="82" selection-start-line="565" selection-start-column="82" selection-end-line="565" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7384#7952#0" expanded="true" />
-                <element signature="e#7951#7952#0" expanded="true" />
                 <element signature="method#setResourcesCount#0;class#ActMap#0" expanded="false" />
-                <element signature="method#getMyGPS#0;class#ActMap#0" expanded="false" />
                 <element signature="method#onInfoWindowClick#0;class#ActMap#0" expanded="false" />
-                <element signature="class#LocListener#0;class#ActMap#0" expanded="false" />
-                <element signature="method#initUI#0;class#ActMap#0" expanded="false" />
+                <element signature="method#onLocationChanged#0;class#LocListener#0;class#ActMap#0" expanded="false" />
+                <element signature="e#11456#11481#0" expanded="false" />
                 <element signature="method#onClick#0;class#ActMap#0" expanded="false" />
                 <element signature="method#onMapLongClick#0;class#ActMap#0" expanded="false" />
-                <element signature="e#25446#25923#0" expanded="true" />
-                <element signature="e#25922#25923#0" expanded="true" />
-                <element signature="e#26011#26480#0" expanded="true" />
-                <element signature="e#26479#26480#0" expanded="true" />
-                <element signature="method#onMapReady#0;class#ActMap#0" expanded="false" />
-                <element signature="method#loadBuildings#0;class#ActMap#0" expanded="false" />
+                <element signature="class#26445:26790" expanded="false" />
+                <element signature="class#26882:27231" expanded="false" />
+                <element signature="e#27235#27349#0" expanded="false" />
                 <element signature="method#setupBuilding#0;class#ActMap#0" expanded="false" />
                 <element signature="method#onConnectionFailed#0;class#ActMap#0" expanded="false" />
-                <element signature="method#onResume#0;class#ActMap#0" expanded="false" />
                 <element signature="method#onPause#0;class#ActMap#0" expanded="false" />
                 <element signature="method#onBackPressed#0;class#ActMap#0" expanded="false" />
                 <element signature="method#openQuitDialog#0;class#ActMap#0" expanded="false" />
@@ -89,63 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActBuildingDetails.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java">
+      <file leaf-file-name="ActBuildingsList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingsList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="388" column="60" selection-start-line="388" selection-start-column="60" selection-end-line="388" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#updateData#0;class#ActBuildingDetails#0" expanded="false" />
-                <element signature="method#initUI#0;class#ActBuildingDetails#0" expanded="false" />
-                <element signature="e#16699#17429#0" expanded="true" />
-                <element signature="e#17428#17429#0" expanded="true" />
-                <element signature="e#18732#19145#0" expanded="true" />
-                <element signature="e#19144#19145#0" expanded="true" />
-                <element signature="e#19217#19622#0" expanded="true" />
-                <element signature="e#19621#19622#0" expanded="true" />
-                <element signature="method#renameBuilding#0;class#ActBuildingDetails#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActHQ.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActHQ.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-              <folding>
-                <marker date="1507903236150" expanded="true" signature="809:1013" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/database/DBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getBuildingCategoryByBuildingType#0;class#DBase#0" expanded="false" />
-                <element signature="method#getBuildingID#0;class#DBase#0" expanded="false" />
-                <element signature="method#getBuildingID#1;class#DBase#0" expanded="false" />
-                <element signature="e#4712#4801#0" expanded="false" />
-                <element signature="method#getUserResources#0;class#DBase#0" expanded="false" />
-                <element signature="method#getUserResourcesWithSnapshot#0;class#DBase#0" expanded="false" />
-                <element signature="method#getUserNickNameOrDisplayNameByGoogleEmail#0;class#DBase#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyApp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/MyApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="3315">
+              <caret line="243" column="35" selection-start-line="243" selection-start-column="35" selection-end-line="243" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -746,11 +675,6 @@
                 <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuthApiPhone1142Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:cardview-v7:21.0.3" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportCardviewV72103Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Displays the dependent components of components in root project 'Mines'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependentComponents" />
@@ -847,6 +771,11 @@
                 <option name="description" value="Prepare com.google.android.gms:play-services-cast-license:11.4.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComGoogleAndroidGmsPlayServicesCastLicense1142Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:cardview-v7:25.3.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComAndroidSupportCardviewV72531Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.google.firebase:firebase-storage-common-license:11.4.2" />
@@ -1160,11 +1089,6 @@
                 <option name="name" value="preReleaseBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:recyclerview-v7:21.0.3" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportRecyclerviewV72103Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="transformClassesWithMultidexlistForRelease" />
               </ExternalTaskPojo>
@@ -1198,6 +1122,11 @@
                 <option name="description" value="Prepare com.google.android.gms:play-services-iid-license:11.4.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComGoogleAndroidGmsPlayServicesIidLicense1142Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:recyclerview-v7:25.3.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComAndroidSupportRecyclerviewV72531Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -2058,11 +1987,6 @@
                 <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuthApiPhone1142Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:cardview-v7:21.0.3" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportCardviewV72103Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Displays the dependent components of components in project ':app'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="dependentComponents" />
@@ -2159,6 +2083,11 @@
                 <option name="description" value="Prepare com.google.android.gms:play-services-cast-license:11.4.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareComGoogleAndroidGmsPlayServicesCastLicense1142Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:cardview-v7:25.3.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComAndroidSupportCardviewV72531Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.google.firebase:firebase-storage-common-license:11.4.2" />
@@ -2467,11 +2396,6 @@
                 <option name="name" value="preReleaseBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:recyclerview-v7:21.0.3" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportRecyclerviewV72103Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="transformClassesWithMultidexlistForRelease" />
               </ExternalTaskPojo>
@@ -2505,6 +2429,11 @@
                 <option name="description" value="Prepare com.google.android.gms:play-services-iid-license:11.4.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareComGoogleAndroidGmsPlayServicesIidLicense1142Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:recyclerview-v7:25.3.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComAndroidSupportRecyclerviewV72531Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -2821,7 +2750,7 @@
       <map>
         <entry key="D:\Documents\GeekBrains\A2_Lesson01_01" value="4483325449596" />
         <entry key="D:\GoogleDisk\GeekBrains\Android\Android2\lesson1\A2_Lesson01_01" value="4486006996959" />
-        <entry key="D:\GoogleDisk\Mines" value="4509275479442" />
+        <entry key="D:\GoogleDisk\Mines" value="4511114889115" />
         <entry key="D:\GoogleDisk\Mines1" value="4496266799154" />
       </map>
     </option>
@@ -3183,7 +3112,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_mines.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/CostomCursorAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/CustomCursorAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/database/DBSQLite.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_my_mines.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mines.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mine_details.xml" />
@@ -3202,31 +3130,32 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildings.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMines.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/raw/style_json.json" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActSettings.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v11/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/RVAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_buildings_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/Buildings.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/rename_building_dialog.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_building_details.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingsList.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/database/DBase.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/MyApp.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActHQ.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMain.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMap.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/database/DBase.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_map.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingsList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/database/DBSQLite.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMap.java" />
       </list>
     </option>
   </component>
@@ -3286,10 +3215,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane />
       </pane>
@@ -3300,17 +3225,75 @@
               <option name="myItemId" value="Mines" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mines" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mines" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mines" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mines" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mines" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="D:/Program Files/Coding/AndroidSDK" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Mines_11102017" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Mines_03102017_end_of_realtime BD" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.2.0" />
     <property name="device.picker.selection" value="Nexus_5X_API_22_Lolipop" />
     <property name="android.project.structure.last.selected" value="app" />
@@ -3668,7 +3651,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="738" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3224138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3746,12 +3729,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="95" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMap.java</url>
+          <line>565</line>
+          <properties />
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="96" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/work/andre/mines/R.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/style_json.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -3770,13 +3760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -3822,14 +3805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -3844,13 +3819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -3858,36 +3826,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding>
-            <element signature="e#924#942#0" expanded="true" />
-            <element signature="e#1064#1082#0" expanded="true" />
-            <element signature="e#1658#1697#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_map.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3924,20 +3866,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/RVAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="51" column="87" selection-start-line="51" selection-start-column="87" selection-end-line="51" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1050#1051#0" expanded="false" />
-            <element signature="e#1092#1093#0" expanded="false" />
-            <element signature="e#1925#1926#0" expanded="false" />
-            <element signature="e#1964#1965#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -3968,14 +3896,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/Buildings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.android/build-cache/362f070b0f8657fd0ad8c93604a8ca7fdc36fb28/output/jars/classes.jar!/com/google/android/gms/tasks/zzf.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -3992,13 +3912,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/rename_building_dialog.xml">
@@ -4088,46 +4001,147 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingsList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#initUI#0;class#ActBuildingsList#0" expanded="false" />
-            <element signature="method#updateData#0;class#ActBuildingsList#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/MyApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActHQ.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="391">
           <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
+            <element signature="imports" expanded="false" />
             <marker date="1507903236150" expanded="true" signature="809:1013" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="384" column="0" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#updateData#0;class#ActBuildingDetails#0" expanded="false" />
+            <element signature="method#initUI#0;class#ActBuildingDetails#0" expanded="false" />
+            <element signature="e#19217#19622#0" expanded="false" />
+            <element signature="e#19621#19622#0" expanded="false" />
+            <element signature="method#renameBuilding#0;class#ActBuildingDetails#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="247" column="30" selection-start-line="247" selection-start-column="30" selection-end-line="247" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/RVAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1092#1093#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/Buildings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="56" column="95" selection-start-line="56" selection-start-column="95" selection-end-line="56" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_map.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3315">
+          <caret line="243" column="35" selection-start-line="243" selection-start-column="35" selection-end-line="243" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/database/DBSQLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/database/DBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+        <state relative-caret-position="-71">
+          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#getBuildingCategoryByBuildingType#0;class#DBase#0" expanded="false" />
             <element signature="method#getBuildingID#0;class#DBase#0" expanded="false" />
             <element signature="method#getBuildingID#1;class#DBase#0" expanded="false" />
-            <element signature="e#4712#4801#0" expanded="false" />
+            <element signature="e#4988#5077#0" expanded="false" />
             <element signature="method#getUserResources#0;class#DBase#0" expanded="false" />
             <element signature="method#getUserResourcesWithSnapshot#0;class#DBase#0" expanded="false" />
             <element signature="method#getUserNickNameOrDisplayNameByGoogleEmail#0;class#DBase#0" expanded="false" />
@@ -4135,62 +4149,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="247" column="30" selection-start-line="247" selection-start-column="30" selection-end-line="247" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="547" column="46" selection-start-line="547" selection-start-column="46" selection-end-line="565" selection-end-column="53" />
+        <state relative-caret-position="43">
+          <caret line="565" column="82" selection-start-line="565" selection-start-column="82" selection-end-line="565" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7384#7952#0" expanded="true" />
-            <element signature="e#7951#7952#0" expanded="true" />
             <element signature="method#setResourcesCount#0;class#ActMap#0" expanded="false" />
-            <element signature="method#getMyGPS#0;class#ActMap#0" expanded="false" />
             <element signature="method#onInfoWindowClick#0;class#ActMap#0" expanded="false" />
-            <element signature="class#LocListener#0;class#ActMap#0" expanded="false" />
-            <element signature="method#initUI#0;class#ActMap#0" expanded="false" />
+            <element signature="method#onLocationChanged#0;class#LocListener#0;class#ActMap#0" expanded="false" />
+            <element signature="e#11456#11481#0" expanded="false" />
             <element signature="method#onClick#0;class#ActMap#0" expanded="false" />
             <element signature="method#onMapLongClick#0;class#ActMap#0" expanded="false" />
-            <element signature="e#25446#25923#0" expanded="true" />
-            <element signature="e#25922#25923#0" expanded="true" />
-            <element signature="e#26011#26480#0" expanded="true" />
-            <element signature="e#26479#26480#0" expanded="true" />
-            <element signature="method#onMapReady#0;class#ActMap#0" expanded="false" />
-            <element signature="method#loadBuildings#0;class#ActMap#0" expanded="false" />
+            <element signature="class#26445:26790" expanded="false" />
+            <element signature="class#26882:27231" expanded="false" />
+            <element signature="e#27235#27349#0" expanded="false" />
             <element signature="method#setupBuilding#0;class#ActMap#0" expanded="false" />
             <element signature="method#onConnectionFailed#0;class#ActMap#0" expanded="false" />
-            <element signature="method#onResume#0;class#ActMap#0" expanded="false" />
             <element signature="method#onPause#0;class#ActMap#0" expanded="false" />
             <element signature="method#onBackPressed#0;class#ActMap#0" expanded="false" />
             <element signature="method#openQuitDialog#0;class#ActMap#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/work/andre/mines/ActBuildingDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="388" column="60" selection-start-line="388" selection-start-column="60" selection-end-line="388" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#updateData#0;class#ActBuildingDetails#0" expanded="false" />
-            <element signature="method#initUI#0;class#ActBuildingDetails#0" expanded="false" />
-            <element signature="e#16699#17429#0" expanded="true" />
-            <element signature="e#17428#17429#0" expanded="true" />
-            <element signature="e#18732#19145#0" expanded="true" />
-            <element signature="e#19144#19145#0" expanded="true" />
-            <element signature="e#19217#19622#0" expanded="true" />
-            <element signature="e#19621#19622#0" expanded="true" />
-            <element signature="method#renameBuilding#0;class#ActBuildingDetails#0" expanded="false" />
           </folding>
         </state>
       </provider>

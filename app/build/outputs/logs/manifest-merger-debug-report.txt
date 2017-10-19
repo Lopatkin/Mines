@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:2:1-53:12
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:2:1-50:12
 	package
 		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
@@ -16,7 +16,7 @@ ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:2:1-53:12
 	xmlns:android
 		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:10:5-12:41
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:multidex:1.0.1] C:\Users\Андрей\.android\build-cache\8f6be79169f255850a05feb3192f6ce4fa471d0c\output\AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services:11.4.2] C:\Users\Андрей\.android\build-cache\0cd3f6545b925095658dd06a28728d2241f5de02\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-ads:11.4.2] C:\Users\Андрей\.android\build-cache\7edb595406ef0a230ed00bf4dc7d99d4ae659ed2\output\AndroidManifest.xml:17:5-94
@@ -116,8 +116,8 @@ MERGED from [com.google.firebase:firebase-database-connection:11.4.2] C:\Users\А
 MERGED from [com.google.firebase:firebase-database-connection-license:11.4.2] C:\Users\Андрей\.android\build-cache\402df4445cf06c54defd760e9e4a04fade206c59\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-database-license:11.4.2] C:\Users\Андрей\.android\build-cache\63c1a55c20a948c6866101623668b7350f3449a4\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-firestore:11.4.2] C:\Users\Андрей\.android\build-cache\ebe871802c03b75db844929ffc17c6db9c548572\output\AndroidManifest.xml:3:5-43
-MERGED from [com.android.support:cardview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\dfac61e99e70df7aed19ad53f8f74b249bc2bb67\output\AndroidManifest.xml:15:5-42
-MERGED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Андрей\.android\build-cache\80afeeaa5a6f7c38b7d56ecfb3c10107e047fa91\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Андрей\.android\build-cache\309737df80bbc2c9c16ae19f33ccde04282e4be7\output\AndroidManifest.xml:20:5-43
 MERGED from [com.google.firebase:firebase-core:11.4.2] C:\Users\Андрей\.android\build-cache\b3e4cba337dcd8f76e2cd5c0df01dc78d56dbfca\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:17:5-43
@@ -140,15 +140,15 @@ MERGED from [com.google.firebase:firebase-analytics-license:11.4.2] C:\Users\Анд
 	tools:overrideLibrary
 		ADDED from [com.google.android.gms:play-services-ads:11.4.2] C:\Users\Андрей\.android\build-cache\7edb595406ef0a230ed00bf4dc7d99d4ae659ed2\output\AndroidManifest.xml:17:42-92
 	android:targetSdkVersion
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:12:9-38
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:9:9-38
 		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
 		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:11:9-34
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:8:9-34
 		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
 		INJECTED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:14:5-67
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:19:5-66
 MERGED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-appinvite:11.4.2] C:\Users\Андрей\.android\build-cache\e9889c3854d8277b77dde53e49b098f1a03dff34\output\AndroidManifest.xml:18:5-66
@@ -162,9 +162,9 @@ MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.and
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:14:22-64
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:11:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:15:5-79
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:12:5-79
 MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:20:5-78
 MERGED from [com.google.android.gms:play-services-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\54de82fdb23a9117f36061205a7610ebd856fbe3\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-nearby:11.4.2] C:\Users\Андрей\.android\build-cache\333338d9499c6353d1c3b6faf1f63d1854a8b587\output\AndroidManifest.xml:4:5-78
@@ -175,25 +175,25 @@ MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.and
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.firebase:firebase-iid:11.4.2] C:\Users\Андрей\.android\build-cache\be9353f501af6105e9b7c2e77f964283157fdb74\output\AndroidManifest.xml:19:5-78
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:15:22-76
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:12:22-76
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:16:5-81
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:13:5-81
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:16:22-78
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:13:22-78
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:17:5-98
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:14:5-98
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:17:22-95
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:14:22-95
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:18:5-81
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:15:5-81
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:18:22-78
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:15:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:19:5-79
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:16:5-79
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:19:22-76
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:16:22-76
 application
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:21:5-51:19
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:18:5-48:19
 MERGED from [com.google.android.gms:play-services:11.4.2] C:\Users\Андрей\.android\build-cache\0cd3f6545b925095658dd06a28728d2241f5de02\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] C:\Users\Андрей\.android\build-cache\67958a3ea95d66c67d67b9ad8f1bdd5013b8aa22\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:23:5-26:19
@@ -281,8 +281,7 @@ MERGED from [com.google.android.gms:play-services-base-license:11.4.2] C:\Users\
 MERGED from [com.google.firebase:firebase-auth-license:11.4.2] C:\Users\Андрей\.android\build-cache\a6746ba7b18d64cfb08a9ac7ce23bf884e304866\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-database-connection-license:11.4.2] C:\Users\Андрей\.android\build-cache\402df4445cf06c54defd760e9e4a04fade206c59\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-database-license:11.4.2] C:\Users\Андрей\.android\build-cache\63c1a55c20a948c6866101623668b7350f3449a4\output\AndroidManifest.xml:5:5-20
-MERGED from [com.android.support:cardview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\dfac61e99e70df7aed19ad53f8f74b249bc2bb67\output\AndroidManifest.xml:16:5-19
-MERGED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:17:5-19:19
+MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Андрей\.android\build-cache\80afeeaa5a6f7c38b7d56ecfb3c10107e047fa91\output\AndroidManifest.xml:26:5-20
 MERGED from [com.google.firebase:firebase-core:11.4.2] C:\Users\Андрей\.android\build-cache\b3e4cba337dcd8f76e2cd5c0df01dc78d56dbfca\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:24:5-34:19
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:24:5-28:19
@@ -303,65 +302,65 @@ MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] C:\Users
 MERGED from [com.google.firebase:firebase-analytics-impl-license:11.4.2] C:\Users\Андрей\.android\build-cache\c1166dd2c1b2228bb222045772f06ecfa5c070a5\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics-license:11.4.2] C:\Users\Андрей\.android\build-cache\c24c49deacec13c31aedfe8e195bb67082612e1c\output\AndroidManifest.xml:5:5-20
 	android:label
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:25:9-41
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:22:9-41
 	android:allowBackup
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:23:9-35
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:20:9-35
 	android:icon
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:24:9-38
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:21:9-38
 	android:theme
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:26:9-40
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:23:9-40
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:22:9-30
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:19:9-30
 activity#com.work.andre.mines.ActMain
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:27:9-34:20
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:24:9-31:20
 	android:label
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:29:13-45
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:26:13-45
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:28:13-36
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:25:13-36
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:30:13-33:29
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:27:13-30:29
 action#android.intent.action.MAIN
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:31:17-69
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:32:17-77
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:29:17-77
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:32:27-74
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:29:27-74
 activity#com.work.andre.mines.ActMap
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:36:9-44
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:33:9-44
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:36:19-41
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:33:19-41
 activity#com.work.andre.mines.ActSettings
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:37:9-49
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:34:9-49
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:37:19-46
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:34:19-46
 activity#com.work.andre.mines.ActBuildingsList
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:38:9-54
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:35:9-54
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:38:19-51
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:35:19-51
 activity#com.work.andre.mines.ActBuildingDetails
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:39:9-56
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:36:9-56
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:39:19-53
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:36:19-53
 activity#com.work.andre.mines.ActHQ
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:40:9-43
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:37:9-43
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:40:19-40
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:37:19-40
 meta-data#com.google.android.gms.version
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:42:9-44:69
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:39:9-41:69
 MERGED from [com.google.maps.android:android-maps-utils:0.4.4] C:\Users\Андрей\.android\build-cache\20414323e738c54b6a5d154e4d8703cd291c6dbb\output\AndroidManifest.xml:8:9-10:69
 MERGED from [com.google.android.gms:play-services-basement:11.4.2] C:\Users\Андрей\.android\build-cache\4382d0028c82d1807d21c56357690d57b6206f60\output\AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:44:13-66
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:41:13-66
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:43:13-58
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:40:13-58
 meta-data#com.google.android.geo.API_KEY
-ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:47:9-49:71
+ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:44:9-46:71
 	android:value
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:49:13-68
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:46:13-68
 	android:name
-		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:48:13-58
+		ADDED from D:\GoogleDisk\Mines\app\src\main\AndroidManifest.xml:45:13-58
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] C:\Users\Андрей\.android\build-cache\3ebbbc6748732695aafb45cb348f83eff69d092e\output\AndroidManifest.xml:25:9-257
 	android:exported
@@ -514,6 +513,8 @@ meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Андрей\.android\build-cache\65fc0de1dc52521d998b07be43fed903946708f3\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\999747d0945234ea05b8c85dfd14e91830a8d5c0\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Андрей\.android\build-cache\d2d986806c274f7d21050955d451184f8f402272\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Андрей\.android\build-cache\80afeeaa5a6f7c38b7d56ecfb3c10107e047fa91\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Андрей\.android\build-cache\309737df80bbc2c9c16ae19f33ccde04282e4be7\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Андрей\.android\build-cache\bb1aeeeac681502d248926681c914582729fc408\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Андрей\.android\build-cache\89f285eb1ce4b695418a547ccc36d19544b06057\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Андрей\.android\build-cache\ed955fbd56e1b406554df1f1e20da2533c045363\output\AndroidManifest.xml:25:5-27:34
@@ -532,12 +533,6 @@ ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.a
 		ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:86-145
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:11.4.2] C:\Users\Андрей\.android\build-cache\a72f7ba3848d0bf12b50ce0acbac7d2c9dc2a034\output\AndroidManifest.xml:19:19-85
-activity#android.support.v7.widget.TestActivity
-ADDED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:18:9-115
-	android:label
-		ADDED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:18:19-59
-	android:name
-		ADDED from [com.android.support:recyclerview-v7:21.0.3] C:\Users\Андрей\.android\build-cache\41a51d1cdd0b2eaa69b0664b9e109ba251614b23\output\AndroidManifest.xml:18:60-113
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver
 ADDED from [com.google.firebase:firebase-analytics:11.4.2] C:\Users\Андрей\.android\build-cache\436c9a9884929b3012bff7f2416138f006dccbfb\output\AndroidManifest.xml:25:7-26:18
 MERGED from [com.google.firebase:firebase-analytics-impl:11.4.2] C:\Users\Андрей\.android\build-cache\6a93115f08992c5929cdfb9a4f36e0d1b7650ea6\output\AndroidManifest.xml:25:7-26:18

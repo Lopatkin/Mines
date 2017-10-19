@@ -230,6 +230,7 @@ public class ActBuildingsList extends AppCompatActivity {
                                     updateData();
 
                                     buildingsList.add(new Buildings(doc.getString("buildingID"), doc.getString("buildingName"), doc.getLong("buildingLVL"), pic));
+                                    initializeAdapter();
                                 }
                             }
                         }
@@ -278,6 +279,11 @@ public class ActBuildingsList extends AppCompatActivity {
 
             @Override
             public void onTouchEvent(RecyclerView Recyclerview, MotionEvent motionEvent) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
             }
 

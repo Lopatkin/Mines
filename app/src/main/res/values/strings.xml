@@ -54,6 +54,7 @@
     <string name="nickname">Nickname</string>
     <string name="nnnnn">NickName</string>
     <string name="new_name">Переименовать постройку</string>
+    <string name="turnOnGPS">Разрешите приложению доступ к местоположению в настройках телефона!</string>
 
     <string-array name="mine_types_list">
         <item>Лесопилка</item>
