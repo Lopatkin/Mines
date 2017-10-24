@@ -55,6 +55,8 @@
     <string name="nnnnn">NickName</string>
     <string name="new_name">Переименовать постройку</string>
     <string name="turnOnGPS">Разрешите приложению доступ к местоположению в настройках телефона!</string>
+    <string name="update_building_text">Улучшить постройку?</string>
+    <string name="update_cost">Стоимость улучшения</string>
 
     <string-array name="mine_types_list">
         <item>Лесопилка</item>

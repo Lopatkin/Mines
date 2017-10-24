@@ -460,25 +460,19 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                 LatLng target = new LatLng(latLng.latitude, latLng.longitude);
 
                                 //Заполняем поля для записи постройки
-                                buildingType = spnrBuildingTypesList.getSelectedItem().toString();                  //Тип постройки
-                                buildingName = etBuildingName.getText().toString();                                  //Название постройки
-                                structureLVL = 1;                                                                    //Уровень постройки
-                                buildingLat = target.latitude;                                                   //Координата Lat
-                                buildingLng = target.longitude;                                                  //Координата Lng
+                                buildingType = spnrBuildingTypesList.getSelectedItem().toString();  //Тип постройки
+                                buildingName = etBuildingName.getText().toString();                 //Название постройки
+                                structureLVL = 1;                                                   //Уровень постройки
+                                buildingLat = target.latitude;                                      //Координата Lat
+                                buildingLng = target.longitude;                                     //Координата Lng
 
                                 buildingCategory = getBuildingCategoryByBuildingType(buildingType);
 
                                 Locale local = new Locale("ru", "RU");
                                 DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, local);
                                 Date currentDate = new Date();
-                                buildingBuildDate = df.format(currentDate);                                      //Дата постройки (текущая)
+                                buildingBuildDate = df.format(currentDate);                         //Дата постройки (текущая)
 
-                                getCostAndIncome = false;
-                                getUserMoney = false;
-                                more = true;
-                                payIsOk = true;
-
-                                //Оплачиваем постройку
                                 String bType = null;
                                 if (buildingType.equals(buildingTypeHQ)) {
                                     bType = buildingTypeHQEn;
@@ -498,7 +492,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                 bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
                                         if (task.isSuccessful()) {
                                             DocumentSnapshot document = task.getResult();
                                             if (document.exists()) {
@@ -512,106 +505,73 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                                 incomeStone = document.getLong("IncomeStone");
                                                 incomeClay = document.getLong("IncomeClay");
 
-                                                getCostAndIncome = true;
+                                                //Получаем количество денег и ресурсов у пользователя
+                                                FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+                                                DocumentReference userRef = db1.collection("users").document(currentUserGoogleEmail);
+                                                userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                                        if (task.isSuccessful()) {
+                                                            DocumentSnapshot document = task.getResult();
+                                                            if (document.exists()) {
+                                                                userGold = document.getLong("userGold");
+                                                                userWood = document.getLong("userWood");
+                                                                userStone = document.getLong("userStone");
+                                                                userClay = document.getLong("userClay");
+
+                                                                if (((costGold > 0) && (userGold >= costGold)) ||
+                                                                        ((costWood > 0) && (userWood >= costWood)) ||
+                                                                        ((costStone > 0) && (userStone > costStone)) ||
+                                                                        ((costClay > 0) && (userClay > costClay))) {
+
+                                                                    HashMap<String, Object> updatedData = new HashMap<>();
+                                                                    updatedData.put("userGold", userGold - costGold);
+                                                                    updatedData.put("userWood", userWood - costWood);
+                                                                    updatedData.put("userStone", userStone - costStone);
+                                                                    updatedData.put("userClay", userClay - costClay);
+
+                                                                    FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                                                                    DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
+
+                                                                    more = false;
+                                                                    //Добавляем новую постройку
+                                                                    payIsOk = true;
+
+                                                                    if ((isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
+
+                                                                        FirebaseFirestore dbU1 = FirebaseFirestore.getInstance();
+                                                                        DocumentReference washingtonRef = dbU1.collection(fbUsers).document(currentUserGoogleEmail);
+                                                                        washingtonRef
+                                                                                .update("isHQAviable", false)
+                                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                    @Override
+                                                                                    public void onSuccess(Void aVoid) {
+                                                                                    }
+                                                                                })
+                                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                                    @Override
+                                                                                    public void onFailure(@NonNull Exception e) {
+                                                                                    }
+                                                                                });
+                                                                    }
+
+                                                                    addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, incomeGold, incomeWood, incomeStone, incomeClay, buildingLat, buildingLng, buildingBuildDate);
+
+                                                                    for (Map.Entry entry : updatedData.entrySet()) {
+                                                                        documentReference.update(entry.getKey().toString(), entry.getValue());
+                                                                    }
+                                                                } else {
+                                                                    Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                });
                                             }
                                         }
                                     }
                                 });
-
-                                //Получаем количество денег и ресурсов у пользователя
-                                FirebaseFirestore db1 = FirebaseFirestore.getInstance();
-                                DocumentReference userRef = db1.collection("users").document(currentUserGoogleEmail);
-                                userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-                                        if (task.isSuccessful()) {
-                                            DocumentSnapshot document = task.getResult();
-                                            if (document.exists()) {
-                                                userGold = document.getLong("userGold");
-                                                userWood = document.getLong("userWood");
-                                                userStone = document.getLong("userStone");
-                                                userClay = document.getLong("userClay");
-
-                                                getUserMoney = true;
-                                            }
-                                        }
-                                    }
-                                });
-
-                                new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        while (more) {
-                                            if ((getCostAndIncome) && (getUserMoney)) {
-
-                                                if (((costGold > 0) && (userGold >= costGold)) ||
-                                                        ((costWood > 0) && (userWood >= costWood)) ||
-                                                        ((costStone > 0) && (userStone > costStone)) ||
-                                                        ((costClay > 0) && (userClay > costClay))) {
-
-                                                    HashMap<String, Object> updatedData = new HashMap<>();
-                                                    updatedData.put("userGold", userGold - costGold);
-                                                    updatedData.put("userWood", userWood - costWood);
-                                                    updatedData.put("userStone", userStone - costStone);
-                                                    updatedData.put("userClay", userClay - costClay);
-
-                                                    FirebaseFirestore db2 = FirebaseFirestore.getInstance();
-                                                    DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
-
-                                                    more = false;
-                                                    //Добавляем новую постройку
-                                                    payIsOk = true;
-
-                                                    if ((isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
-
-                                                        FirebaseFirestore dbU1 = FirebaseFirestore.getInstance();
-                                                        DocumentReference washingtonRef = dbU1.collection(fbUsers).document(currentUserGoogleEmail);
-                                                        washingtonRef
-                                                                .update("isHQAviable", false)
-                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                    @Override
-                                                                    public void onSuccess(Void aVoid) {
-                                                                    }
-                                                                })
-                                                                .addOnFailureListener(new OnFailureListener() {
-                                                                    @Override
-                                                                    public void onFailure(@NonNull Exception e) {
-                                                                    }
-                                                                });
-
-//                                                        FirebaseFirestore dbU = FirebaseFirestore.getInstance();
-//                                                        DocumentReference uRef = dbU.collection(fbUsers).document(currentUserGoogleEmail);
-//                                                        uRef
-//                                                                .update("isHQAviable", false)
-//                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                                                    @Override
-//                                                                    public void onSuccess(Void aVoid) {
-////                                                                        Log.d(TAG, "DocumentSnapshot successfully updated!");
-//                                                                    }
-//                                                                })
-//                                                                .addOnFailureListener(new OnFailureListener() {
-//                                                                    @Override
-//                                                                    public void onFailure(@NonNull Exception e) {
-////                                                                        Log.w(TAG, "Error updating document", e);
-//                                                                    }
-//                                                                });
-                                                    }
-
-                                                    addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, incomeGold, incomeWood, incomeStone, incomeClay, buildingLat, buildingLng, buildingBuildDate);
-
-                                                    for (Map.Entry entry : updatedData.entrySet()) {
-                                                        documentReference.update(entry.getKey().toString(), entry.getValue());
-                                                    }
-
-                                                    if (!more) {
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }).start();
                             }
                         }
                 );

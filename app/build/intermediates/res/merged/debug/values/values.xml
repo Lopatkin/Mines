@@ -922,6 +922,8 @@
     <string name="tagmanager_preview_dialog_message">Preview mode updated.</string>
     <string name="tagmanager_preview_dialog_title">Preview</string>
     <string name="turnOnGPS">Разрешите приложению доступ к местоположению в настройках телефона!</string>
+    <string name="update_building_text">Улучшить постройку?</string>
+    <string name="update_cost">Стоимость улучшения</string>
     <string name="wallet_buy_button_place_holder">Buy with Google</string>
     <string name="wood">Дерева</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>

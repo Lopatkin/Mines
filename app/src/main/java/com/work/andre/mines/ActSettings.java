@@ -263,7 +263,6 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
                 userAge = Integer.valueOf(etUserAge.getText().toString());
             }
 
-            //......................................FIRESTORE......................................
             HashMap<String, Object> updatedData = new HashMap<>();
             updatedData.put("NickName", userNickName);
             updatedData.put("GivenName", userFirstName);

@@ -284,6 +284,10 @@
         "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\layout\\item.xml"
     },
     {
+        "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\update_building_dialog.xml",
+        "source": "D:\\GoogleDisk\\Mines\\app\\src\\main\\res\\layout\\update_building_dialog.xml"
+    },
+    {
         "merged": "D:\\GoogleDisk\\Mines\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
         "source": "C:\\Users\\Андрей\\.android\\build-cache\\65fc0de1dc52521d998b07be43fed903946708f3\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },

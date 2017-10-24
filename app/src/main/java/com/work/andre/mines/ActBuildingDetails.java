@@ -68,8 +68,15 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     static long costStone;
     static long costClay;
 
+    static long newIncomeGold;
+    static long newIncomeWood;
+    static long newIncomeStone;
+    static long newIncomeClay;
+
     static boolean getCost;
     static boolean getUserMoney;
+
+    static long buildingLVLPlus1;
 
     static boolean more;
     static boolean payIsOk;
@@ -100,6 +107,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     Button btnClose;
     Button btnDeleteBuilding;
     Button btnRename;
+    Button btnUpgrade;
 
     static String buildingName;
     static String ownerName;
@@ -115,17 +123,21 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
         btnOK = (Button) findViewById(R.id.btnOK);
         btnOK.setVisibility(View.INVISIBLE);
+
         btnDeleteBuilding = (Button) findViewById(R.id.btnDeleteBuilding);
         btnDeleteBuilding.setVisibility(View.INVISIBLE);
+
         btnRename = (Button) findViewById(R.id.btnRename);
         btnRename.setVisibility(View.INVISIBLE);
+
+        btnUpgrade = (Button) findViewById(R.id.btnUpgrade);
+        btnUpgrade.setVisibility(View.INVISIBLE);
 
         currentUserGoogleEmail = getIntent().getStringExtra(USERGOOGLEEMAIL);
         buildingID = getIntent().getStringExtra(BUILDINGID);
 
-        //......................................FIRESTORE......................................
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        final DocumentReference docRef = db.collection(fbBuildings).document(buildingID);
+        DocumentReference docRef = db.collection(fbBuildings).document(buildingID);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
@@ -153,7 +165,15 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                             }
 
                             if (snapshot != null && snapshot.exists()) {
-                                ownerName = String.valueOf(snapshot.get("NickName"));
+                                String nickName = String.valueOf(snapshot.get("NickName"));
+                                String displayName = String.valueOf(snapshot.get("DisplayName"));
+
+                                if (nickName.length() > 0) {
+                                    ownerName = nickName;
+                                } else {
+                                    ownerName = displayName;
+                                }
+
                                 updateData();
                                 initUI();
 
@@ -212,9 +232,14 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
             btnRename.setVisibility(View.VISIBLE);
             btnRename.setOnClickListener(this);
+
+            btnUpgrade.setVisibility(View.VISIBLE);
+            btnUpgrade.setOnClickListener(this);
         } else {
             btnOK.setVisibility(View.INVISIBLE);
             btnDeleteBuilding.setVisibility(View.INVISIBLE);
+            btnRename.setVisibility(View.INVISIBLE);
+            btnUpgrade.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -222,7 +247,6 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         if (v.getId() == R.id.btnOK) {
 
-            //......................................FIRESTORE......................................
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             DocumentReference bRef = db.collection(fbBuildings).document(buildingID);
 
@@ -241,19 +265,11 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                         }
                     });
 
-
-            //.....................................................................................
-
-
-            Intent intentActMap = new Intent(this, ActMap.class);
-            intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
-            startActivity(intentActMap);
+            goToMap();
         }
 
         if (v.getId() == R.id.btnClose) {
-            Intent intentActMap = new Intent(this, ActMap.class);
-            intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
-            startActivity(intentActMap);
+            goToMap();
         }
 
         if (v.getId() == R.id.btnDeleteBuilding) {
@@ -402,11 +418,6 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                                                     }
                                                 });
                                     }
-
-
-
-
-
                                     Toast.makeText(getBaseContext(), "Постройка снесена!", Toast.LENGTH_LONG).show();
                                 }
                             })
@@ -417,9 +428,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                                 }
                             });
 
-                    Intent intentActMap = new Intent(ActBuildingDetails.this, ActMap.class);
-                    intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
-                    startActivity(intentActMap);
+                    goToMap();
                 }
             });
             ad.setNegativeButton(button2String, new OnClickListener() {
@@ -439,6 +448,164 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         if (v.getId() == R.id.btnRename) {
             renameBuilding();
         }
+
+        if (v.getId() == R.id.btnUpgrade) {
+            //Создание диалогового окна
+            final LayoutInflater inflater = LayoutInflater.from(this);
+            View dialogView = inflater.inflate(R.layout.update_building_dialog, null);
+
+            //Cоздаем AlertDialog
+            AlertDialog.Builder mDialogNBuilder = new AlertDialog.Builder(this);
+
+            //Прикручиваем лейаут к алерту
+            mDialogNBuilder.setView(dialogView);
+
+            mDialogNBuilder
+                    .setCancelable(true)
+                    .setNegativeButton("И так сойдёт", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    })
+
+                    .setPositiveButton("Да, конечно!", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            upgradeBuilding();
+                        }
+                    });
+
+            AlertDialog alertDialog = mDialogNBuilder.create();
+            alertDialog.show();
+        }
+    }
+
+    private void upgradeBuilding() {
+        if ((buildingLVL == 10) && (!buildingType.equals(buildingTypeHQ))) {
+            Toast.makeText(getBaseContext(), "Достигнут максимальный уровень постройки!", Toast.LENGTH_LONG).show();
+            return;
+        } else if ((buildingLVL == 3) && (buildingType.equals(buildingTypeHQ))){
+            Toast.makeText(getBaseContext(), "Достигнут максимальный уровень постройки!", Toast.LENGTH_LONG).show();
+        }
+
+        buildingLVLPlus1 = buildingLVL + 1;
+        String bType = null;
+        if (buildingType.equals(buildingTypeHQ)) {
+            bType = buildingTypeHQEn;
+        } else if (buildingType.equals(buildingTypeWood)) {
+            bType = buildingTypeWoodEn;
+        } else if (buildingType.equals(buildingTypeStone)) {
+            bType = buildingTypeStoneEn;
+        } else if (buildingType.equals(buildingTypeClay)) {
+            bType = buildingTypeClayEn;
+        }
+
+        //Получаем стоимость постройки
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String doc = bType + buildingLVLPlus1;
+
+        DocumentReference bInfoRef = db.collection("bInfo").document(doc);
+        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        costGold = document.getLong("CostGold");
+                        costWood = document.getLong("CostWood");
+                        costStone = document.getLong("CostStone");
+                        costClay = document.getLong("CostClay");
+
+                        newIncomeGold = document.getLong("IncomeGold");
+                        newIncomeWood = document.getLong("IncomeWood");
+                        newIncomeStone = document.getLong("IncomeStone");
+                        newIncomeClay = document.getLong("IncomeClay");
+
+                        //Получаем количество денег и ресурсов у пользователя
+                        FirebaseFirestore db1 = FirebaseFirestore.getInstance();
+                        DocumentReference userRef = db1.collection(fbUsers).document(currentUserGoogleEmail);
+                        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        userGold = document.getLong("userGold");
+                                        userWood = document.getLong("userWood");
+                                        userStone = document.getLong("userStone");
+                                        userClay = document.getLong("userClay");
+
+                                        if (((costGold > 0) && (userGold >= costGold)) ||
+                                                ((costWood > 0) && (userWood >= costWood)) ||
+                                                ((costStone > 0) && (userStone > costStone)) ||
+                                                ((costClay > 0) && (userClay > costClay))) {
+
+                                            //Апгрейдим новое количество ресурсов пользователя
+                                            HashMap<String, Object> updatedData = new HashMap<>();
+                                            updatedData.put("userGold", userGold - costGold);
+                                            updatedData.put("userWood", userWood - costWood);
+                                            updatedData.put("userStone", userStone - costStone);
+                                            updatedData.put("userClay", userClay - costClay);
+
+                                            FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                                            DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
+
+                                            for (Map.Entry entry : updatedData.entrySet()) {
+                                                documentReference.update(entry.getKey().toString(), entry.getValue());
+                                            }
+
+                                            //Апгрейдим постройку
+                                            HashMap<String, Object> updatedDataBuilding = new HashMap<>();
+                                            updatedDataBuilding.put("buildingLVL", buildingLVLPlus1);
+                                            updatedDataBuilding.put("incomeGold", newIncomeGold);
+                                            updatedDataBuilding.put("incomeWood", newIncomeWood);
+                                            updatedDataBuilding.put("incomeStone", newIncomeStone);
+                                            updatedDataBuilding.put("incomeClay", newIncomeClay);
+
+                                            FirebaseFirestore db20 = FirebaseFirestore.getInstance();
+                                            DocumentReference documentReference1 = db20.collection("buildings").document(buildingID);
+
+                                            for (Map.Entry entry : updatedDataBuilding.entrySet()) {
+                                                documentReference1.update(entry.getKey().toString(), entry.getValue());
+                                            }
+
+                                            Toast.makeText(getBaseContext(), "Улучшение завершено!", Toast.LENGTH_SHORT).show();
+
+                                            Intent intentActMap = new Intent(getBaseContext(), ActMap.class);
+                                            intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
+                                            startActivity(intentActMap);
+
+//                                            documentReference1
+//                                                    .update("buildingLVL", buildingLVLPlus1)
+//                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                                        @Override
+//                                                        public void onSuccess(Void aVoid) {
+//                                                            Toast.makeText(getBaseContext(), "Улучшение завершено!", Toast.LENGTH_SHORT).show();
+//
+//                                                            Intent intentActMap = new Intent(getBaseContext(), ActMap.class);
+//                                                            intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
+//                                                            startActivity(intentActMap);
+//
+//                                                        }
+//                                                    })
+//                                                    .addOnFailureListener(new OnFailureListener() {
+//                                                        @Override
+//                                                        public void onFailure(@NonNull Exception e) {
+////                                                            Log.w(TAG, "Error updating document", e);
+//                                                        }
+//                                                    });
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
     }
 
     public void renameBuilding() {
@@ -476,5 +643,11 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
         AlertDialog alertDialog = mDialogNBuilder.create();
         alertDialog.show();
+    }
+
+    private void goToMap(){
+        Intent intentActMap = new Intent(this, ActMap.class);
+        intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
+        startActivity(intentActMap);
     }
 }
