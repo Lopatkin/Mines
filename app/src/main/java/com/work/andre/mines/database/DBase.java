@@ -1,6 +1,5 @@
 package com.work.andre.mines.database;
 
-import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -22,17 +21,12 @@ import java.util.Map;
 
 public class DBase {
 
-    public static long myPrice;
     public static LatLng myTarget;
 
     public static boolean canIputMyBuildHere;
 
     //FIREBASE
     public static DatabaseReference myRef;
-    public static String myCurrentUserGoogleEmail;
-    public static String myUEmail;
-    static String userNickName;
-    //..............................
 
     public static int resValue;
     public static String myResType;
@@ -40,15 +34,9 @@ public class DBase {
     public static String myNick;
     public static String fbUsers = "users";
     public static String fbBuildings = "buildings";
-
-    private static final String SQL_WHERE_BY_ID = BaseColumns._ID + "=?"; //НазваниеКолонки_id=?
+    public static String fbInfo = "bInfo";
 
     public static double minDistanceBetweenTwoBuildings = 100.0; //Минимальное расстояние между шахтами
-
-    int userStartGold = 1000;
-    int userStartWood = 100;
-    int userStartStone = 100;
-    int userStartClay = 100;
 
     public static String buildingTypeHQ = "Штаб";
     public static String buildingTypeWood = "Лесопилка";
@@ -63,18 +51,11 @@ public class DBase {
     public static String buildingCategoryMining = "Добывающая";
     public static String buildingCategoryOffice = "Офисная";
 
-    public static final String DB_NAME = "DBE10000130.db";
-    public static final int DB_VERSION = 2;
 
     public static String resGold = "Gold";
     public static String resWood = "Wood";
     public static String resStone = "Stone";
     public static String resClay = "Clay";
-
-    public static String userGold = "userGold";
-    public static String userWood = "userWood";
-    public static String userStone = "userStone";
-    public static String userClay = "userClay";
 
     //Получить категорию постройки по её типу
     public static String getBuildingCategoryByBuildingType(String buildingType) {
@@ -178,39 +159,6 @@ public class DBase {
 //            }
 //
 //        });
-
-
-    // Create a query against the collection.
-//        Query query = bInfoRef.whereEqualTo("state", "CA");
-
-//        int userID = (int) id;
-//        ContentValues cvPrice = new ContentValues();
-//
-//        List<Integer> buildingCost = MyApp.getMyDBase().getBuildingCostByLVLandType(buildingType, buildingLVL);
-//        int priceGold = buildingCost.get(0);
-//        int priceWood = buildingCost.get(1);
-//        int priceStone = buildingCost.get(2);
-//        int priceClay = buildingCost.get(3);
-//
-//        List<Integer> userResources = MyApp.getMyDBase().getUserResources(userID);
-//        int userGold = userResources.get(0);
-//        int userWood = userResources.get(1);
-//        int userStone = userResources.get(2);
-//        int userClay = userResources.get(3);
-//
-//        int newUserGold = userGold - priceGold;
-//        int newUserWood = userWood - priceWood;
-//        int newUserStone = userStone - priceStone;
-//        int newUserClay = userClay - priceClay;
-//
-//        cvPrice.put(UsersTable.COLUMN_USER_GOLD, newUserGold);
-//        cvPrice.put(UsersTable.COLUMN_USER_WOOD, newUserWood);
-//        cvPrice.put(UsersTable.COLUMN_USER_STONE, newUserStone);
-//        cvPrice.put(UsersTable.COLUMN_USER_CLAY, newUserClay);
-//
-//        return 1 == this.getWritableDatabase().update(UsersTable.TABLE_USERS, cvPrice,
-//                SQL_WHERE_BY_ID, new String[]{String.valueOf(id)});
-//    }
 
     //Проверка можно ли поставить здесь свою постройку, допустимо ли расстояние от соседних построек
     public static boolean canIPutMyNewBuildingHere(LatLng target) {
@@ -340,26 +288,6 @@ public class DBase {
             }
         } catch (Exception e) {
         }
-        return 0;
-    }
-
-    //Проверить открыт ли штаб
-    public int getHQAviable(String userGoogleEmail) {
-//        Cursor crBuildings = MyApp.getMyDBase().getReadableCursor(BuildingsListTable.TABLE_BUILDINGS_LIST);
-//        if (crBuildings.moveToFirst()) {
-//            do {
-////                int col_ownerID = crBuildings.getColumnIndex(BuildingsListTable.COLUMN_BUILDING_OWNER_ID);
-//                int col_ownerGoogleEmail = crBuildings.getColumnIndex(BuildingsListTable.COLUMN_BUILDING_OWNER_GOOGLE_EMAIL);
-//                int col_buildingType = crBuildings.getColumnIndex(BuildingsListTable.COLUMN_BUILDING_TYPE);
-//
-//                int userID = MyApp.getMyDBase().getUserIDbyUserGoogleEmail(userGoogleEmail);
-//
-//                if (crBuildings.getString(col_ownerGoogleEmail).equals(userGoogleEmail) && (crBuildings.getString(col_buildingType).equals(buildingTypeHQ))) {
-//                    return 1;
-//                }
-//            } while (crBuildings.moveToNext());
-//        }
-//        crBuildings.close();
         return 0;
     }
 
