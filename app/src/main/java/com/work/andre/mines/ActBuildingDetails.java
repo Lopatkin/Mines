@@ -32,13 +32,9 @@ import java.util.Map;
 
 import static com.work.andre.mines.ActMap.USERGOOGLEEMAIL;
 import static com.work.andre.mines.database.DBase.buildingTypeClay;
-import static com.work.andre.mines.database.DBase.buildingTypeClayEn;
 import static com.work.andre.mines.database.DBase.buildingTypeHQ;
-import static com.work.andre.mines.database.DBase.buildingTypeHQEn;
 import static com.work.andre.mines.database.DBase.buildingTypeStone;
-import static com.work.andre.mines.database.DBase.buildingTypeStoneEn;
 import static com.work.andre.mines.database.DBase.buildingTypeWood;
-import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbInfo;
 import static com.work.andre.mines.database.DBase.fbUsers;
@@ -83,6 +79,12 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     TextView tvBuildingLVLInfo;
     TextView tvBuildingTypeText;
     TextView tvBuildingTypeInfo;
+    TextView tvBuildingIncomeText;
+    TextView tvBuildingIncomeInfo;
+
+    TextView tvCurrentData;
+    TextView tvAfterUpdateInfo;
+    TextView tvCostInfo;
 
     EditText etRenameBuildingName;
 
@@ -97,9 +99,17 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     static long buildingLVL;
     static String buildingType;
 
+    static long buildingIncomeGold;
+    static long buildingIncomeWood;
+    static long buildingIncomeStone;
+    static long buildingIncomeClay;
+
     static String newBuildingName;
+    static String printStr;
+    static String printStrUpdate;
 
     FirebaseFirestore dbMines;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +144,28 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                     buildingName = (String) snapshot.get("buildingName");
                     buildingLVL = (long) snapshot.get("buildingLVL");
                     buildingType = (String) snapshot.get("buildingType");
+
+                    buildingIncomeGold = (long) snapshot.get("incomeGold");
+                    buildingIncomeWood = (long) snapshot.get("incomeWood");
+                    buildingIncomeStone = (long) snapshot.get("incomeStone");
+                    buildingIncomeClay = (long) snapshot.get("incomeClay");
+
+                    printStr = "";
+
+                    if (buildingIncomeGold > 0) {
+                        printStr = "Золота: " + buildingIncomeGold + "\n";
+                    }
+                    if (buildingIncomeWood > 0) {
+                        printStr = printStr + "Дерева: " + buildingIncomeWood + "\n";
+                    }
+                    if (buildingIncomeStone > 0) {
+                        printStr = printStr + "Камня: " + buildingIncomeStone + "\n";
+                    }
+                    if (buildingIncomeClay > 0) {
+                        printStr = printStr + "Глины: " + buildingIncomeClay + "\n";
+                    }
+                    tvBuildingIncomeInfo.setText(printStr);
+
                     buildingOwnerGoogleEmail = (String) snapshot.get("userGoogleEmail");
 
                     DocumentReference docRef = dbMines.collection(fbUsers).document(buildingOwnerGoogleEmail);
@@ -195,6 +227,9 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         tvBuildingTypeInfo = (TextView) findViewById(R.id.tvBuildingTypeInfo);
         tvBuildingOwnerText = (TextView) findViewById(R.id.tvBuildingOwnerText);
         tvBuildingOwnerInfo = (TextView) findViewById(R.id.tvBuildingOwnerInfo);
+        tvBuildingIncomeText = (TextView) findViewById(R.id.tvBuildingIncomeText);
+        tvBuildingIncomeInfo = (TextView) findViewById(R.id.tvBuildingIncomeInfo);
+
         etRenameBuildingName = (EditText) findViewById(R.id.etRenameBuildingName);
 
         btnClose.setOnClickListener(this);
@@ -266,6 +301,90 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
         //Прикручиваем лейаут к алерту
         mDialogNBuilder.setView(dialogView);
+
+        tvCurrentData = (TextView) dialogView.findViewById(R.id.tvCurrentData);
+        tvAfterUpdateInfo = (TextView) dialogView.findViewById(R.id.tvAfterUpdateInfo);
+        tvCostInfo = (TextView) dialogView.findViewById(R.id.tvCostInfo);
+
+
+        printStrUpdate = "Текущий уровень: " + buildingLVL + "\n";
+
+        if (buildingIncomeGold > 0) {
+            printStrUpdate = "Приход золота: " + buildingIncomeGold + "\n";
+        }
+        if (buildingIncomeWood > 0) {
+            printStrUpdate = printStrUpdate + "Приход дерева: " + buildingIncomeWood + "\n";
+        }
+        if (buildingIncomeStone > 0) {
+            printStrUpdate = printStrUpdate + "Приход камня: " + buildingIncomeStone + "\n";
+        }
+        if (buildingIncomeClay > 0) {
+            printStrUpdate = printStrUpdate + "Приход глины: " + buildingIncomeClay + "\n";
+        }
+
+        tvCurrentData.setText(printStrUpdate);
+
+        //Получаем информацию о постройки после улучшения
+        buildingLVLPlus1 = buildingLVL + 1;
+        String bType = getEnBuildingType(buildingType);
+        String doc = bType + buildingLVLPlus1;
+
+        DocumentReference bInfoRef = dbMines.collection(fbInfo).document(doc);
+        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        costGold = document.getLong("CostGold");
+                        costWood = document.getLong("CostWood");
+                        costStone = document.getLong("CostStone");
+                        costClay = document.getLong("CostClay");
+
+                        newIncomeGold = document.getLong("IncomeGold");
+                        newIncomeWood = document.getLong("IncomeWood");
+                        newIncomeStone = document.getLong("IncomeStone");
+                        newIncomeClay = document.getLong("IncomeClay");
+
+                        String printStrAfterUpdate = "";
+                        printStrAfterUpdate = "Уровень: " + buildingLVLPlus1 + "\n";
+                        if (newIncomeGold > 0) {
+                            printStrAfterUpdate = "Приход золота: " + newIncomeGold + "\n";
+                        }
+                        if (newIncomeWood > 0) {
+                            printStrAfterUpdate = printStrAfterUpdate + "Приход дерева: " + newIncomeWood + "\n";
+                        }
+                        if (newIncomeStone > 0) {
+                            printStrAfterUpdate = printStrAfterUpdate + "Приход камня: " + newIncomeStone + "\n";
+                        }
+                        if (newIncomeClay > 0) {
+                            printStrAfterUpdate = printStrAfterUpdate + "Приход глины: " + newIncomeClay + "\n";
+                        }
+
+                        tvAfterUpdateInfo.setText(printStrAfterUpdate);
+
+
+                        String printStrCostUpdate = "";
+                        if (costGold > 0) {
+                            printStrCostUpdate = "Золота: " + costGold + "\n";
+                        }
+                        if (costWood > 0) {
+                            printStrCostUpdate = printStrCostUpdate + "Дерева: " + costWood + "\n";
+                        }
+                        if (costStone > 0) {
+                            printStrCostUpdate = printStrCostUpdate + "Камня: " + costStone + "\n";
+                        }
+                        if (costClay > 0) {
+                            printStrCostUpdate = printStrCostUpdate + "Глины: " + costClay + "\n";
+                        }
+
+                        tvCostInfo.setText(printStrCostUpdate);
+
+                    }
+                }
+            }
+        });
+
 
         mDialogNBuilder
                 .setCancelable(true)
@@ -525,19 +644,6 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         });
         ad.show();
     }
-
-//    private String getEnBuildingType(String buildingType) {
-//        if (buildingType.equals(buildingTypeHQ)) {
-//            return buildingTypeHQEn;
-//        } else if (buildingType.equals(buildingTypeWood)) {
-//            return buildingTypeWoodEn;
-//        } else if (buildingType.equals(buildingTypeStone)) {
-//            return buildingTypeStoneEn;
-//        } else if (buildingType.equals(buildingTypeClay)) {
-//            return buildingTypeClayEn;
-//        }
-//        return null;
-//    }
 
     private void goToMap() {
         Intent intentActMap = new Intent(this, ActMap.class);

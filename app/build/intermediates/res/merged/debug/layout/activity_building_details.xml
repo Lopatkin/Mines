@@ -88,6 +88,28 @@
         app:layout_constraintTop_toBottomOf="@+id/tvBuildingLVLText" />
 
     <TextView
+        android:id="@+id/tvBuildingIncomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/building_income"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBuildingTypeText" />
+
+    <TextView
+        android:id="@+id/tvBuildingIncomeInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/building_income"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toRightOf="@+id/tvBuildingTypeText"
+        app:layout_constraintTop_toBottomOf="@+id/tvBuildingTypeInfo" />
+
+    <TextView
         android:id="@+id/tvBuildingTypeInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,10 +125,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
         android:text="@string/OK"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/btnClose"
-        android:layout_marginRight="8dp" />
+        app:layout_constraintRight_toLeftOf="@+id/btnClose" />
 
     <Button
         android:id="@+id/btnDeleteBuilding"
@@ -142,10 +164,10 @@
         android:id="@+id/btnUpgrade"
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/upgrade"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

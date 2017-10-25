@@ -58,6 +58,9 @@
     <string name="update_building_text">Улучшить постройку?</string>
     <string name="update_cost">Стоимость улучшения</string>
     <string name="cost">Стоимость</string>
+    <string name="building_income">Приход</string>
+    <string name="after_update">После улучшения</string>
+    <string name="cost_update">Стоимость улучшения</string>
 
     <string-array name="mine_types_list">
         <item>Лесопилка</item>
