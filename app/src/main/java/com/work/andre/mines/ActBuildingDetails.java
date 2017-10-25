@@ -42,6 +42,7 @@ import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbInfo;
 import static com.work.andre.mines.database.DBase.fbUsers;
+import static com.work.andre.mines.database.DBase.getEnBuildingType;
 
 public class ActBuildingDetails extends AppCompatActivity implements View.OnClickListener {
 
@@ -525,18 +526,18 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         ad.show();
     }
 
-    private String getEnBuildingType(String buildingType) {
-        if (buildingType.equals(buildingTypeHQ)) {
-            return buildingTypeHQEn;
-        } else if (buildingType.equals(buildingTypeWood)) {
-            return buildingTypeWoodEn;
-        } else if (buildingType.equals(buildingTypeStone)) {
-            return buildingTypeStoneEn;
-        } else if (buildingType.equals(buildingTypeClay)) {
-            return buildingTypeClayEn;
-        }
-        return null;
-    }
+//    private String getEnBuildingType(String buildingType) {
+//        if (buildingType.equals(buildingTypeHQ)) {
+//            return buildingTypeHQEn;
+//        } else if (buildingType.equals(buildingTypeWood)) {
+//            return buildingTypeWoodEn;
+//        } else if (buildingType.equals(buildingTypeStone)) {
+//            return buildingTypeStoneEn;
+//        } else if (buildingType.equals(buildingTypeClay)) {
+//            return buildingTypeClayEn;
+//        }
+//        return null;
+//    }
 
     private void goToMap() {
         Intent intentActMap = new Intent(this, ActMap.class);

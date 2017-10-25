@@ -13,8 +13,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,6 +75,8 @@ import static com.work.andre.mines.database.DBase.buildingTypeStoneEn;
 import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
 
 import static com.work.andre.mines.database.DBase.canIputMyBuildHere;
+import static com.work.andre.mines.database.DBase.fbInfo;
+import static com.work.andre.mines.database.DBase.getEnBuildingType;
 import static com.work.andre.mines.database.DBase.myTarget;
 import static com.work.andre.mines.database.DBase.minDistanceBetweenTwoBuildings;
 
@@ -86,7 +91,7 @@ import static com.work.andre.mines.database.DBase.resGold;
 import static com.work.andre.mines.database.DBase.resStone;
 import static com.work.andre.mines.database.DBase.resWood;
 
-public class ActMap extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMapLongClickListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnInfoWindowClickListener {
+public class ActMap extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMapLongClickListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnInfoWindowClickListener, AdapterView.OnItemSelectedListener {
 
     public static final String USERGOOGLEEMAIL = "userGoogleEmail";
     public static final String GOOGLEAPI = "GoogleAPI";
@@ -157,6 +162,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     static Spinner spnrBuildingTypesList;
     static TextView tvBuildingName;
     static EditText etBuildingName;
+    static TextView tvBuildingCost;
 
     static boolean isGoToSelectedMine;
     static double selectedMineLat;
@@ -164,6 +170,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
     String currentUserNickName;
     String currentUserGoogleEmail;
+
+    static List<String> structureList;
 
     public static boolean isHQAviable;
 
@@ -274,6 +282,17 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         intentBuildingDetails.putExtra(ActBuildingDetails.BUILDINGID, buildingID);
         intentBuildingDetails.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
         startActivity(intentBuildingDetails);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        etBuildingName.setText(structureList.get(i));
+        getBuildingCostForNewBuildingDialog(structureList.get(i));
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 
     private class LocListener implements LocationListener {
@@ -411,6 +430,46 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                 });
     }
 
+    private void getBuildingCostForNewBuildingDialog(String buildingType) {
+
+        String bType = getEnBuildingType(buildingType) + 1;
+
+        //Получаем стоимость постройки
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference bInfoRef = db.collection(fbInfo).document(bType);
+        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        costGold = document.getLong("CostGold");
+                        costWood = document.getLong("CostWood");
+                        costStone = document.getLong("CostStone");
+                        costClay = document.getLong("CostClay");
+
+                        String printStr = "";
+
+                        if (costGold > 0) {
+                            printStr = "Золота: " + costGold + " ";
+                        }
+                        if (costWood > 0) {
+                            printStr = printStr + "Дерева: " + costWood + " ";
+                        }
+                        if (costStone > 0) {
+                            printStr = printStr + "Камня: " + costStone + " ";
+                        }
+                        if (costClay > 0) {
+                            printStr = printStr + "Глины: " + costClay + " ";
+                        }
+                        tvBuildingCost.setText(printStr);
+                    }
+                }
+            }
+        });
+
+    }
+
     public void addNewBuildingDialog(final LatLng latLng) {
 
         //Создание диалогового окна
@@ -424,11 +483,18 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         mDialogNBuilder.setView(dialogView);
 
         //Инициализация компонентов
+
+
         spnrBuildingTypesList = (Spinner) dialogView.findViewById(R.id.spnrBuildingTypesList);
+        spnrBuildingTypesList.setOnItemSelectedListener(this);
+
+
         tvBuildingName = (TextView) dialogView.findViewById(R.id.tvBuildingName);
         etBuildingName = (EditText) dialogView.findViewById(R.id.etBuildingName);
 
-        List<String> structureList = new ArrayList<String>();
+        tvBuildingCost = (TextView) dialogView.findViewById(R.id.tvBuildingCost);
+
+        structureList = new ArrayList<>();
         structureList.add(buildingTypeWood);
         structureList.add(buildingTypeStone);
         structureList.add(buildingTypeClay);
@@ -437,12 +503,17 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
             structureList.add(buildingTypeHQ);
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, structureList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spnrBuildingTypesList.setAdapter(adapter);
+
+
         etBuildingName.setText(Structure);
+        tvBuildingCost.setText("загрузка...");
+
 
         mDialogNBuilder
                 .setCancelable(true)

@@ -57,6 +57,19 @@ public class DBase {
     public static String resStone = "Stone";
     public static String resClay = "Clay";
 
+    public static String getEnBuildingType(String buildingType) {
+        if (buildingType.equals(buildingTypeHQ)) {
+            return buildingTypeHQEn;
+        } else if (buildingType.equals(buildingTypeWood)) {
+            return buildingTypeWoodEn;
+        } else if (buildingType.equals(buildingTypeStone)) {
+            return buildingTypeStoneEn;
+        } else if (buildingType.equals(buildingTypeClay)) {
+            return buildingTypeClayEn;
+        }
+        return null;
+    }
+
     //Получить категорию постройки по её типу
     public static String getBuildingCategoryByBuildingType(String buildingType) {
         if ((buildingType.equals(buildingTypeWood)) || (buildingType.equals(buildingTypeStone)) || (buildingType.equals(buildingTypeClay))) {
