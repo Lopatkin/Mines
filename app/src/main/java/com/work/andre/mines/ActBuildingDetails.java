@@ -442,42 +442,52 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                                                         userStone = document.getLong("userStone");
                                                         userClay = document.getLong("userClay");
 
-                                                        if (((costGold > 0) && (userGold >= costGold)) ||
-                                                                ((costWood > 0) && (userWood >= costWood)) ||
-                                                                ((costStone > 0) && (userStone > costStone)) ||
-                                                                ((costClay > 0) && (userClay > costClay))) {
-
-                                                            //Апгрейдим новое количество ресурсов пользователя
-                                                            HashMap<String, Object> updatedData = new HashMap<>();
-                                                            updatedData.put("userGold", userGold - costGold);
-                                                            updatedData.put("userWood", userWood - costWood);
-                                                            updatedData.put("userStone", userStone - costStone);
-                                                            updatedData.put("userClay", userClay - costClay);
-
-                                                            DocumentReference documentReference = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
-
-                                                            for (Map.Entry entry : updatedData.entrySet()) {
-                                                                documentReference.update(entry.getKey().toString(), entry.getValue());
-                                                            }
-
-                                                            //Апгрейдим постройку
-                                                            HashMap<String, Object> updatedDataBuilding = new HashMap<>();
-                                                            updatedDataBuilding.put("buildingLVL", buildingLVLPlus1);
-                                                            updatedDataBuilding.put("incomeGold", newIncomeGold);
-                                                            updatedDataBuilding.put("incomeWood", newIncomeWood);
-                                                            updatedDataBuilding.put("incomeStone", newIncomeStone);
-                                                            updatedDataBuilding.put("incomeClay", newIncomeClay);
-
-                                                            DocumentReference documentBuilding = dbMines.collection(fbBuildings).document(buildingID);
-
-                                                            for (Map.Entry entry : updatedDataBuilding.entrySet()) {
-                                                                documentBuilding.update(entry.getKey().toString(), entry.getValue());
-                                                            }
-                                                            Toast.makeText(getBaseContext(), "Улучшение завершено!", Toast.LENGTH_SHORT).show();
-                                                            goToMap();
-                                                        } else {
+                                                        if ((costGold > 0) && (userGold < costGold)) {
                                                             Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                            return;
                                                         }
+                                                        if ((costWood > 0) && (userWood < costWood)) {
+                                                            Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                            return;
+                                                        }
+                                                        if ((costStone > 0) && (userStone < costStone)) {
+                                                            Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                            return;
+                                                        }
+                                                        if ((costClay > 0) && (userClay < costClay)) {
+                                                            Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                            return;
+                                                        }
+
+                                                        //Апгрейдим новое количество ресурсов пользователя
+                                                        HashMap<String, Object> updatedData = new HashMap<>();
+                                                        updatedData.put("userGold", userGold - costGold);
+                                                        updatedData.put("userWood", userWood - costWood);
+                                                        updatedData.put("userStone", userStone - costStone);
+                                                        updatedData.put("userClay", userClay - costClay);
+
+                                                        DocumentReference documentReference = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
+
+                                                        for (Map.Entry entry : updatedData.entrySet()) {
+                                                            documentReference.update(entry.getKey().toString(), entry.getValue());
+                                                        }
+
+                                                        //Апгрейдим постройку
+                                                        HashMap<String, Object> updatedDataBuilding = new HashMap<>();
+                                                        updatedDataBuilding.put("buildingLVL", buildingLVLPlus1);
+                                                        updatedDataBuilding.put("incomeGold", newIncomeGold);
+                                                        updatedDataBuilding.put("incomeWood", newIncomeWood);
+                                                        updatedDataBuilding.put("incomeStone", newIncomeStone);
+                                                        updatedDataBuilding.put("incomeClay", newIncomeClay);
+
+                                                        DocumentReference documentBuilding = dbMines.collection(fbBuildings).document(buildingID);
+
+                                                        for (Map.Entry entry : updatedDataBuilding.entrySet()) {
+                                                            documentBuilding.update(entry.getKey().toString(), entry.getValue());
+                                                        }
+                                                        Toast.makeText(getBaseContext(), "Улучшение завершено!", Toast.LENGTH_SHORT).show();
+                                                        goToMap();
+
                                                     }
                                                 }
                                             }

@@ -50,7 +50,7 @@
     <!-- Button text -->
     <string name="btn_logout_from_google">Logout from Google</string>
     <string name="btn_revoke_access">Revoke Access</string>
-    <string name="loading">loading</string>
+    <string name="loading">загрузка...</string>
     <string name="nickname">Nickname</string>
     <string name="nnnnn">NickName</string>
     <string name="new_name">Переименовать постройку</string>

@@ -33,6 +33,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -101,6 +102,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     public static final String SELECTEDMINELNG = "selectedMineLng";
 
     public static String Structure = "Постройка";
+
+    private UiSettings mUiSettings;
 
     static long userGold;
     static long userWood;
@@ -591,50 +594,60 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                                                 userStone = document.getLong("userStone");
                                                                 userClay = document.getLong("userClay");
 
-                                                                if (((costGold > 0) && (userGold >= costGold)) ||
-                                                                        ((costWood > 0) && (userWood >= costWood)) ||
-                                                                        ((costStone > 0) && (userStone > costStone)) ||
-                                                                        ((costClay > 0) && (userClay > costClay))) {
-
-                                                                    HashMap<String, Object> updatedData = new HashMap<>();
-                                                                    updatedData.put("userGold", userGold - costGold);
-                                                                    updatedData.put("userWood", userWood - costWood);
-                                                                    updatedData.put("userStone", userStone - costStone);
-                                                                    updatedData.put("userClay", userClay - costClay);
-
-                                                                    FirebaseFirestore db2 = FirebaseFirestore.getInstance();
-                                                                    DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
-
-                                                                    more = false;
-                                                                    //Добавляем новую постройку
-                                                                    payIsOk = true;
-
-                                                                    if ((isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
-
-                                                                        FirebaseFirestore dbU1 = FirebaseFirestore.getInstance();
-                                                                        DocumentReference washingtonRef = dbU1.collection(fbUsers).document(currentUserGoogleEmail);
-                                                                        washingtonRef
-                                                                                .update("isHQAviable", false)
-                                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                                    @Override
-                                                                                    public void onSuccess(Void aVoid) {
-                                                                                    }
-                                                                                })
-                                                                                .addOnFailureListener(new OnFailureListener() {
-                                                                                    @Override
-                                                                                    public void onFailure(@NonNull Exception e) {
-                                                                                    }
-                                                                                });
-                                                                    }
-
-                                                                    addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, incomeGold, incomeWood, incomeStone, incomeClay, buildingLat, buildingLng, buildingBuildDate);
-
-                                                                    for (Map.Entry entry : updatedData.entrySet()) {
-                                                                        documentReference.update(entry.getKey().toString(), entry.getValue());
-                                                                    }
-                                                                } else {
+                                                                if ((costGold > 0) && (userGold < costGold)) {
                                                                     Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                                    return;
                                                                 }
+                                                                if ((costWood > 0) && (userWood < costWood)) {
+                                                                    Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                                    return;
+                                                                }
+                                                                if ((costStone > 0) && (userStone < costStone)) {
+                                                                    Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                                    return;
+                                                                }
+                                                                if ((costClay > 0) && (userClay < costClay)) {
+                                                                    Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                                                    return;
+                                                                }
+
+                                                                HashMap<String, Object> updatedData = new HashMap<>();
+                                                                updatedData.put("userGold", userGold - costGold);
+                                                                updatedData.put("userWood", userWood - costWood);
+                                                                updatedData.put("userStone", userStone - costStone);
+                                                                updatedData.put("userClay", userClay - costClay);
+
+                                                                FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                                                                DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
+
+                                                                more = false;
+                                                                //Добавляем новую постройку
+                                                                payIsOk = true;
+
+                                                                if ((isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
+
+                                                                    FirebaseFirestore dbU1 = FirebaseFirestore.getInstance();
+                                                                    DocumentReference washingtonRef = dbU1.collection(fbUsers).document(currentUserGoogleEmail);
+                                                                    washingtonRef
+                                                                            .update("isHQAviable", false)
+                                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                @Override
+                                                                                public void onSuccess(Void aVoid) {
+                                                                                }
+                                                                            })
+                                                                            .addOnFailureListener(new OnFailureListener() {
+                                                                                @Override
+                                                                                public void onFailure(@NonNull Exception e) {
+                                                                                }
+                                                                            });
+                                                                }
+
+                                                                addNewBuilding(currentUserNickName, currentUserGoogleEmail, buildingType, buildingCategory, buildingName, structureLVL, incomeGold, incomeWood, incomeStone, incomeClay, buildingLat, buildingLng, buildingBuildDate);
+
+                                                                for (Map.Entry entry : updatedData.entrySet()) {
+                                                                    documentReference.update(entry.getKey().toString(), entry.getValue());
+                                                                }
+
                                                             }
                                                         }
                                                     }
@@ -682,10 +695,16 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
         map.setMyLocationEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(true);
+        map.getUiSettings().setRotateGesturesEnabled(false);
+        map.getUiSettings().setMapToolbarEnabled(false);
+        map.getUiSettings().setCompassEnabled(false);
+        map.getUiSettings().setZoomControlsEnabled(true);
 
         mvMap = map;
         mvMap.setOnMapLongClickListener(this);
         mvMap.setOnInfoWindowClickListener(this);
+        mvMap.setMinZoomPreference(13.0f);
+        mvMap.setMaxZoomPreference(20.0f);
 
         LatLng target;
         CameraUpdate camUpdate;
