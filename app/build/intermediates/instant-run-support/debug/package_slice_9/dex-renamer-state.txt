@@ -1,4 +1,4 @@
-#Wed Oct 25 14:08:38 MSK 2017
+#Mon Oct 30 17:36:46 MSK 2017
 base.0=D\:\\GoogleDisk\\Mines\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_9
 renamed.0=classes.dex
 file.0=D\:\\GoogleDisk\\Mines\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_9\\classes.dex

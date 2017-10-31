@@ -19,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,14 +30,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.work.andre.mines.ActMap.USERGOOGLEEMAIL;
+import static com.work.andre.mines.ActMap.buildingLat;
+import static com.work.andre.mines.ActMap.buildingLng;
 import static com.work.andre.mines.database.DBase.buildingTypeClay;
 import static com.work.andre.mines.database.DBase.buildingTypeHQ;
 import static com.work.andre.mines.database.DBase.buildingTypeStone;
 import static com.work.andre.mines.database.DBase.buildingTypeWood;
+import static com.work.andre.mines.database.DBase.deleteBuilding;
 import static com.work.andre.mines.database.DBase.fbBuildings;
 import static com.work.andre.mines.database.DBase.fbInfo;
 import static com.work.andre.mines.database.DBase.fbUsers;
+import static com.work.andre.mines.database.DBase.getBuildingInfoAfterUpdate;
 import static com.work.andre.mines.database.DBase.getEnBuildingType;
+import static com.work.andre.mines.database.DBase.renameBuilding;
+import static com.work.andre.mines.database.DBase.upgradeBuilding;
 
 public class ActBuildingDetails extends AppCompatActivity implements View.OnClickListener {
 
@@ -83,8 +88,8 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
     TextView tvBuildingIncomeInfo;
 
     TextView tvCurrentData;
-    TextView tvAfterUpdateInfo;
-    TextView tvCostInfo;
+    public static TextView tvAfterUpdateInfo;
+    public static TextView tvCostInfo;
 
     EditText etRenameBuildingName;
 
@@ -110,7 +115,6 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
     FirebaseFirestore dbMines;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,7 +135,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         currentUserGoogleEmail = getIntent().getStringExtra(USERGOOGLEEMAIL);
         buildingID = getIntent().getStringExtra(BUILDINGID);
 
-        DocumentReference docRef = dbMines.collection(fbBuildings).document(buildingID);
+        DocumentReference docRef = dbMines.collection(fbUsers).document(currentUserGoogleEmail).collection(fbBuildings).document(buildingID);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
@@ -258,14 +262,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         //Нажатие кнопки "ОК"
         if (v.getId() == R.id.btnOK) {
             if (newBuildingName != null) {
-                DocumentReference buildingRef = dbMines.collection(fbBuildings).document(buildingID);
-                buildingRef.update("buildingName", newBuildingName)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                goToMap();
-                            }
-                        });
+                renameBuilding(buildingID, currentUserGoogleEmail, newBuildingName);
             }
             goToMap();
         }
@@ -277,21 +274,21 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
 
         //Нажатие кнопки "Удалить"
         if (v.getId() == R.id.btnDeleteBuilding) {
-            deleteBuilding();
+            tryDeleteBuilding();
         }
 
         //Нажатие кнопки "Переименовать"
         if (v.getId() == R.id.btnRename) {
-            renameBuilding();
+            setNewBuildingName();
         }
 
         //Нажатие кнопки "Улучшить"
         if (v.getId() == R.id.btnUpgrade) {
-            upgradeBuilding();
-        }
+                    tryUpgradeBuilding();
+                }
     }
 
-    private void upgradeBuilding() {
+    private void tryUpgradeBuilding() {
         //Создание диалогового окна
         final LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.update_building_dialog, null);
@@ -302,13 +299,13 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         //Прикручиваем лейаут к алерту
         mDialogNBuilder.setView(dialogView);
 
-        tvCurrentData = (TextView) dialogView.findViewById(R.id.tvCurrentData);
-        tvAfterUpdateInfo = (TextView) dialogView.findViewById(R.id.tvAfterUpdateInfo);
-        tvCostInfo = (TextView) dialogView.findViewById(R.id.tvCostInfo);
+        //Инициализируем объекты диалогового окна
+        tvCurrentData = dialogView.findViewById(R.id.tvCurrentData);
+        tvAfterUpdateInfo = dialogView.findViewById(R.id.tvAfterUpdateInfo);
+        tvCostInfo = dialogView.findViewById(R.id.tvCostInfo);
 
-
+        //Выводим текущую информацию о постройке
         printStrUpdate = "Текущий уровень: " + buildingLVL + "\n";
-
         if (buildingIncomeGold > 0) {
             printStrUpdate = "Приход золота: " + buildingIncomeGold + "\n";
         }
@@ -321,71 +318,12 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         if (buildingIncomeClay > 0) {
             printStrUpdate = printStrUpdate + "Приход глины: " + buildingIncomeClay + "\n";
         }
-
         tvCurrentData.setText(printStrUpdate);
 
-        //Получаем информацию о постройки после улучшения
-        buildingLVLPlus1 = buildingLVL + 1;
-        String bType = getEnBuildingType(buildingType);
-        String doc = bType + buildingLVLPlus1;
+        //Получаем информацию о постройке после улучшения
+        getBuildingInfoAfterUpdate(buildingType, buildingLVL);
 
-        DocumentReference bInfoRef = dbMines.collection(fbInfo).document(doc);
-        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        costGold = document.getLong("CostGold");
-                        costWood = document.getLong("CostWood");
-                        costStone = document.getLong("CostStone");
-                        costClay = document.getLong("CostClay");
-
-                        newIncomeGold = document.getLong("IncomeGold");
-                        newIncomeWood = document.getLong("IncomeWood");
-                        newIncomeStone = document.getLong("IncomeStone");
-                        newIncomeClay = document.getLong("IncomeClay");
-
-                        String printStrAfterUpdate = "";
-                        printStrAfterUpdate = "Уровень: " + buildingLVLPlus1 + "\n";
-                        if (newIncomeGold > 0) {
-                            printStrAfterUpdate = "Приход золота: " + newIncomeGold + "\n";
-                        }
-                        if (newIncomeWood > 0) {
-                            printStrAfterUpdate = printStrAfterUpdate + "Приход дерева: " + newIncomeWood + "\n";
-                        }
-                        if (newIncomeStone > 0) {
-                            printStrAfterUpdate = printStrAfterUpdate + "Приход камня: " + newIncomeStone + "\n";
-                        }
-                        if (newIncomeClay > 0) {
-                            printStrAfterUpdate = printStrAfterUpdate + "Приход глины: " + newIncomeClay + "\n";
-                        }
-
-                        tvAfterUpdateInfo.setText(printStrAfterUpdate);
-
-
-                        String printStrCostUpdate = "";
-                        if (costGold > 0) {
-                            printStrCostUpdate = "Золота: " + costGold + "\n";
-                        }
-                        if (costWood > 0) {
-                            printStrCostUpdate = printStrCostUpdate + "Дерева: " + costWood + "\n";
-                        }
-                        if (costStone > 0) {
-                            printStrCostUpdate = printStrCostUpdate + "Камня: " + costStone + "\n";
-                        }
-                        if (costClay > 0) {
-                            printStrCostUpdate = printStrCostUpdate + "Глины: " + costClay + "\n";
-                        }
-
-                        tvCostInfo.setText(printStrCostUpdate);
-
-                    }
-                }
-            }
-        });
-
-
+        //Диалог
         mDialogNBuilder
                 .setCancelable(true)
                 .setNegativeButton("И так сойдёт", new DialogInterface.OnClickListener() {
@@ -406,96 +344,9 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
                             return;
                         }
 
-                        buildingLVLPlus1 = buildingLVL + 1;
-
-                        //Получаем стоимость постройки
-                        String bType = getEnBuildingType(buildingType);
-                        String doc = bType + buildingLVLPlus1;
-
-                        DocumentReference bInfoRef = dbMines.collection(fbInfo).document(doc);
-                        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        costGold = document.getLong("CostGold");
-                                        costWood = document.getLong("CostWood");
-                                        costStone = document.getLong("CostStone");
-                                        costClay = document.getLong("CostClay");
-
-                                        newIncomeGold = document.getLong("IncomeGold");
-                                        newIncomeWood = document.getLong("IncomeWood");
-                                        newIncomeStone = document.getLong("IncomeStone");
-                                        newIncomeClay = document.getLong("IncomeClay");
-
-                                        //Получаем количество ресурсов у пользователя
-                                        DocumentReference userRef = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
-                                        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                                if (task.isSuccessful()) {
-                                                    DocumentSnapshot document = task.getResult();
-                                                    if (document.exists()) {
-                                                        userGold = document.getLong("userGold");
-                                                        userWood = document.getLong("userWood");
-                                                        userStone = document.getLong("userStone");
-                                                        userClay = document.getLong("userClay");
-
-                                                        if ((costGold > 0) && (userGold < costGold)) {
-                                                            Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
-                                                            return;
-                                                        }
-                                                        if ((costWood > 0) && (userWood < costWood)) {
-                                                            Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
-                                                            return;
-                                                        }
-                                                        if ((costStone > 0) && (userStone < costStone)) {
-                                                            Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
-                                                            return;
-                                                        }
-                                                        if ((costClay > 0) && (userClay < costClay)) {
-                                                            Toast.makeText(getBaseContext(), "Недостаточно средств!", Toast.LENGTH_SHORT).show();
-                                                            return;
-                                                        }
-
-                                                        //Апгрейдим новое количество ресурсов пользователя
-                                                        HashMap<String, Object> updatedData = new HashMap<>();
-                                                        updatedData.put("userGold", userGold - costGold);
-                                                        updatedData.put("userWood", userWood - costWood);
-                                                        updatedData.put("userStone", userStone - costStone);
-                                                        updatedData.put("userClay", userClay - costClay);
-
-                                                        DocumentReference documentReference = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
-
-                                                        for (Map.Entry entry : updatedData.entrySet()) {
-                                                            documentReference.update(entry.getKey().toString(), entry.getValue());
-                                                        }
-
-                                                        //Апгрейдим постройку
-                                                        HashMap<String, Object> updatedDataBuilding = new HashMap<>();
-                                                        updatedDataBuilding.put("buildingLVL", buildingLVLPlus1);
-                                                        updatedDataBuilding.put("incomeGold", newIncomeGold);
-                                                        updatedDataBuilding.put("incomeWood", newIncomeWood);
-                                                        updatedDataBuilding.put("incomeStone", newIncomeStone);
-                                                        updatedDataBuilding.put("incomeClay", newIncomeClay);
-
-                                                        DocumentReference documentBuilding = dbMines.collection(fbBuildings).document(buildingID);
-
-                                                        for (Map.Entry entry : updatedDataBuilding.entrySet()) {
-                                                            documentBuilding.update(entry.getKey().toString(), entry.getValue());
-                                                        }
-                                                        Toast.makeText(getBaseContext(), "Улучшение завершено!", Toast.LENGTH_SHORT).show();
-                                                        goToMap();
-
-                                                    }
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                            }
-                        });
+                        //Апгрейдим постройку
+                        upgradeBuilding(getBaseContext(), buildingType, buildingLVL, currentUserGoogleEmail, buildingID);
+                        goToMap();
                     }
                 });
 
@@ -503,7 +354,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         alertDialog.show();
     }
 
-    public void renameBuilding() {
+    public void setNewBuildingName() {
 
         //Создание диалогового окна
         final LayoutInflater inflater = LayoutInflater.from(this);
@@ -539,7 +390,7 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         alertDialog.show();
     }
 
-    private void deleteBuilding() {
+    private void tryDeleteBuilding() {
         context = ActBuildingDetails.this;
         ad = new AlertDialog.Builder(context);
 
@@ -552,93 +403,10 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
         ad.setMessage(message); // сообщение
         ad.setPositiveButton(button1String, new OnClickListener() {
             public void onClick(DialogInterface dialog, int arg1) {
-                dbMines.collection(fbBuildings).document(buildingID)
-                        .delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-
-                                //Получаем стоимость постройки
-                                String bType = getEnBuildingType(buildingType);
-                                String doc = bType + buildingLVL;
-
-                                DocumentReference deletedBuildingRef = dbMines.collection(fbInfo).document(doc);
-                                deletedBuildingRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-                                        if (task.isSuccessful()) {
-                                            DocumentSnapshot document = task.getResult();
-                                            if (document.exists()) {
-                                                costGold = document.getLong("CostGold");
-                                                costWood = document.getLong("CostWood");
-                                                costStone = document.getLong("CostStone");
-                                                costClay = document.getLong("CostClay");
-
-                                                //Получаем количество ресурсов у пользователя
-                                                DocumentReference userRef = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
-                                                userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                                        if (task.isSuccessful()) {
-                                                            DocumentSnapshot document = task.getResult();
-                                                            if (document.exists()) {
-                                                                userGold = document.getLong("userGold");
-                                                                userWood = document.getLong("userWood");
-                                                                userStone = document.getLong("userStone");
-                                                                userClay = document.getLong("userClay");
-
-                                                                //Возвращаем пользователю половину ресурсов
-                                                                long returnGold = costGold / 2;
-                                                                long returnWood = costWood / 2;
-                                                                long returnStone = costStone / 2;
-                                                                long returnClay = costClay / 2;
-
-                                                                HashMap<String, Object> updatedData = new HashMap<>();
-                                                                updatedData.put("userGold", userGold + returnGold);
-                                                                updatedData.put("userWood", userWood + returnWood);
-                                                                updatedData.put("userStone", userStone + returnStone);
-                                                                updatedData.put("userClay", userClay + returnClay);
-
-                                                                DocumentReference userRefUpdate = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
-                                                                for (Map.Entry entry : updatedData.entrySet()) {
-                                                                    userRefUpdate.update(entry.getKey().toString(), entry.getValue());
-                                                                }
-
-                                                                userRefUpdate.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                                                    @Override
-                                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                                                        if (task.isSuccessful()) {
-                                                                            DocumentSnapshot document = task.getResult();
-                                                                            if (document.exists()) {
-                                                                                isHQAviable = document.getBoolean("isHQAviable");
-
-                                                                                if ((!isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
-                                                                                    DocumentReference uRef = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
-                                                                                    uRef.update("isHQAviable", true)
-                                                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                                                @Override
-                                                                                                public void onSuccess(Void aVoid) {
-                                                                                                    //OK
-                                                                                                }
-                                                                                            });
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                });
-                                                            }
-                                                        }
-                                                    }
-                                                });
-                                            }
-                                        }
-                                    }
-                                });
-                                Toast.makeText(getBaseContext(), "Постройка снесена!", Toast.LENGTH_LONG).show();
-                                goToMap();
-                            }
-                        });
+                if (deleteBuilding(buildingID, currentUserGoogleEmail, buildingType, buildingLVL)) {
+                    Toast.makeText(getBaseContext(), "Постройка снесена!", Toast.LENGTH_SHORT).show();
+                    goToMap();
+                }
             }
         });
         ad.setNegativeButton(button2String, new OnClickListener() {
@@ -653,9 +421,10 @@ public class ActBuildingDetails extends AppCompatActivity implements View.OnClic
             }
         });
         ad.show();
+
     }
 
-    private void goToMap() {
+    public void goToMap() {
         Intent intentActMap = new Intent(this, ActMap.class);
         intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
         startActivity(intentActMap);

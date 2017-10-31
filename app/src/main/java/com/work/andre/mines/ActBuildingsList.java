@@ -102,7 +102,6 @@ public class ActBuildingsList extends AppCompatActivity {
         bCategory = getIntent().getStringExtra(BUILDINGCATEGORY);
         currentUserGoogleEmail = getIntent().getStringExtra(USERGOOGLEEMAIL);
 
-        //......................................FIRESTORE......................................
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         final DocumentReference docRef = db.collection(fbUsers).document(currentUserGoogleEmail);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -110,7 +109,6 @@ public class ActBuildingsList extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot snapshot,
                                 @Nullable FirebaseFirestoreException e) {
                 if (e != null) {
-                    //Log.w(TAG, "Listen failed.", e);
                     return;
                 }
 
@@ -123,11 +121,9 @@ public class ActBuildingsList extends AppCompatActivity {
                     }
 
                     tvOwnerName.setText(currentUserNickName);
-                    //Log.d(TAG, "Current data: " + snapshot.getData());
                 }
             }
         });
-        //.....................................................................................
 
         buildingWoodCount = 0;
         buildingStoneCount = 0;
@@ -148,6 +144,7 @@ public class ActBuildingsList extends AppCompatActivity {
         tvBuildingAllText.setVisibility(View.VISIBLE);
         tvBuildingInAll.setVisibility(View.VISIBLE);
 
+        //Режим отображения
         //Офисы
         if (bCategory.equals(buildingCategoryOffice)) {
             ivMainIcon.setImageResource(R.drawable.builnings_list_picture);
@@ -163,13 +160,8 @@ public class ActBuildingsList extends AppCompatActivity {
             tvBuildingStoneInfo.setVisibility(View.GONE);
             tvBuildingClayText.setVisibility(View.GONE);
             tvBuildingClayInfo.setVisibility(View.GONE);
-
-
             tvBuildingHQInfo.setText(String.valueOf(buildingHQCount));
-
-
         } else {
-
             //Шахты
             ivMainIcon.setImageResource(R.drawable.mine_list_picture);
 
@@ -190,22 +182,20 @@ public class ActBuildingsList extends AppCompatActivity {
             tvBuildingClayInfo.setText(String.valueOf(buildingClayCount));
         }
 
-        //.....
         tvBuildingInAll.setText(String.valueOf(buildingAllCount));
     }
 
     private void initializeData() {
         buildingsList = new ArrayList<>();
+        buildingsList.clear();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection(fbBuildings)
-                .whereEqualTo("userGoogleEmail", currentUserGoogleEmail)
+        db.collection(fbUsers).document(currentUserGoogleEmail).collection(fbBuildings)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,
                                         @Nullable FirebaseFirestoreException e) {
                         if (e != null) {
-                            //Log.w(TAG, "Listen failed.", e);
                             return;
                         }
 
@@ -230,11 +220,9 @@ public class ActBuildingsList extends AppCompatActivity {
                                     updateData();
 
                                     buildingsList.add(new Buildings(doc.getString("buildingID"), doc.getString("buildingName"), doc.getLong("buildingLVL"), pic));
-                                    initializeAdapter();
                                 }
                             }
                         }
-                        //Log.d(TAG, "Current cites in CA: " + cities);
                     }
                 });
     }
@@ -273,24 +261,16 @@ public class ActBuildingsList extends AppCompatActivity {
                     String myBuildingID = myBuilding.buildingID;
                     goToCurrentBuildingLocationByBuildingID(myBuildingID);
                 }
-
                 return false;
             }
 
             @Override
             public void onTouchEvent(RecyclerView Recyclerview, MotionEvent motionEvent) {
-
             }
 
             @Override
             public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
             }
-
-//            @Override
-//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-//
-//            }
         });
 
     }

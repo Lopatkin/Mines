@@ -57,10 +57,8 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
-    DatabaseReference myRef;
 
     private GoogleApiClient mGoogleApiClient;
-
 
     TextView tvUserMail;
     TextView tvUserFirstName;
@@ -102,7 +100,6 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
 
         currentUserGoogleEmail = getIntent().getStringExtra(USERGOOGLEEMAIL);
 
-        //......................................FIRESTORE......................................
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         final DocumentReference docRef = db.collection(fbUsers).document(currentUserGoogleEmail);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -126,66 +123,6 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
                 }
             }
         });
-        //.....................................................................................
-
-//        //......................................FIRESTORE......................................
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        DocumentReference docRef = db.collection(fbUsers).document(currentUserGoogleEmail);
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//
-//                    if (!document.exists()) {
-//
-//                        userDisplayName = (String) document.get("DisplayName");
-//                        userNickName = (String) document.get("NickName");
-//                        userFirstName = (String) document.get("GivenName");
-//                        userSecondName = (String) document.get("FamilyName");
-//                        userAge = (int) document.get("Age");
-//                        userSex = (String) document.get("Sex");
-//                        registrationDate = (String) document.get("registrationDate");
-//                        updateData();
-//                    }
-//
-//                } else {
-////                    Log.d(TAG, "get failed with ", task.getException());
-//                }
-//            }
-//        });
-        //.....................................................................................
-
-
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        myRef = database.getReference(fbUsers);
-//
-//
-//        // Read from the database
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//
-//                allowedEmail = allowedEmail(currentUserGoogleEmail);
-//
-//                userDisplayName = dataSnapshot.child(allowedEmail).child("DisplayName").getValue(String.class);
-//                userNickName = dataSnapshot.child(allowedEmail).child("NickName").getValue(String.class);
-//                userFirstName = dataSnapshot.child(allowedEmail).child("GivenName").getValue(String.class);
-//                userSecondName = dataSnapshot.child(allowedEmail).child("FamilyName").getValue(String.class);
-//                userAge = dataSnapshot.child(allowedEmail).child("Age").getValue(Integer.class);
-//                userSex = dataSnapshot.child(allowedEmail).child("Sex").getValue(String.class);
-//                registrationDate = dataSnapshot.child(allowedEmail).child("registrationDate").getValue(String.class);
-//
-//                updateData();
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//            }
-//        });
 
         // [START config_signin]
         // Configure Google Sign In
@@ -203,10 +140,6 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
 
-
-//        currentUserNickName = MyApp.getMyDBase().getUserDisplayNameByGoogleEmail(currentUserGoogleEmail);
-
-
         personPhotoUrl = mAuth.getCurrentUser().getPhotoUrl().toString();
 
         Glide.with(getApplicationContext()).load(personPhotoUrl)
@@ -214,8 +147,6 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imgProfilePic);
-
-//
     }
 
     public void initUI() {
@@ -244,7 +175,6 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
 
         btnSignOut.setOnClickListener(this);
         btnRevokeAccess.setOnClickListener(this);
-
     }
 
     @Override
@@ -289,7 +219,6 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
                             }
                         });
             }
-            //.....................................................................................
 
             Intent intentActMap = new Intent(this, ActMap.class);
             intentActMap.putExtra(USERGOOGLEEMAIL, currentUserGoogleEmail);
@@ -375,6 +304,4 @@ public class ActSettings extends FragmentActivity implements View.OnClickListene
                     }
                 });
     }
-
-
 }

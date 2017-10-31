@@ -1,9 +1,12 @@
 package com.work.andre.mines.database;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,7 +22,31 @@ import com.google.maps.android.SphericalUtil;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.work.andre.mines.ActBuildingDetails.tvAfterUpdateInfo;
+import static com.work.andre.mines.ActBuildingDetails.tvCostInfo;
+
 public class DBase {
+
+    public static FirebaseFirestore dbMines = FirebaseFirestore.getInstance();
+
+    static boolean isContinue;
+    public static String printStrAfterUpdate;
+    public static String printStrCostUpdate;
+
+    static long costGold;
+    static long costWood;
+    static long costStone;
+    static long costClay;
+
+    static long userGold;
+    static long userWood;
+    static long userStone;
+    static long userClay;
+
+    static long newIncomeGold;
+    static long newIncomeWood;
+    static long newIncomeStone;
+    static long newIncomeClay;
 
     public static LatLng myTarget;
 
@@ -35,6 +62,8 @@ public class DBase {
     public static String fbUsers = "users";
     public static String fbBuildings = "buildings";
     public static String fbInfo = "bInfo";
+    public static String area_ = "area_";
+    public static String loc_ = "loc_";
 
     public static double minDistanceBetweenTwoBuildings = 100.0; //Минимальное расстояние между шахтами
 
@@ -50,7 +79,6 @@ public class DBase {
 
     public static String buildingCategoryMining = "Добывающая";
     public static String buildingCategoryOffice = "Офисная";
-
 
     public static String resGold = "Gold";
     public static String resWood = "Wood";
@@ -70,28 +98,320 @@ public class DBase {
         return null;
     }
 
-    //Получить категорию постройки по её типу
     public static String getBuildingCategoryByBuildingType(String buildingType) {
         if ((buildingType.equals(buildingTypeWood)) || (buildingType.equals(buildingTypeStone)) || (buildingType.equals(buildingTypeClay))) {
             return buildingCategoryMining;
         } else return buildingCategoryOffice;
     }
 
-    //Получить ID постройки
     public static String getBuildingID(double buildingLat, double buildingLng) {
         return String.valueOf(buildingLat) + " " + String.valueOf(buildingLng);
     }
 
-    //Получить ID постройки
     public static String getBuildingID(String buildingLat, String buildingLng) {
         return String.valueOf(buildingLat) + " " + String.valueOf(buildingLng);
     }
 
-    //Добавить новую постройку
-    public static void addNewBuilding(String userNickName, String userGoogleEmail, String buildingType, String buildingCategory, String buildingName, long buildingLVL, long incomeGold, long incomeWood, long incomeStone, long incomeClay, double buildingLat, double buildingLng, String buildingBuildDate) {
+    public static String getDocArea(String strLat, String strLng) {
+        String docAreaLat = strLat.substring(0, 2);
+        String docAreaLng = strLng.substring(0, 2);
+        return area_ + docAreaLat + "_" + docAreaLng;
+    }
+
+    public static String getColLoc(String strLat, String strLng) {
+        String colLocLat = strLat.substring(0, 5);
+        String colLocLng = strLng.substring(0, 5);
+        return loc_ + colLocLat + "_" + colLocLng;
+    }
+
+    public static String getDocAreaByBuildingID(String buildingID) {
+
+        //55.755534068756944 37.51492425799369  вход
+        //area_55_37                            выход
+
+        String[] splitted = buildingID.split(" ");
+        String preDocAreaLat = splitted[0];
+        String preDocAreaLng = splitted[1];
+
+        String docAreaLat = preDocAreaLat.substring(0, 2);
+        String docAreaLng = preDocAreaLng.substring(0, 2);
+
+        return area_ + docAreaLat + "_" + docAreaLng;
+    }
+
+    public static String getColLocByBuildingID(String buildingID) {
+
+        //55.755534068756944 37.51492425799369  вход
+        //loc_55.75_37.51                       выход
+
+        String[] splitted = buildingID.split(" ");
+        String preColLocLat = splitted[0];
+        String preColLocLng = splitted[1];
+
+        String colLocLat = preColLocLat.substring(0, 5);
+        String colLocLng = preColLocLng.substring(0, 5);
+
+        return loc_ + colLocLat + "_" + colLocLng;
+    }
+
+    public static void getBuildingInfoAfterUpdate(String buildingType, final long buildingLVL) {
+
+        //Получаем информацию о постройке после улучшения
+        String doc = getEnBuildingType(buildingType) + (buildingLVL + 1);
+
+        printStrAfterUpdate = "загрузка...";
+
+        DocumentReference bInfoRef = dbMines.collection(fbInfo).document(doc);
+        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        costGold = document.getLong("CostGold");
+                        costWood = document.getLong("CostWood");
+                        costStone = document.getLong("CostStone");
+                        costClay = document.getLong("CostClay");
+
+                        newIncomeGold = document.getLong("IncomeGold");
+                        newIncomeWood = document.getLong("IncomeWood");
+                        newIncomeStone = document.getLong("IncomeStone");
+                        newIncomeClay = document.getLong("IncomeClay");
+
+                        printStrAfterUpdate = "Уровень: " + (buildingLVL + 1) + "\n";
+                        if (newIncomeGold > 0) {
+                            printStrAfterUpdate = "Приход золота: " + newIncomeGold + "\n";
+                        }
+                        if (newIncomeWood > 0) {
+                            printStrAfterUpdate = printStrAfterUpdate + "Приход дерева: " + newIncomeWood + "\n";
+                        }
+                        if (newIncomeStone > 0) {
+                            printStrAfterUpdate = printStrAfterUpdate + "Приход камня: " + newIncomeStone + "\n";
+                        }
+                        if (newIncomeClay > 0) {
+                            printStrAfterUpdate = printStrAfterUpdate + "Приход глины: " + newIncomeClay + "\n";
+                        }
+                        tvAfterUpdateInfo.setText(printStrAfterUpdate);
+
+                        if (costGold > 0) {
+                            printStrCostUpdate = "Золота: " + costGold + "\n";
+                        }
+                        if (costWood > 0) {
+                            printStrCostUpdate = printStrCostUpdate + "Дерева: " + costWood + "\n";
+                        }
+                        if (costStone > 0) {
+                            printStrCostUpdate = printStrCostUpdate + "Камня: " + costStone + "\n";
+                        }
+                        if (costClay > 0) {
+                            printStrCostUpdate = printStrCostUpdate + "Глины: " + costClay + "\n";
+                        }
+                        tvCostInfo.setText(printStrCostUpdate);
+                    }
+                }
+            }
+        });
+    }
+
+    public static void upgradeBuilding(final Context context, String buildingType, final long buildingLVL, final String userGoogleEmail, final String buildingID) {
+
+        //Получаем стоимость постройки
+        String doc = getEnBuildingType(buildingType) + (buildingLVL + 1);
+
+        DocumentReference bInfoRef = dbMines.collection(fbInfo).document(doc);
+        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        costGold = document.getLong("CostGold");
+                        costWood = document.getLong("CostWood");
+                        costStone = document.getLong("CostStone");
+                        costClay = document.getLong("CostClay");
+
+                        newIncomeGold = document.getLong("IncomeGold");
+                        newIncomeWood = document.getLong("IncomeWood");
+                        newIncomeStone = document.getLong("IncomeStone");
+                        newIncomeClay = document.getLong("IncomeClay");
+
+                        //Получаем количество ресурсов у пользователя
+                        DocumentReference userRef = dbMines.collection(fbUsers).document(userGoogleEmail);
+                        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        userGold = document.getLong("userGold");
+                                        userWood = document.getLong("userWood");
+                                        userStone = document.getLong("userStone");
+                                        userClay = document.getLong("userClay");
+
+                                        if ((costGold > 0) && (userGold < costGold)) {
+                                            Toast.makeText(context, "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+                                        if ((costWood > 0) && (userWood < costWood)) {
+                                            Toast.makeText(context, "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+                                        if ((costStone > 0) && (userStone < costStone)) {
+                                            Toast.makeText(context, "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+                                        if ((costClay > 0) && (userClay < costClay)) {
+                                            Toast.makeText(context, "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+
+                                        //Апгрейдим новое количество ресурсов пользователя
+                                        HashMap<String, Object> updatedData = new HashMap<>();
+                                        updatedData.put("userGold", userGold - costGold);
+                                        updatedData.put("userWood", userWood - costWood);
+                                        updatedData.put("userStone", userStone - costStone);
+                                        updatedData.put("userClay", userClay - costClay);
+
+                                        DocumentReference documentReference = dbMines.collection(fbUsers).document(userGoogleEmail);
+
+                                        for (Map.Entry entry : updatedData.entrySet()) {
+                                            documentReference.update(entry.getKey().toString(), entry.getValue());
+                                        }
+
+                                        //Апгрейдим постройку
+                                        HashMap<String, Object> updatedDataBuilding = new HashMap<>();
+                                        updatedDataBuilding.put("buildingLVL", (buildingLVL + 1));
+                                        updatedDataBuilding.put("incomeGold", newIncomeGold);
+                                        updatedDataBuilding.put("incomeWood", newIncomeWood);
+                                        updatedDataBuilding.put("incomeStone", newIncomeStone);
+                                        updatedDataBuilding.put("incomeClay", newIncomeClay);
+
+                                        //Апгрейдим постройку в общей таблице
+                                        DocumentReference documentBuilding = dbMines.collection(fbBuildings).document(getDocAreaByBuildingID(buildingID)).collection(getColLocByBuildingID(buildingID)).document(buildingID);
+                                        for (Map.Entry entry : updatedDataBuilding.entrySet()) {
+                                            documentBuilding.update(entry.getKey().toString(), entry.getValue());
+                                        }
+
+                                        //Апгрейдим постройку в таблице пользователя
+                                        DocumentReference documentUserBuilding = dbMines.collection(fbUsers).document(userGoogleEmail).collection(fbBuildings).document(buildingID);
+                                        for (Map.Entry entry : updatedDataBuilding.entrySet()) {
+                                            documentUserBuilding.update(entry.getKey().toString(), entry.getValue());
+                                        }
+                                        Toast.makeText(context, "Улучшение завершено!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    }
+
+    public static void renameBuilding(String buildingID, String userGoogleEmail, String newBuildingName) {
+        //Меняем название в списке баз пользователя
+        DocumentReference userBuildingRef = dbMines.collection(fbUsers).document(userGoogleEmail).collection(fbBuildings).document(buildingID);
+        userBuildingRef.update("buildingName", newBuildingName);
+
+        //Меняем название в общем списке построек
+        String docArea = getDocAreaByBuildingID(buildingID);
+        String colLoc = getColLocByBuildingID(buildingID);
+        DocumentReference buildingRef = dbMines.collection(fbBuildings).document(docArea).collection(colLoc).document(buildingID);
+        buildingRef.update("buildingName", newBuildingName);
+    }
+
+    public static boolean deleteBuilding(final String buildingID, final String userGoogleEmail, final String buildingType, final long buildingLVL) {
+
+        String docArea = getDocAreaByBuildingID(buildingID);
+        String colLoc = getColLocByBuildingID(buildingID);
+
+        //Удаляем из общей таблицы
+        dbMines.collection(fbBuildings).document(docArea).collection(colLoc).document(buildingID)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                          @Override
+                                          public void onSuccess(Void aVoid) {
+
+                                              //Удаляем из таблицы пользователя
+                                              dbMines.collection(fbUsers).document(userGoogleEmail).collection(fbBuildings).document(buildingID)
+                                                      .delete()
+                                                      .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                          @Override
+                                                          public void onSuccess(Void aVoid) {
+
+                                                              //Получаем стоимость постройки
+                                                              String doc = getEnBuildingType(buildingType) + buildingLVL;
+                                                              DocumentReference deletedBuildingInfoRef = dbMines.collection(fbInfo).document(doc);
+                                                              deletedBuildingInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                                  @Override
+                                                                  public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                                      if (task.isSuccessful()) {
+                                                                          DocumentSnapshot document = task.getResult();
+                                                                          if (document.exists()) {
+                                                                              costGold = document.getLong("CostGold");
+                                                                              costWood = document.getLong("CostWood");
+                                                                              costStone = document.getLong("CostStone");
+                                                                              costClay = document.getLong("CostClay");
+
+                                                                              //Получаем количество ресурсов у пользователя
+                                                                              DocumentReference userRef = dbMines.collection(fbUsers).document(userGoogleEmail);
+                                                                              userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                                                  @Override
+                                                                                  public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                                                      if (task.isSuccessful()) {
+                                                                                          DocumentSnapshot document = task.getResult();
+                                                                                          if (document.exists()) {
+                                                                                              userGold = document.getLong("userGold");
+                                                                                              userWood = document.getLong("userWood");
+                                                                                              userStone = document.getLong("userStone");
+                                                                                              userClay = document.getLong("userClay");
+
+                                                                                              //Возвращаем пользователю половину ресурсов
+                                                                                              long returnGold = costGold / 2;
+                                                                                              long returnWood = costWood / 2;
+                                                                                              long returnStone = costStone / 2;
+                                                                                              long returnClay = costClay / 2;
+
+                                                                                              HashMap<String, Object> updatedData = new HashMap<>();
+                                                                                              updatedData.put("userGold", userGold + returnGold);
+                                                                                              updatedData.put("userWood", userWood + returnWood);
+                                                                                              updatedData.put("userStone", userStone + returnStone);
+                                                                                              updatedData.put("userClay", userClay + returnClay);
+
+                                                                                              DocumentReference userRefUpdate = dbMines.collection(fbUsers).document(userGoogleEmail);
+                                                                                              for (Map.Entry entry : updatedData.entrySet()) {
+                                                                                                  userRefUpdate.update(entry.getKey().toString(), entry.getValue());
+                                                                                              }
+
+                                                                                              //Если удалили штаб, то разрешаем построить его снова
+                                                                                              if (buildingType.equals(buildingTypeHQ)) {
+                                                                                                  userRefUpdate.update("isHQAviable", true);
+                                                                                              }
+                                                                                          }
+                                                                                      }
+                                                                                  }
+                                                                              });
+                                                                          }
+                                                                      }
+                                                                  }
+                                                              });
+                                                          }
+                                                      });
+                                          }
+                                      }
+                );
+        return true;
+    }
+
+    public static void addNewBuilding(String userNickName, String userGoogleEmail, String
+            buildingType, String buildingCategory, String buildingName, long buildingLVL,
+                                      long incomeGold, long incomeWood, long incomeStone, long incomeClay, double buildingLat,
+                                      double buildingLng, String buildingBuildDate) {
         String strLat = String.valueOf(buildingLat);
         String strLng = String.valueOf(buildingLng);
+
         String buildingID = getBuildingID(buildingLat, buildingLng);
+        String docArea = getDocArea(strLat, strLng);
+        String colLoc = getColLoc(strLat, strLng);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> newBuilding = new HashMap<>();
@@ -110,68 +430,35 @@ public class DBase {
         newBuilding.put("buildingLng", strLng);
         newBuilding.put("buildingBuildDate", buildingBuildDate);
 
-        db.collection(fbBuildings).document(buildingID).set(newBuilding);
+        db.collection(fbBuildings).document(docArea).collection(colLoc).document(buildingID).set(newBuilding);
+        db.collection(fbUsers).document(userGoogleEmail).collection(fbBuildings).document(buildingID).set(newBuilding);
     }
 
-//    public boolean payPriceForBuilding(long id, String buildingType, int buildingLVL) {
-//
-//        int userID = (int) id;
-//        ContentValues cvPrice = new ContentValues();
-//
-//        List<Integer> buildingCost = MyApp.getMyDBase().getBuildingCostByLVLandType(buildingType, buildingLVL);
-//        int priceGold = buildingCost.get(0);
-//        int priceWood = buildingCost.get(1);
-//        int priceStone = buildingCost.get(2);
-//        int priceClay = buildingCost.get(3);
-//
-//        List<Integer> userResources = MyApp.getMyDBase().getUserResources(userID);
-//        int userGold = userResources.get(0);
-//        int userWood = userResources.get(1);
-//        int userStone = userResources.get(2);
-//        int userClay = userResources.get(3);
-//
-//        int newUserGold = userGold - priceGold;
-//        int newUserWood = userWood - priceWood;
-//        int newUserStone = userStone - priceStone;
-//        int newUserClay = userClay - priceClay;
-//
-//        cvPrice.put(UsersTable.COLUMN_USER_GOLD, newUserGold);
-//        cvPrice.put(UsersTable.COLUMN_USER_WOOD, newUserWood);
-//        cvPrice.put(UsersTable.COLUMN_USER_STONE, newUserStone);
-//        cvPrice.put(UsersTable.COLUMN_USER_CLAY, newUserClay);
-//
-//        return 1 == this.getWritableDatabase().update(UsersTable.TABLE_USERS, cvPrice,
-//                SQL_WHERE_BY_ID, new String[]{String.valueOf(id)});
-//    }
-
-//    public long payPriceForBuilding(String userGoogleEmail, String buildingType, int buildingLVL) {
-//
+//    //Добавить новую постройку
+//    public static void addNewBuilding(String userNickName, String userGoogleEmail, String buildingType, String buildingCategory, String buildingName, long buildingLVL, long incomeGold, long incomeWood, long incomeStone, long incomeClay, double buildingLat, double buildingLng, String buildingBuildDate) {
+//        String strLat = String.valueOf(buildingLat);
+//        String strLng = String.valueOf(buildingLng);
+//        String buildingID = getBuildingID(buildingLat, buildingLng);
 //
 //        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        // Create a reference to the cities collection
-//        String doc = buildingType + buildingLVL;
-//        DocumentReference bInfoRef = db.collection("bInfo").document(doc);
-//        bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//        Map<String, Object> newBuilding = new HashMap<>();
+//        newBuilding.put("buildingID", buildingID);
+//        newBuilding.put("userGoogleEmail", userGoogleEmail);
+//        newBuilding.put("userNickName", userNickName);
+//        newBuilding.put("buildingType", buildingType);
+//        newBuilding.put("buildingCategory", buildingCategory);
+//        newBuilding.put("buildingName", buildingName);
+//        newBuilding.put("buildingLVL", buildingLVL);
+//        newBuilding.put("incomeGold", incomeGold);
+//        newBuilding.put("incomeWood", incomeWood);
+//        newBuilding.put("incomeStone", incomeStone);
+//        newBuilding.put("incomeClay", incomeClay);
+//        newBuilding.put("buildingLat", strLat);
+//        newBuilding.put("buildingLng", strLng);
+//        newBuilding.put("buildingBuildDate", buildingBuildDate);
 //
-//
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document != null) {
-//                        myPrice = Long.parseLong(document.getString("CostGold"));
-//                        //                        Log.d(TAG, "DocumentSnapshot data: " + task.getResult().getData());
-//                    } else {
-////                        Log.d(TAG, "No such document");
-//                    }
-//                } else {
-////                    Log.d(TAG, "get failed with ", task.getException());
-//                }
-//
-//
-//            }
-//
-//        });
+//        db.collection(fbBuildings).document(buildingID).set(newBuilding);
+//    }
 
     //Проверка можно ли поставить здесь свою постройку, допустимо ли расстояние от соседних построек
     public static boolean canIPutMyNewBuildingHere(LatLng target) {
@@ -217,7 +504,6 @@ public class DBase {
                 });
         return canIputMyBuildHere;
     }
-
 
     //Получить ресурсы пользователя по типу
     public static int getUserResources(final String userGoogleEmail, String resType) {
@@ -327,7 +613,8 @@ public class DBase {
         return myNick;
     }
 
-    public static String getUserNickNameOrDisplayNameByGoogleEmailWithSnapshot(DocumentSnapshot snapshot) {
+    public static String getUserNickNameOrDisplayNameByGoogleEmailWithSnapshot(DocumentSnapshot
+                                                                                       snapshot) {
         String MyUserNickName = (String) snapshot.get("NickName");
         if (MyUserNickName.length() > 0) {
             return MyUserNickName;

@@ -13,9 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,7 +31,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -77,6 +74,8 @@ import static com.work.andre.mines.database.DBase.buildingTypeWoodEn;
 
 import static com.work.andre.mines.database.DBase.canIputMyBuildHere;
 import static com.work.andre.mines.database.DBase.fbInfo;
+import static com.work.andre.mines.database.DBase.getColLoc;
+import static com.work.andre.mines.database.DBase.getDocArea;
 import static com.work.andre.mines.database.DBase.getEnBuildingType;
 import static com.work.andre.mines.database.DBase.myTarget;
 import static com.work.andre.mines.database.DBase.minDistanceBetweenTwoBuildings;
@@ -103,8 +102,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
     public static String Structure = "Постройка";
 
-    private UiSettings mUiSettings;
-
     static long userGold;
     static long userWood;
     static long userStone;
@@ -120,14 +117,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     static long incomeStone;
     static long incomeClay;
 
-    static boolean getCostAndIncome;
-    static boolean getUserMoney;
-
-    static boolean more;
-
-    static boolean payIsOk;
-
-
     static String buildingType;
     static String buildingCategory;
     static String buildingName;
@@ -135,9 +124,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
     static double buildingLat;
     static double buildingLng;
     static String buildingBuildDate;
-
-    Context context;
-    AlertDialog.Builder ad;
 
     static String userGoogleEmail;
     static String buildingOwnerNickName;
@@ -178,6 +164,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
     public static boolean isHQAviable;
 
+    static FirebaseFirestore dbMines;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,12 +173,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
         this.initUI();
 
-
         //Храним здесь email текущего пользователя
         currentUserGoogleEmail = getIntent().getStringExtra(USERGOOGLEEMAIL);
-
-        //Устанавливаем доступное количество ресурсов у пользователя
-//        setResourcesCount();
 
         //Получаем ссылку на Location Manager
         locManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -200,9 +184,13 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         selectedMineLat = getIntent().getDoubleExtra(SELECTEDMINELAT, 0.0);
         selectedMineLng = getIntent().getDoubleExtra(SELECTEDMINELNG, 0.0);
 
-        //......................................FIRESTORE......................................
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection(fbUsers).document(currentUserGoogleEmail);
+        dbMines = FirebaseFirestore.getInstance();
+
+
+    }
+
+    private void setupUserListener() {
+        DocumentReference docRef = dbMines.collection(fbUsers).document(currentUserGoogleEmail);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
@@ -210,7 +198,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
                 if (snapshot != null && snapshot.exists()) {
                     currentUserNickName = getUserNickNameOrDisplayNameByGoogleEmailWithSnapshot(snapshot);
-
                     isHQAviable = snapshot.getBoolean("isHQAviable");
 
                     updateUI();
@@ -218,6 +205,62 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                 }
             }
         });
+    }
+
+    private void setupBuildingsListener() {
+        String strLat = String.valueOf(myLocation.getLatitude());
+        String strLng = String.valueOf(myLocation.getLongitude());
+
+        String docArea = getDocArea(strLat, strLng);
+        String colLoc = getColLoc(strLat, strLng);
+
+        dbMines.collection(fbBuildings).document(docArea).collection(colLoc)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            return;
+                        }
+
+                        mvMap.clear();
+                        for (final DocumentSnapshot docBuildings : value) {
+
+                            userGoogleEmail = (String) docBuildings.get("userGoogleEmail");
+                            String buildingLat = (String) docBuildings.get("buildingLat");
+                            String buildingLng = (String) docBuildings.get("buildingLng");
+                            buildingID = getBuildingID(buildingLat, buildingLng);
+
+                            dbMines.collection(fbUsers)
+                                    .get()
+                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                for (DocumentSnapshot docUser : task.getResult()) {
+                                                    getShowNameAndSetupBuilding(docBuildings, docUser);
+                                                }
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
+    }
+
+    private void getShowNameAndSetupBuilding(DocumentSnapshot docBuildings, DocumentSnapshot docUser) {
+        String docBuildingName = (String) docBuildings.get("userGoogleEmail");
+        String docUserName = (String) docUser.get("UserGoogleEmail");
+
+        if (docBuildingName.equals(docUserName)) {
+            String showName;
+            if (String.valueOf(docUser.get("NickName")).length() > 0) {
+                showName = (String) docUser.get("NickName");
+            } else {
+                showName = (String) docUser.get("DisplayName");
+            }
+            setupBuilding(String.valueOf(docUser.get("UserGoogleEmail")), showName, (long) docBuildings.get("buildingLVL"), (String) docBuildings.get("buildingType"), (String) docBuildings.get("buildingName"), buildingID, (String) docBuildings.get("buildingLat"), (String) docBuildings.get("buildingLng"));
+        }
     }
 
     private void updateUI() {
@@ -416,7 +459,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                 if (SphericalUtil.computeDistanceBetween(myTarget, myBuilding) < minDistanceBetweenTwoBuildings) {
                                     canIputMyBuildHere = false;
                                 }
-//                                Log.d(TAG, document.getId() + " => " + document.getData());
                             }
 
                             if (canIputMyBuildHere) {
@@ -438,8 +480,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         String bType = getEnBuildingType(buildingType) + 1;
 
         //Получаем стоимость постройки
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference bInfoRef = db.collection(fbInfo).document(bType);
+        DocumentReference bInfoRef = dbMines.collection(fbInfo).document(bType);
         bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -470,7 +511,6 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                 }
             }
         });
-
     }
 
     public void addNewBuildingDialog(final LatLng latLng) {
@@ -486,11 +526,8 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
         mDialogNBuilder.setView(dialogView);
 
         //Инициализация компонентов
-
-
         spnrBuildingTypesList = (Spinner) dialogView.findViewById(R.id.spnrBuildingTypesList);
         spnrBuildingTypesList.setOnItemSelectedListener(this);
-
 
         tvBuildingName = (TextView) dialogView.findViewById(R.id.tvBuildingName);
         etBuildingName = (EditText) dialogView.findViewById(R.id.etBuildingName);
@@ -506,17 +543,14 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
             structureList.add(buildingTypeHQ);
         }
 
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, structureList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spnrBuildingTypesList.setAdapter(adapter);
 
-
         etBuildingName.setText(Structure);
         tvBuildingCost.setText("загрузка...");
-
 
         mDialogNBuilder
                 .setCancelable(true)
@@ -559,10 +593,9 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                 }
 
                                 //Получаем стоимость постройки
-                                FirebaseFirestore db = FirebaseFirestore.getInstance();
                                 String doc = bType + structureLVL;
 
-                                DocumentReference bInfoRef = db.collection("bInfo").document(doc);
+                                DocumentReference bInfoRef = dbMines.collection("bInfo").document(doc);
                                 bInfoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -620,10 +653,7 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
                                                                 FirebaseFirestore db2 = FirebaseFirestore.getInstance();
                                                                 DocumentReference documentReference = db2.collection(fbUsers).document(currentUserGoogleEmail);
 
-                                                                more = false;
                                                                 //Добавляем новую постройку
-                                                                payIsOk = true;
-
                                                                 if ((isHQAviable) && (buildingType.equals(buildingTypeHQ))) {
 
                                                                     FirebaseFirestore dbU1 = FirebaseFirestore.getInstance();
@@ -713,7 +743,11 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
             target = new LatLng(0.0, 0.0);
         } else {
             target = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
+            setupUserListener();
+            setupBuildingsListener();
         }
+
+
 
         if (isGoToSelectedMine) {
             target = new LatLng(selectedMineLat, selectedMineLng);
@@ -728,58 +762,67 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
     private void loadBuildings() {
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection(fbBuildings)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value,
-                                        @Nullable FirebaseFirestoreException e) {
-                        if (e != null) {
-//                            Log.w(TAG, "Listen failed.", e);
-                            return;
-                        }
-
-                        mvMap.clear();
-                        for (final DocumentSnapshot doc : value) {
-
-                            userGoogleEmail = (String) doc.get("userGoogleEmail");
-                            String buildingLat;
-                            String buildingLng;
-
-                            buildingLat = (String) doc.get("buildingLat");
-                            buildingLng = (String) doc.get("buildingLng");
-                            buildingID = getBuildingID(buildingLat, buildingLng);
-
-                            FirebaseFirestore db = FirebaseFirestore.getInstance();
-                            db.collection(fbUsers)
-                                    .get()
-                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                            if (task.isSuccessful()) {
-                                                for (DocumentSnapshot document : task.getResult()) {
-
-                                                    if (doc.get("userGoogleEmail").equals(document.get("UserGoogleEmail"))) {
-                                                        if (String.valueOf(document.get("NickName")).length() > 0) {
-                                                            setupBuilding(String.valueOf(document.get("UserGoogleEmail")), String.valueOf(document.get("NickName")), (long) doc.get("buildingLVL"), (String) doc.get("buildingType"), (String) doc.get("buildingName"), buildingID, (String) doc.get("buildingLat"), (String) doc.get("buildingLng"));
-                                                        } else {
-                                                            setupBuilding(String.valueOf(document.get("UserGoogleEmail")), String.valueOf(document.get("DisplayName")), (long) doc.get("buildingLVL"), (String) doc.get("buildingType"), (String) doc.get("buildingName"), buildingID, (String) doc.get("buildingLat"), (String) doc.get("buildingLng"));
-                                                        }
-                                                    }
-
-                                                }
-                                            } else {
-//                            Log.d(TAG, "Error getting documents: ", task.getException());
-                                            }
-                                        }
-                                    });
-                        }
-//                        Log.d(TAG, "Current cites in CA: " + cities);
-                    }
-                });
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//
+//        String strLat = String.valueOf(myLocation.getLatitude());
+//        String strLng = String.valueOf(myLocation.getLongitude());
+//
+//        String docArea = getDocArea(strLat, strLng);
+//        String colLoc = getColLoc(strLat, strLng);
+//
+//        db.collection(fbBuildings).document(docArea).collection(colLoc)
+//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable QuerySnapshot value,
+//                                        @Nullable FirebaseFirestoreException e) {
+//                        if (e != null) {
+////                            Log.w(TAG, "Listen failed.", e);
+//                            return;
+//                        }
+//
+//                        mvMap.clear();
+//                        for (final DocumentSnapshot doc : value) {
+//
+//                            userGoogleEmail = (String) doc.get("userGoogleEmail");
+//                            String buildingLat;
+//                            String buildingLng;
+//
+//                            buildingLat = (String) doc.get("buildingLat");
+//                            buildingLng = (String) doc.get("buildingLng");
+//                            buildingID = getBuildingID(buildingLat, buildingLng);
+//
+//                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+//                            db.collection(fbUsers)
+//                                    .get()
+//                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                            if (task.isSuccessful()) {
+//                                                for (DocumentSnapshot document : task.getResult()) {
+//
+//                                                    if (doc.get("userGoogleEmail").equals(document.get("UserGoogleEmail"))) {
+//                                                        if (String.valueOf(document.get("NickName")).length() > 0) {
+//                                                            setupBuilding(String.valueOf(document.get("UserGoogleEmail")), String.valueOf(document.get("NickName")), (long) doc.get("buildingLVL"), (String) doc.get("buildingType"), (String) doc.get("buildingName"), buildingID, (String) doc.get("buildingLat"), (String) doc.get("buildingLng"));
+//                                                        } else {
+//                                                            setupBuilding(String.valueOf(document.get("UserGoogleEmail")), String.valueOf(document.get("DisplayName")), (long) doc.get("buildingLVL"), (String) doc.get("buildingType"), (String) doc.get("buildingName"), buildingID, (String) doc.get("buildingLat"), (String) doc.get("buildingLng"));
+//                                                        }
+//                                                    }
+//
+//                                                }
+//                                            } else {
+////                            Log.d(TAG, "Error getting documents: ", task.getException());
+//                                            }
+//                                        }
+//                                    });
+//                        }
+////                        Log.d(TAG, "Current cites in CA: " + cities);
+//                    }
+//                });
     }
 
     private void setupBuilding(String userGoogleEmail, String userName, long buildingLVL, String buildingType, String buildingName, String buildingID, String strbuildingLat, String strbuildingLng) {
+
+        buildingOwnerNickName = userName;
 
         double buildingLat = Double.parseDouble(strbuildingLat);
         double buildingLng = Double.parseDouble(strbuildingLng);
@@ -789,36 +832,37 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
         float markSize = 100f;
 
-        //Создаём наложение на карту
-        GroundOverlayOptions newarkMap = new GroundOverlayOptions();
+        //Создаём наложение дял постройки
+        GroundOverlayOptions buildingOverlay = new GroundOverlayOptions();
         try {
             if (buildingType.equals(buildingTypeHQ)) {
                 markSize = 150f;
-                newarkMap.image(BitmapDescriptorFactory.fromResource(R.drawable.headquoter));
+                buildingOverlay.image(BitmapDescriptorFactory.fromResource(R.drawable.headquoter));
 
-                GroundOverlayOptions newarkMapZone = new GroundOverlayOptions();
+                //Создаём наложение для зоны
+                GroundOverlayOptions buildingOverlayZone = new GroundOverlayOptions();
                 if (currentUserGoogleEmail.equals(userGoogleEmail)) {
-                    newarkMapZone.image(BitmapDescriptorFactory.fromResource(R.drawable.hq_zone_green));
+                    buildingOverlayZone.image(BitmapDescriptorFactory.fromResource(R.drawable.hq_zone_green));
                 } else {
-                    newarkMapZone.image(BitmapDescriptorFactory.fromResource(R.drawable.hq_zone_red));
+                    buildingOverlayZone.image(BitmapDescriptorFactory.fromResource(R.drawable.hq_zone_red));
                 }
-                newarkMapZone.zIndex(-1000);
-                newarkMapZone.position(target, 1000f, 1000f);
-                mvMap.addGroundOverlay(newarkMapZone);
+                buildingOverlayZone.zIndex(-1000);
+                buildingOverlayZone.position(target, 1000f, 1000f);
+                mvMap.addGroundOverlay(buildingOverlayZone);
+                //..........................
+
             } else if (buildingType.equals(buildingTypeWood)) {
-                newarkMap.image(BitmapDescriptorFactory.fromResource(R.drawable.mine_forest));
+                buildingOverlay.image(BitmapDescriptorFactory.fromResource(R.drawable.mine_forest));
             } else if (buildingType.equals(buildingTypeStone)) {
-                newarkMap.image(BitmapDescriptorFactory.fromResource(R.drawable.mine_stone));
+                buildingOverlay.image(BitmapDescriptorFactory.fromResource(R.drawable.mine_stone));
             } else if (buildingType.equals(buildingTypeClay)) {
-                newarkMap.image(BitmapDescriptorFactory.fromResource(R.drawable.mine_sand));
+                buildingOverlay.image(BitmapDescriptorFactory.fromResource(R.drawable.mine_sand));
             } else {
-                newarkMap.image(BitmapDescriptorFactory.fromResource(R.drawable.mineicon));
+                buildingOverlay.image(BitmapDescriptorFactory.fromResource(R.drawable.mineicon));
             }
 
-            newarkMap.position(target, markSize, markSize);
-            mvMap.addGroundOverlay(newarkMap);
-
-            buildingOwnerNickName = userName;
+            buildingOverlay.position(target, markSize, markSize);
+            mvMap.addGroundOverlay(buildingOverlay);
 
             //Создаём маркер на карте
             Marker marker = mvMap.addMarker(new MarkerOptions()
@@ -886,37 +930,36 @@ public class ActMap extends AppCompatActivity implements View.OnClickListener, O
 
     public void onBackPressed() {
         // super.onBackPressed();
-        openQuitDialog();
+//        openQuitDialog();
     }
 
-    private void openQuitDialog() {
-        context = ActMap.this;
-        ad = new AlertDialog.Builder(context);
-
-        String title = "Внимание!";
-        String message = "Вы действительно хотите выйти?";
-        String btnYes = "Извольте. Мне пора!";
-        String btnNo = "Пожалуй, ещё немного задержусь";
-
-        ad.setTitle(title);  // заголовок
-        ad.setMessage(message); // сообщение
-        ad.setPositiveButton(btnYes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1) {
-                Intent intentActMap = new Intent(ActMap.this, ActMain.class);
-                startActivity(intentActMap);
-            }
-        });
-        ad.setNegativeButton(btnNo, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1) {
-
-            }
-        });
-        ad.setCancelable(true);
-        ad.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            public void onCancel(DialogInterface dialog) {
-                //передумали удялть шахту
-            }
-        });
-        ad.show();
-    }
+//    private void openQuitDialog() {
+//        context = ActMap.this;
+//        ad = new AlertDialog.Builder(context);
+//
+//        String title = "Внимание!";
+//        String message = "Вы действительно хотите выйти?";
+//        String btnYes = "Извольте. Мне пора!";
+//        String btnNo = "Пожалуй, ещё немного задержусь";
+//
+//        ad.setTitle(title);  // заголовок
+//        ad.setMessage(message); // сообщение
+//        ad.setPositiveButton(btnYes, new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int arg1) {
+//
+//            }
+//        });
+//        ad.setNegativeButton(btnNo, new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int arg1) {
+//
+//            }
+//        });
+//        ad.setCancelable(true);
+//        ad.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//            public void onCancel(DialogInterface dialog) {
+//                //передумали удялть шахту
+//            }
+//        });
+//        ad.show();
+//    }
 }
